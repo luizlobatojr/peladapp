@@ -3,10 +3,12 @@
     display: flex;
     background-color: #1e2633;
     border-bottom: 1px solid #2a374d;
+    min-width: 0;
 }
 
 .sub-tabs__button {
     flex: 1;
+    min-width: 0;
     background: none;
     border: none;
     padding: 12px 0;
@@ -65,10 +67,12 @@
     display: flex;
     gap: 12px;
     margin-bottom: 16px;
+    min-width: 0;
 }
 
 .select-group {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -111,7 +115,7 @@
    ========================================================================== */
 .teams-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 24px;
 }
@@ -121,6 +125,7 @@
     border-radius: 12px;
     border: 1px solid #2a374d;
     padding: 12px;
+    min-width: 0;
 }
 
 .team-card__header {
@@ -128,6 +133,7 @@
     align-items: center;
     gap: 8px;
     margin-bottom: 10px;
+    min-width: 0;
 }
 
 .team-card__icon {
@@ -144,6 +150,7 @@
 .team-card__name {
     font-size: 0.85rem;
     font-weight: 800;
+    overflow-wrap: anywhere;
 }
 
 .team-card__players {
@@ -195,6 +202,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    gap: 12px;
 }
 
 .btn-report {
@@ -213,6 +221,7 @@
     display: flex;
     gap: 8px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .reserva-item {
@@ -237,4 +246,47 @@
     color: #2a374d;
     cursor: pointer;
     border-style: dashed;
+}
+
+@media (max-width: 768px) {
+    .team-lottery {
+        padding: 16px;
+        padding-bottom: calc(90px + env(safe-area-inset-bottom));
+    }
+}
+
+@media (max-width: 480px) {
+    .sub-tabs__button {
+        padding: 11px 6px;
+        font-size: 0.72rem;
+        line-height: 1.2;
+    }
+
+    .team-lottery {
+        padding: 12px;
+        padding-bottom: calc(84px + env(safe-area-inset-bottom));
+    }
+
+    .lottery-config {
+        padding: 14px;
+    }
+
+    .lottery-config__options {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .teams-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .team-card__header {
+        align-items: flex-start;
+    }
+
+    .reservas-section__header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }

@@ -5,10 +5,12 @@
     display: flex;
     background-color: #1e2633;
     border-bottom: 1px solid #2a374d;
+    min-width: 0;
 }
 
 .sub-tabs__button {
     flex: 1;
+    min-width: 0;
     background: none;
     border: none;
     padding: 12px 0;
@@ -59,10 +61,12 @@
     width: 100%;
     gap: 4px;
     margin-bottom: 16px;
+    flex-wrap: wrap;
 }
 
 .timer-btn {
     flex: 1;
+    min-width: 58px;
     background-color: #161c26;
     border: 1px solid #2a374d;
     color: #8fa0ba;
@@ -143,11 +147,13 @@
     padding: 16px;
     display: flex;
     gap: 12px;
+    min-width: 0;
 }
 
 /* Coluna de Seleção de Jogadores */
 .events-register__players {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -162,6 +168,7 @@
     padding: 6px;
     border-radius: 8px;
     border: 1px solid #2a374d;
+    min-width: 0;
 }
 
 .player-select-thumb {
@@ -173,6 +180,7 @@
 
 .player-dropdown {
     flex: 1;
+    min-width: 0;
     background: none;
     border: none;
     color: #ffffff;
@@ -186,6 +194,7 @@
 /* Coluna de Botões de Ação */
 .events-register__actions {
     flex: 1.2;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -222,6 +231,72 @@
     width: 12px;
     height: 16px;
     border-radius: 2px;
+    flex: 0 0 auto;
 }
 .card-icon--yellow { background-color: #f1c40f; border: 1px solid #d4ac0d; }
 .card-icon--red { background-color: #e74c3c; border: 1px solid #c0392b; }
+
+@media (max-width: 768px) {
+    .match-management {
+        padding: 16px;
+        padding-bottom: calc(90px + env(safe-area-inset-bottom));
+    }
+
+    .events-register__panel {
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+    .sub-tabs__button {
+        padding: 11px 6px;
+        font-size: 0.72rem;
+        line-height: 1.2;
+    }
+
+    .match-management {
+        padding: 12px;
+        padding-bottom: calc(84px + env(safe-area-inset-bottom));
+    }
+
+    .match-timer {
+        padding: 14px;
+    }
+
+    .timer-btn {
+        flex-basis: calc(33.333% - 4px);
+        padding: 8px 4px;
+    }
+
+    .events-register__panel {
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    .events-register__actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .action-btn {
+        justify-content: center;
+        padding: 9px 8px;
+        font-size: 0.68rem;
+        line-height: 1.15;
+        text-align: center;
+    }
+
+    .action-btn--save {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 360px) {
+    .events-register__actions {
+        grid-template-columns: 1fr;
+    }
+
+    .timer-btn {
+        flex-basis: calc(50% - 4px);
+    }
+}
