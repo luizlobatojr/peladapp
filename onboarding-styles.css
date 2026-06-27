@@ -1,0 +1,284 @@
+/* ==========================================================================
+   ESTILIZAÇÃO DA TELA DE ONBOARDING / APRESENTAÇÃO
+   ========================================================================== */
+
+/* Background com gradiente focado no tema escuro do app */
+.onboarding-bg {
+    background: radial-gradient(circle at top, #1e2633 0%, #111622 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Overlay sutil para dar ambiência de estádio/cyberpunk */
+.onboarding-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(22, 28, 38, 1) 20%, rgba(22, 28, 38, 0.4) 100%);
+    z-index: 1;
+}
+
+.onboarding-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 24px;
+    text-align: center;
+}
+
+/* LOGO EM DESTAQUE */
+.onboarding-logo {
+    margin-top: 20px;
+}
+
+.onboarding-logo__icon {
+    font-size: 3rem;
+    color: #00ff87;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 15px rgba(0, 255, 135, 0.4));
+}
+
+.onboarding-logo__text {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.onboarding-logo__tagline {
+    font-size: 0.85rem;
+    color: #8fa0ba;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+/* CAROUSEL / SLIDER DE CRITÉRIOS */
+.features-carousel {
+    margin: 40px 0 10px 0;
+}
+
+.features-carousel__badge-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 255, 135, 0.1);
+    border: 1px solid #00ff87;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+}
+
+.features-carousel__badge-icon i {
+    font-size: 1.6rem;
+    color: #00ff87;
+}
+
+.features-carousel h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.features-carousel p {
+    font-size: 0.85rem;
+    color: #8fa0ba;
+    line-height: 1.5;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+/* INDICAÇÃO DOS DOTS (PÁGINAS DO SLIDER) */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #2a374d;
+}
+
+.dot--active {
+    background-color: #00ff87;
+    width: 18px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* BOTÕES DE ENTRADA */
+.onboarding-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.btn-onboarding {
+    width: 100%;
+    padding: 14px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    border-radius: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-onboarding:active {
+    transform: scale(0.98);
+}
+
+.btn-onboarding--primary {
+    background-color: #00ff87;
+    color: #111622;
+    box-shadow: 0 4px 15px rgba(0, 255, 135, 0.2);
+}
+
+.btn-onboarding--secondary {
+    background-color: #1e2633;
+    color: #ffffff;
+    border: 1px solid #2a374d;
+}
+
+/* FOOTER */
+.onboarding-footer {
+    margin-top: 24px;
+}
+
+.onboarding-footer p {
+    font-size: 0.65rem;
+    color: #5d6d7e;
+}
+/* ==========================================================================
+   FORMULÁRIOS DE AUTENTICAÇÃO (LOGIN / CADASTRO)
+   ========================================================================== */
+
+.input-field-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+}
+
+.input-field-group label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #8fa0ba;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.input-wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Ícones internos dos inputs */
+.input-wrapper i {
+    position: absolute;
+    left: 14px;
+    color: #5d6d7e;
+    font-size: 0.9rem;
+    pointer-events: none;
+    transition: color 0.2s;
+}
+
+/* Inputs de texto e password */
+.input-wrapper input,
+.input-wrapper select {
+    width: 100%;
+    background-color: #1e2633;
+    border: 1px solid #2a374d;
+    color: #ffffff;
+    padding: 14px 14px 14px 42px; /* Espaço para o ícone na esquerda */
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.2s ease;
+    appearance: none; /* Remove seta padrão do select no mobile */
+}
+
+/* Seta customizada para o select caso necessário */
+.input-wrapper select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238fa0ba'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 20px;
+}
+
+/* Efeito Focus (Borda Verde estilo Pelada Pro) */
+.input-wrapper input:focus,
+.input-wrapper select:focus {
+    border-color: #00ff87;
+    box-shadow: 0 0 8px rgba(0, 255, 135, 0.15);
+}
+
+.input-wrapper input:focus + i,
+.input-wrapper select:focus + i {
+    color: #00ff87;
+}
+
+/* Placeholder discreto */
+.input-wrapper input::placeholder {
+    color: #5d6d7e;
+    font-weight: 500;
+}
+/* ==========================================================================
+   ESTILIZAÇÃO DO CHECKBOX CUSTOMIZADO
+   ========================================================================== */
+
+.custom-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background-color: #1e2633;
+    border: 1px solid #2a374d;
+    border-radius: 4px;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s ease;
+}
+
+.custom-checkbox::before {
+    content: "\f00c"; /* Ícone de check do Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.65rem;
+    color: #111622;
+    transform: scale(0);
+    transition: transform 0.15s ease-in-out;
+}
+
+.custom-checkbox:checked {
+    background-color: #00ff87;
+    border-color: #00ff87;
+}
+
+.custom-checkbox:checked::before {
+    transform: scale(1);
+}
+
+.custom-checkbox:focus {
+    border-color: #00ff87;
+    box-shadow: 0 0 6px rgba(0, 255, 135, 0.2);
+}

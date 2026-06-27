@@ -1,0 +1,240 @@
+/* Reaproveita o padrão de sub-abas do arquivo anterior */
+.sub-tabs {
+    display: flex;
+    background-color: #1e2633;
+    border-bottom: 1px solid #2a374d;
+}
+
+.sub-tabs__button {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 12px 0;
+    color: #8fa0ba;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.sub-tabs__button--active {
+    color: #00ff87;
+    border-bottom: 3px solid #00ff87;
+    background-color: rgba(0, 255, 135, 0.02);
+}
+
+/* CONTAINER SCROLLÁVEL DA TELA DE SORTEIO */
+.team-lottery {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    padding-bottom: 90px;
+    background-color: #161c26;
+}
+
+.team-lottery::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* ==========================================================================
+   PAINEL DE CONFIGURAÇÃO DE SORTEIO
+   ========================================================================== */
+.lottery-config {
+    background-color: #1e2633;
+    border-radius: 16px;
+    border: 1px solid #2a374d;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.lottery-config__title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.lottery-config__count {
+    font-size: 0.8rem;
+    color: #8fa0ba;
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+.lottery-config__options {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.select-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.select-group label {
+    font-size: 0.75rem;
+    color: #8fa0ba;
+    font-weight: 600;
+}
+
+.select-group select {
+    width: 100%;
+    background-color: #161c26;
+    border: 1px solid #2a374d;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    outline: none;
+}
+
+.lottery-config__btn-generate {
+    width: 100%;
+    background-color: #e67e22; /* Laranja conforme o mockup */
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
+}
+
+/* ==========================================================================
+   GRADE DOS TIMES SORTEADOS (2x2)
+   ========================================================================== */
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.team-card {
+    background-color: #1e2633;
+    border-radius: 12px;
+    border: 1px solid #2a374d;
+    padding: 12px;
+}
+
+.team-card__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.team-card__icon {
+    font-size: 1.1rem;
+    color: #8fa0ba;
+}
+
+.team-card__meta {
+    font-size: 0.65rem;
+    color: #8fa0ba;
+    display: block;
+}
+
+.team-card__name {
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.team-card__players {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.player-badge {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #161c26;
+    border: 1px solid #2a374d;
+}
+
+.player-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.player-badge--more {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #8fa0ba;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-card__rating {
+    font-size: 0.7rem;
+    color: #8fa0ba;
+}
+
+.rating-value {
+    color: #00ff87;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   SEÇÃO DE RESERVAS
+   ========================================================================== */
+.reservas-section__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.btn-report {
+    background: none;
+    border: none;
+    color: #8fa0ba;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.reservas-list {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.reserva-item {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #1e2633;
+    border: 1px solid #2a374d;
+}
+
+.reserva-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-add-reserva {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2a374d;
+    cursor: pointer;
+    border-style: dashed;
+}

@@ -1,0 +1,350 @@
+
+/* ==========================================================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #0f141c;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+/* Container que simula a tela do celular */
+.app-container {
+    width: 100%;
+    max-width: 410px;
+    height: 840px;
+    background-color: #161c26;
+    border-radius: 32px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid #242f41;
+}
+
+/* ==========================================================================
+   HEADER DO APP
+   ========================================================================== */
+.app-header {
+    background-color: #1e2633;
+    padding: 20px 16px 15px 16px;
+    text-align: center;
+    border-bottom: 1px solid #2a374d;
+}
+
+.app-header__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.app-header__logo i {
+    color: #00ff87; /* Verde Neon */
+}
+
+.app-header__logo--highlight {
+    color: #00ff87;
+}
+
+.app-header__subtitle {
+    font-size: 0.85rem;
+    color: #8fa0ba;
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   CONTEÚDO DO PERFIL (SCROLLÁVEL)
+   ========================================================================== */
+.profile {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    padding-bottom: 90px; /* Espaço para não cobrir com a nav bar */
+}
+
+/* Esconder a barra de rolagem para um visual mais limpo */
+.profile::-webkit-scrollbar {
+    width: 0px;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #8fa0ba;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Bloco de Informações do Usuário */
+.profile__card {
+    background: linear-gradient(135deg, #1e2633 0%, #151b24 100%);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 24px;
+    border: 1px solid #2a374d;
+}
+
+.profile__avatar-container {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 12px auto;
+    border-radius: 50%;
+    border: 3px solid #00ff87;
+    overflow: hidden;
+    background-color: #2a374d;
+}
+
+.profile__avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile__name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.profile__level {
+    font-size: 0.9rem;
+    color: #8fa0ba;
+    margin-bottom: 8px;
+}
+
+.profile__level--status {
+    color: #00ff87;
+    font-weight: 600;
+}
+
+.profile__stars {
+    color: #ffd700; /* Dourado */
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   SEÇÃO DOS CARTÕES ESTILO FIFA
+   ========================================================================== */
+.cards-section {
+    margin-bottom: 24px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* Base do Cartão */
+.fifa-card {
+    flex: 1;
+    height: 210px;
+    border-radius: 14px;
+    padding: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Estilo Cartão Ouro (Linha) */
+.fifa-card--gold {
+    background: linear-gradient(135deg, #ffe066 0%, #d4af37 50%, #aa8010 100%);
+    color: #3a2e00;
+    border: 1px solid #fff3a8;
+}
+
+/* Estilo Cartão Luva/Cinza Escuro (Goleiro) */
+.fifa-card--gk {
+    background: linear-gradient(135deg, #506275 0%, #2c3e50 50%, #1a252f 100%);
+    color: #ffffff;
+    border: 1px solid #7f8c8d;
+}
+
+/* Detalhes internos da carta */
+.fifa-card__header {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+}
+
+.fifa-card__rating {
+    font-size: 1.4rem;
+    font-weight: 900;
+}
+
+.fifa-card__position {
+    font-size: 0.75rem;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.fifa-card__player-img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 5px;
+    object-fit: cover;
+}
+
+.fifa-card__player-name {
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin: 8px 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Atributos da carta */
+.fifa-card__stats {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    font-size: 0.75rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 6px;
+}
+
+.fifa-card--gk .fifa-card__stats {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fifa-card__stat-col p {
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+.fifa-card__stat-col p span {
+    font-weight: 800;
+}
+
+/* ==========================================================================
+   SEÇÃO DE CONQUISTAS (BADGES)
+   ========================================================================== */
+.achievements-section {
+    margin-bottom: 12px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.achievement-badge {
+    background-color: #1e2633;
+    border-radius: 12px;
+    padding: 10px 4px;
+    text-align: center;
+    border: 1px solid #2a374d;
+}
+
+.achievement-badge__icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 6px auto;
+    font-size: 1.1rem;
+}
+
+/* Cores temáticas dos troféus */
+.achievement-badge__icon--gold {
+    background-color: rgba(255, 215, 0, 0.15);
+    color: #ffd700;
+}
+.achievement-badge__icon--trophy {
+    background-color: rgba(0, 255, 135, 0.15);
+    color: #00ff87;
+}
+.achievement-badge__icon--shield {
+    background-color: rgba(52, 152, 219, 0.15);
+    color: #3498db;
+}
+.achievement-badge__icon--star {
+    background-color: rgba(155, 89, 182, 0.15);
+    color: #9b59b6;
+}
+
+.achievement-badge__title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #8fa0ba;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGAÇÃO INFERIOR (BOTTOM NAV)
+   ========================================================================== */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #1e2633;
+    border-top: 1px solid #2a374d;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 5px; /* Ajuste estético para simular área de gestos do celular */
+}
+
+.bottom-nav__item {
+    text-decoration: none;
+    color: #8fa0ba;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    width: 20%;
+}
+
+.bottom-nav__item i {
+    font-size: 1.2rem;
+}
+
+.bottom-nav__item:hover {
+    color: #ffffff;
+}
+
+/* Estado Ativo (Aba Perfil) */
+.bottom-nav__item--active {
+    color: #00ff87;
+}
+
+.bottom-nav__item--active:hover {
+    color: #00ff87;
+}

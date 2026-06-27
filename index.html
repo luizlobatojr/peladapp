@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelada Pro - Perfil do Jogador</title>
+    <link rel="stylesheet" href="styles.css" />
+   
+
+    <!-- Ícones (Ex: FontAwesome para os cards e navegação) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- CONTAINER PRINCIPAL DO APP (Simulando a tela do celular) -->
+    <main class="app-container">
+
+      <!-- HEADER DO APP -->
+      <header class="app-header">
+        <div class="app-header__logo">
+          <i class="fa-solid fa-futbol"></i>
+          <h1>PELADA <span class="app-header__logo--highlight">PRO</span></h1>
+        </div>
+        <p class="app-header__subtitle">Perfil do Jogador</p>
+      </header>
+      
+
+      <!-- CONTEÚDO DO PERFIL -->
+      <section class="profile">
+        <!-- Bloco do Usuário -->
+        <div class="profile__card">
+          <div class="profile__avatar-container">
+            
+            <img
+              src="https://www.w3schools.com/howto/img_avatar.png"
+              alt="Foto de R. Silva"
+              class="profile__avatar"
+            />
+          </div>
+          <h2 class="profile__name">R. Silva</h2>
+          <p class="profile__level">
+            Nível: <span class="profile__level--status">Veterano</span>
+          </p>
+          <div class="profile__stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+
+        <!-- SEÇÃO DOS CARTÕES ESTILO UT / FIFA (Linha e Goleiro Juntos) -->
+        <div class="cards-section">
+          <h3 class="section-title">Cartões de Atributos</h3>
+
+          <div class="cards-container">
+            <!-- Cartão Jogador de Linha -->
+            <div class="fifa-card fifa-card--gold">
+              <div class="fifa-card__header">
+                <span class="fifa-card__rating">86</span>
+                <span class="fifa-card__position">LIN</span>
+              </div>
+              <img
+                src="https://www.w3schools.com/howto/img_avatar.png"
+                alt="R. Silva Linha"
+                class="fifa-card__player-img"
+              />
+              <h4 class="fifa-card__player-name">R. SILVA</h4>
+              <div class="fifa-card__stats">
+                <div class="fifa-card__stat-col">
+                  <p><span>85</span> PAC</p>
+                  <p><span>88</span> SHO</p>
+                  <p><span>82</span> PAS</p>
+                </div>
+                <div class="fifa-card__stat-col">
+                  <p><span>84</span> DRI</p>
+                  <p><span>55</span> DEF</p>
+                  <p><span>78</span> PHY</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cartão Goleiro (Manga Larga) -->
+            <div class="fifa-card fifa-card--gk">
+              <div class="fifa-card__header">
+                <span class="fifa-card__rating">79</span>
+                <span class="fifa-card__position">GOL</span>
+              </div>
+              <img
+                src="https://www.w3schools.com/howto/img_avatar.png"
+                alt="R. Silva Goleiro"
+                class="fifa-card__player-img"
+              />
+              <h4 class="fifa-card__player-name">R. SILVA</h4>
+              <div class="fifa-card__stats">
+                <div class="fifa-card__stat-col">
+                  <p><span>80</span> DIV</p>
+                  <p><span>75</span> HAN</p>
+                  <p><span>72</span> KIC</p>
+                </div>
+                <div class="fifa-card__stat-col">
+                  <p><span>82</span> REF</p>
+                  <p><span>45</span> SPD</p>
+                  <p><span>78</span> POS</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEÇÃO DE CONQUISTAS (BADGES) -->
+        <div class="achievements-section">
+          <h3 class="section-title">Conquistas Desbloqueadas</h3>
+
+          <div class="achievements-grid">
+            <!-- Conquista 1 -->
+            <div class="achievement-badge">
+              <div
+                class="achievement-badge__icon achievement-badge__icon--gold"
+              >
+                <i class="fa-solid fa-rocket"></i>
+              </div>
+              <p class="achievement-badge__title">Artilheiro</p>
+            </div>
+
+            <!-- Conquista 2 -->
+            <div class="achievement-badge">
+              <div
+                class="achievement-badge__icon achievement-badge__icon--trophy"
+              >
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+              <p class="achievement-badge__title">MVP do Mês</p>
+            </div>
+
+            <!-- Conquista 3 -->
+            <div class="achievement-badge">
+              <div
+                class="achievement-badge__icon achievement-badge__icon--shield"
+              >
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <p class="achievement-badge__title">Paredão</p>
+            </div>
+
+            <!-- Conquista 4 -->
+            <div class="achievement-badge">
+              <div
+                class="achievement-badge__icon achievement-badge__icon--star"
+              >
+                <i class="fa-solid fa-star-and-crescent"></i>
+              </div>
+              <p class="achievement-badge__title">Inimigo do Fim</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BARRA DE NAVEGAÇÃO INFERIOR (BOTTOM NAV) -->
+      <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav__item bottom-nav__item--active">
+          <i class="fa-solid fa-house"></i>
+          <span>Início</span>
+        </a>
+        <a href="times.html" class="bottom-nav__item">
+          <i class="fa-solid fa-users"></i>
+          <span>Times</span>
+        </a>
+        <a href="chat.html" class="bottom-nav__item">
+          <i class="fa-solid fa-comments"></i>
+          <span>Chat</span>
+        </a>
+        <a href="historico.html" class="bottom-nav__item">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>Histórico</span>
+        </a>
+        <a href="perfil.html" class="bottom-nav__item">
+          <i class="fa-solid fa-user"></i>
+          <span>Perfil</span>
+        </a>
+      </nav>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelada Pro - Chat Grupo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chat-styles.css">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <main class="app-container">
+        
+        <!-- HEADER DO APP -->
+        <header class="app-header">
+            <div class="app-header__logo">
+                <i class="fa-solid fa-futbol"></i>
+                <h1>PELADA <span class="app-header__logo--highlight">PRO</span></h1>
+            </div>
+            <p class="app-header__subtitle">PELADA PRO - CHAT GRUPO</p>
+            <p class="app-header__sub-info">(Pelada de Sábado)</p>
+        </header>
+
+        <!-- ÁREA DE MENSAGENS (SCROLLÁVEL) -->
+        <section class="chat-room">
+            
+            <!-- Mensagem 1 -->
+            <div class="chat-message">
+                <img src="https://via.placeholder.com/40" alt="Pedro L." class="chat-message__avatar">
+                <div class="chat-message__content">
+                    <span class="chat-message__author">Pedro L.</span>
+                    <p class="chat-message__text">Pessoal, quem leva a bola hoje? Eu esqueci a minha.</p>
+                </div>
+            </div>
+
+            <!-- Mensagem 2 -->
+            <div class="chat-message">
+                <img src="https://via.placeholder.com/40" alt="Bruno" class="chat-message__avatar">
+                <div class="chat-message__content">
+                    <span class="chat-message__author">Bruno</span>
+                    <p class="chat-message__text">O reserva vai ter que ir para o time do Pedro se ele não conseguir ir, rs.</p>
+                </div>
+            </div>
+
+            <!-- Mensagem 3 -->
+            <div class="chat-message">
+                <img src="https://via.placeholder.com/40" alt="Lucas A." class="chat-message__avatar">
+                <div class="chat-message__content">
+                    <span class="chat-message__author">Lucas A.</span>
+                    <p class="chat-message__text">Estou de saída, já chego!</p>
+                </div>
+            </div>
+
+            <!-- Mensagem de Sistema / Notificação interna -->
+            <div class="chat-message chat-message--system">
+                <div class="chat-message__content">
+                    <p class="chat-message__text">Times sorteados! Confira na aba 'Times'. Boa pelada a todos!</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- INPUT DE TEXTO / ENVIO DE MENSAGEM -->
+        <div class="chat-input-area">
+            <input type="text" class="chat-input-area__field" placeholder="Digite sua mensagem...">
+            <button class="chat-input-area__send-btn">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+
+        <!-- BARRA DE NAVEGAÇÃO INFERIOR -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="bottom-nav__item">
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
+            <a href="times.html" class="bottom-nav__item">
+                <i class="fa-solid fa-users"></i>
+                <span>Times</span>
+            </a>
+            <a href="chat.html" class="bottom-nav__item bottom-nav__item--active">
+                <i class="fa-solid fa-comments"></i>
+                <span>Chat</span>
+            </a>
+            <a href="historico.html" class="bottom-nav__item">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Histórico</span>
+            </a>
+            <a href="perfil.html" class="bottom-nav__item ">
+                <i class="fa-solid fa-user"></i>
+                <span>Perfil</span>
+            </a>
+        </nav>
+
+    </main>
+
+</body>
+</html>
