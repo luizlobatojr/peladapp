@@ -50,6 +50,11 @@
 
   /* Cor de Destaque do Botão de Gerar (Laranja do Mockup) */
   --color-warning: #e67e22;
+
+  /* Cores para os Botões de Presença (Novas) */
+  --color-attendance-yes-bg: rgba(0, 255, 135, 0.1);
+  --color-attendance-no: #ff4757;
+  --color-attendance-no-dark: #cc2e3b;
 }
 
 /* ==========================================================================
@@ -552,6 +557,51 @@ canvas {
 .btn-create-match:active {
   transform: scale(0.98);
   filter: brightness(0.9);
+}
+/* Contentor dos botões de presença */
+.attendance-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  width: 100%;
+}
+
+/* Base comum para ambos os botões */
+.btn-attendance {
+  flex: 1;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  background-color: var(--bg-container);
+  color: var(--color-text-muted);
+  transition: all 0.2s ease;
+}
+
+.btn-attendance:active {
+  transform: scale(0.97);
+}
+
+/* --- ESTADOS SELECIONADOS (ATIVOS VIA VARIÁVEIS GLOBAIS) --- */
+
+/* Quando o utilizador clica em "Sim" */
+.btn-attendance--yes.is-active {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--bg-container);
+  border-color: var(--color-primary);
+}
+
+/* Quando o utilizador clica em "Não" */
+.btn-attendance--no.is-active {
+  background: linear-gradient(135deg, var(--color-attendance-no) 0%, var(--color-attendance-no-dark) 100%);
+  color: var(--color-text-main);
+  border-color: var(--color-attendance-no);
 }
 
 /* ==========================================================================
