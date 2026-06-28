@@ -1,0 +1,58 @@
+/* ==========================================================================
+   VARIÁVEIS GLOBAIS DE CONFIGURAÇÃO (ROOT)
+   ========================================================================== */
+:root {
+  /* Cores de Fundo (Backgrounds) */
+  --bg-main: #0f141c;
+  --bg-container: #161c26;
+  --bg-header: #1e2633;
+  --bg-card: #151b24;
+
+  /* Cores de Destaque e Estado */
+  --color-primary: #00ff87; /* Verde Neon */
+  --color-primary-dark: #00b35e;
+  --color-text-main: #ffffff;
+  --color-text-muted: #8fa0ba; /* Azul Muted */
+  --color-star: #ffd700; /* Dourado */
+
+  /* Destaques Secundários (Cronômetro / Botões Azuis) */
+  --color-blue-accent: #3498db;
+  --color-blue-dark: #2980b9;
+
+  /* Elementos de UI Genéricos (Botões de Ação do Mockup) */
+  --color-btn-ui: #e5e5e5;
+  --color-btn-ui-alt: #e0e0e0;
+  --color-btn-ui-text: #161c26;
+
+  /* Bordas */
+  --border-color: #2a374d;
+  --border-container: #242f41;
+
+  /* Configuração de Fontes Controladas para o Header */
+  --header-logo-size: 1.1rem;
+  --header-subtitle-size: 0.7rem;
+
+  /* Cores Extras (Eventos Específicos) */
+  --color-success: #27ae60;
+  --color-card-yellow: #f1c40f;
+  --color-card-yellow-border: #d4ac0d;
+  --color-card-red: #e74c3c;
+  --color-card-red-border: #c0392b;
+
+  /* Bordas */
+  --border-color: #2a374d;
+  --border-container: #242f41;
+
+  /* Cores de Times (Sorteio) */
+  --color-team-aa: #ff4757; /* Time A */
+  --color-team-bb: #2ed573; /* Time B */
+  --color-team-cc: #1e90ff; /* Time C */
+
+  /* Cor de Destaque do Botão de Gerar (Laranja do Mockup) */
+  --color-warning: #e67e22;
+
+  /* Cores para os Botões de Presença (Novas) */
+  --color-attendance-yes-bg: rgba(0, 255, 135, 0.1);
+  --color-attendance-no: #ff4757;
+  --color-attendance-no-dark: #cc2e3b;
+}

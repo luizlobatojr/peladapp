@@ -1,0 +1,71 @@
+:root {
+  /* ==========================================================================
+     Cores de Fundo (Ambiente de Estádio Noturno / Premium Dark)
+     ========================================================================== */
+  --bg-main: #0b0f17;         /* Azul-escuro profundo (atmosfera de final de campeonato) */
+  --bg-container: #121824;    /* Container robusto */
+  --bg-header: #172030;       /* Header em destaque */
+  --bg-card: #161e2b;         /* Cards dos jogos/times */
+
+  /* ==========================================================================
+     Cores de Destaque e Estado (Identidade Copa do Mundo)
+     ========================================================================== */
+  --color-primary: #00e676;   /* Verde Gramado Vivo (Neon/Fluorescente) */
+  --color-primary-dark: #00b34a;
+  --color-text-main: #ffffff;
+  --color-text-muted: #94a3b8; /* Cinza azulado para leitura confortável */
+  --color-star: #ffcc00;       /* Ouro Troféu FIFA (Dourado vibrante) */
+
+  /* ==========================================================================
+     Destaques Secundários & Cronômetro (Azul Seleção / Placar)
+     ========================================================================== */
+  --color-blue-accent: #2979ff; /* Azul Royal das camisas clássicas */
+  --color-blue-dark: #1565c0;
+
+  /* ==========================================================================
+     Elementos de UI Genéricos (Botões de Ação do Mockup)
+     ========================================================================== */
+  --color-btn-ui: #f8fafc;
+  --color-btn-ui-alt: #e2e8f0;
+  --color-btn-ui-text: #121824;
+
+  /* ==========================================================================
+     Bordas e Divisores
+     ========================================================================== */
+  --border-color: #233149;
+  --border-container: #1e293b;
+
+  /* ==========================================================================
+     Configuração de Fontes Controladas para o Header
+     ========================================================================== */
+  --header-logo-size: 1.1rem;
+  --header-subtitle-size: 0.7rem;
+
+  /* ==========================================================================
+     Cores Extras (Eventos de Jogo / Arbitragem)
+     ========================================================================== */
+  --color-success: #00e676;           /* Gol / Vitória */
+  --color-card-yellow: #ffd600;       /* Cartão Amarelo FIFA */
+  --color-card-yellow-border: #b89b00;
+  --color-card-red: #ff1744;          /* Cartão Vermelho / Expulsão */
+  --color-card-red-border: #b21030;
+
+  /* ==========================================================================
+     Cores de Times (Sorteio de Coletes / Grupos da Copa)
+     ========================================================================== */
+  --color-team-aa: #ff3d00;  /* Time A - Vermelho Fúria/Países Baixos */
+  --color-team-bb: #00e5ff;  /* Time B - Azul Celeste Argentina/Uruguai */
+  --color-team-cc: #ffea00;  /* Time C - Amarelo Canarinho */
+
+  /* ==========================================================================
+     Botão Principal / Gerar Sorteio (Laranja de Transmissão Oficial)
+     ========================================================================== */
+  --color-warning: #ff9100;  /* Laranja vibrante, excelente para o botão "Gerar Times" */
+
+  /* ==========================================================================
+     Cores para os Botões de Presença (Escalação / Check-in)
+     ========================================================================== */
+  --color-attendance-yes-bg: rgba(0, 230, 118, 0.15); /* Verde grama translúcido */
+  --color-attendance-no: #ff1744;
+  --color-attendance-no-dark: #b21030;
+}
