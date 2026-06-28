@@ -1,25 +1,20 @@
 {
-  "name": "Pelada Pro - Gestão de Futebol",
-  "short_name": "Pelada Pro",
-  "description": "O aplicativo definitivo para organizar suas peladas, sortear times automáticos e acompanhar suas estatísticas de jogador.",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#111823",
-  "theme_color": "#00e676",
-
+  "short_name": "PeladaPro",
+  "name": "Pelada Pro - Gerenciador de Futebol",
   "icons": [
     {
-      "src": "/android-chrome-192x192.pngv=2",
-      "sizes": "192x192",
+      "src": "icon-192.png",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "192x192"
     },
     {
-      "src": "/android-chrome-512x512.pngv=2",
-      "sizes": "512x512",
+      "src": "icon-512.png",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "512x512"
     }
-  ]
+  ],
+  "start_url": "/index.html",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "theme_color": "#28a745"
 }
