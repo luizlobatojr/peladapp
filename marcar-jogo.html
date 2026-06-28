@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pelada Pro - Agendar Partida</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="marcar-jogo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <main class="app-container">
+    
+    <!-- HEADER DO APP -->
+    <header class="app-header">
+      <div class="app-header__logo">
+        <i class="fa-solid fa-futbol"></i>
+        <h1>PELADA <span class="app-header__logo--highlight">PRO</span></h1>
+      </div>
+    </header>
+
+    <!-- CONTEÚDO FORMULÁRIO -->
+    <section class="form-section">
+      <div class="form-section__header">
+        <i class="fa-regular fa-calendar-plus form-section__icon"></i>
+        <h2 class="form-section__title">Marcar Dia de Jogo</h2>
+        <p class="form-section__subtitle">Preencha os dados para agendar a próxima pelada.</p>
+      </div>
+
+      <form action="#" method="POST" class="soccer-form">
+        <div class="form-group">
+          <label for="game-date" class="form-label">Data do Jogo</label>
+          <div class="input-container">
+            <i class="fa-regular fa-calendar input-icon"></i>
+            <input type="date" id="game-date" name="game-date" class="form-input" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="start-time" class="form-label">Horário de Início</label>
+            <div class="input-container">
+              <i class="fa-regular fa-clock input-icon"></i>
+              <input type="time" id="start-time" name="start-time" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="end-time" class="form-label">Horário de Término</label>
+            <div class="input-container">
+              <i class="fa-regular fa-clock input-icon"></i>
+              <input type="time" id="end-time" name="end-time" class="form-input" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location" class="form-label">Local / Quadra</label>
+          <div class="input-container">
+            <i class="fa-solid fa-location-dot input-icon"></i>
+            <input type="text" id="location" name="location" class="form-input" placeholder="Ex: Arena Gramado Sintético" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="price" class="form-label">Preço / Custo Total do Aluguel</label>
+          <div class="input-container">
+            <i class="fa-solid fa-euro-sign input-icon"></i>
+            <input type="number" id="price" name="price" class="form-input" step="0.01" placeholder="0.00" required>
+          </div>
+        </div>
+
+        <button href="#" type="submit" class="btn-submit">
+          <i class="fa-solid fa-check"></i> Confirmar Jogo
+        </button>
+      </form>
+    </section>
+
+    <!-- BARRA DE NAVEGAÇÃO INFERIOR -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="bottom-nav__item">
+        <i class="fa-solid fa-house"></i>
+        <span>Início</span>
+      </a>
+      <a href="times.html" class="bottom-nav__item">
+        <i class="fa-solid fa-users"></i>
+        <span>Times</span>
+      </a>
+      <a href="chat.html" class="bottom-nav__item">
+        <i class="fa-solid fa-comments"></i>
+        <span>Chat</span>
+      </a>
+      <a href="historico.html" class="bottom-nav__item">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>Histórico</span>
+      </a>
+      <a href="perfil.html" class="bottom-nav__item">
+        <i class="fa-solid fa-user"></i>
+        <span>Perfil</span>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pelada Pro - Configurações do App</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="configuracoes-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <main class="app-container">
+    
+    <!-- HEADER DO APP -->
+    <header class="app-header">
+      <div class="app-header__logo">
+        <i class="fa-solid fa-futbol"></i>
+        <h1>PELADA <span class="app-header__logo--highlight">PRO</span></h1>
+      </div>
+    </header>
+
+    <!-- CONTEÚDO CONFIGURAÇÕES DO APP -->
+    <section class="form-section">
+      <div class="form-section__header">
+        <i class="fa-solid fa-gear form-section__icon"></i>
+        <h2 class="form-section__title">Configurações do App</h2>
+        <p class="form-section__subtitle">Gerencie as suas preferências e dados da conta.</p>
+      </div>
+
+      <form action="#" method="POST" class="soccer-form">
+        
+        <!-- GRUPO: NOTIFICAÇÕES -->
+        <div class="settings-group">
+          <h3 class="settings-group__title"><i class="fa-regular fa-bell"></i> Notificações</h3>
+          
+          <label class="toggle-control">
+            <span class="toggle-control__label">Alertas de Novos Jogos</span>
+            <input type="checkbox" name="notify-new-games" checked>
+            <span class="toggle-control__switch"></span>
+          </label>
+
+          <label class="toggle-control">
+            <span class="toggle-control__label">Mensagens do Chat</span>
+            <input type="checkbox" name="notify-chat" checked>
+            <span class="toggle-control__switch"></span>
+          </label>
+        </div>
+
+        <!-- GRUPO: PRIVACIDADE -->
+        <div class="settings-group">
+          <h3 class="settings-group__title"><i class="fa-solid fa-lock"></i> Privacidade</h3>
+          
+          <label class="toggle-control">
+            <span class="toggle-control__label">Ocultar os meus atributos (FUT Cards)</span>
+            <input type="checkbox" name="hide-stats">
+            <span class="toggle-control__switch"></span>
+          </label>
+
+          <label class="toggle-control">
+            <span class="toggle-control__label">Permitir convites para outros grupos</span>
+            <input type="checkbox" name="allow-invites" checked>
+            <span class="toggle-control__switch"></span>
+          </label>
+        </div>
+
+        <!-- GRUPO: IDIOMA E PREFERÊNCIAS -->
+        <div class="settings-group">
+          <h3 class="settings-group__title"><i class="fa-solid fa-globe"></i> Preferências Regionais</h3>
+          
+          <div class="form-group">
+            <label for="app-lang" class="form-label">Idioma do Aplicativo</label>
+            <div class="input-container">
+              <i class="fa-solid fa-language input-icon"></i>
+              <select id="app-lang" name="app-lang" class="form-input" required>
+                <option value="pt-PT" selected>Português (Portugal)</option>
+                <option value="pt-BR">Português (Brasil)</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <i class="fa-solid fa-floppy-disk"></i> Salvar Preferências
+        </button>
+      </form>
+    </section>
+
+    <!-- BARRA DE NAVEGAÇÃO INFERIOR -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="bottom-nav__item">
+        <i class="fa-solid fa-house"></i>
+        <span>Início</span>
+      </a>
+      <a href="times.html" class="bottom-nav__item">
+        <i class="fa-solid fa-users"></i>
+        <span>Times</span>
+      </a>
+      <a href="chat.html" class="bottom-nav__item">
+        <i class="fa-solid fa-comments"></i>
+        <span>Chat</span>
+      </a>
+      <a href="historico.html" class="bottom-nav__item">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>Histórico</span>
+      </a>
+      <a href="perfil.html" class="bottom-nav__item">
+        <i class="fa-solid fa-user"></i>
+        <span>Perfil</span>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>

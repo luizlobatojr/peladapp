@@ -7,7 +7,11 @@
     <link rel="manifest" href="manifesf.json" />
     <link rel="stylesheet" href="styles.css" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicon_io/android-chrome-192x192.png"
+    />
     <link
       rel="icon"
       type="image/png"
@@ -21,7 +25,10 @@
       href="images/favicon_io/favicon-16x16.png"
     />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="apple-touch-icon" href="/android-chrome-512x512.png" />
+    <link
+      rel="apple-touch-icon"
+      href="images/favicon_io/android-chrome-512x512.png"
+    />
 
     <!-- Permite que o app rode em tela cheia no iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -45,15 +52,59 @@
     <main class="app-container">
       <!-- HEADER DO APP -->
       <header class="app-header">
-        <div class="app-header__logo">
-          <i class="fa-solid fa-futbol"></i>
-          <h1>PELADA <span class="app-header__logo--highlight">PRO</span></h1>
+        <div class="app-header__logo-container"></div>
+            
+          <div class="app-header__logo">
+            <i class="fa-solid fa-futbol"></i>
+            <h1>PELADA <span class="app-header__logo--highlight">PRO</span></h1>
+          </div>
+          <p class="app-header__subtitle">Perfil do Jogador</p>
         </div>
-        <p class="app-header__subtitle">Perfil do Jogador</p>
+
+        <a
+          href="configuracoes.html"
+          class="app-header__settings-btn"
+          style="color: inherit; font-size: 1.25rem"
+        >
+          <i class="fa-solid fa-gear"></i>
+        </a>
       </header>
 
       <!-- CONTEÚDO DO PERFIL -->
       <section class="profile">
+        <!-- PAINEL DE CONTROLE DE PARTIDAS (NOVO) -->
+        <div class="match-control-panel">
+          <div class="next-match-card">
+            <div class="next-match-card__header">
+              <span class="badge-live"
+                ><i class="fa-solid fa-calendar-check"></i> Próxima Pelada</span
+              >
+              <span class="next-match-card__price">5,00€ / jogador</span>
+            </div>
+
+            <div class="next-match-card__details">
+              <div class="next-match-card__info">
+                <p class="match-text--main">
+                  <i class="fa-regular fa-calendar"></i> Próxima Sexta-Feira
+                </p>
+                <p class="match-text--sub">Horário: 20:00 - 21:30</p>
+              </div>
+              <div class="next-match-card__info">
+                <p class="match-text--main">
+                  <i class="fa-solid fa-location-dot"></i> Arena Gramado
+                  Sintético
+                </p>
+                <p class="match-text--sub">Matosinhos, Porto</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTÃO PARA CRIAR NOVO JOGO -->
+          <a href="marcar-jogo.html" class="btn-create-match">
+            <i class="fa-solid fa-calendar-plus"></i> Criar Nova Partida
+          </a>
+        </div>
+
         <!-- Bloco do Usuário -->
         <div class="profile__card">
           <div class="profile__avatar-container">
