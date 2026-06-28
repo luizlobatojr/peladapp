@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelada Pro - Ranking</title>
+    <link rel="stylesheet" href="pages/index.css">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <main class="app-container">
+        
+        <!-- HEADER DO APP -->
+        <header class="app-header">
+          <div class="app-header__logo-container">
+            <div class="app-header__logo">
+              <i class="fa-solid fa-futbol"></i>
+              <h1>PELADA <span class="app-header__logo--highlight">PRO</span></h1>
+            </div>
+            <p class="app-header__subtitle">Ranking Geral</p> 
+          </div>
+
+          <a href="configuracoes.html" class="app-header__settings-btn" style="color: inherit; font-size: 1.25rem;">
+            <i class="fa-solid fa-gear"></i>
+          </a>
+        </header>
+
+        <!-- LISTA DE RANKING (SCROLLÁVEL) -->
+        <section class="ranking-list">
+            
+            <!-- 1º Lugar (Destaque de Ouro) -->
+            <!-- Ordem dos parâmetros no clique: Nome, Posição, Overall, RIT, FIN, PAS, DRI, DEF, FIS -->
+            <div class="ranking-item ranking-item--gold" onclick="openPlayerCard('Lucas A.', 'Meio-Campo', '87', '85', '88', '82', '89', '75', '84')">
+                <div class="ranking-item__position">
+                    <i class="fa-solid fa-medal ranking-item__medal"></i>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="Lucas A." class="ranking-item__avatar">
+                <div class="ranking-item__info">
+                    <span class="ranking-item__name">Lucas A.</span>
+                    <span class="ranking-item__position-text">Meio-Campo</span>
+                </div>
+                <div class="ranking-item__badge">
+                    <span class="ranking-item__overall">87</span>
+                </div>
+            </div>
+
+            <!-- 2º Lugar (Destaque de Prata) -->
+            <div class="ranking-item ranking-item--silver" onclick="openPlayerCard('Pedro L.', 'Atacante', '84', '91', '83', '78', '85', '45', '70')">
+                <div class="ranking-item__position">
+                    <i class="fa-solid fa-medal ranking-item__medal"></i>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="Pedro L." class="ranking-item__avatar">
+                <div class="ranking-item__info">
+                    <span class="ranking-item__name">Pedro L.</span>
+                    <span class="ranking-item__position-text">Atacante</span>
+                </div>
+                <div class="ranking-item__badge">
+                    <span class="ranking-item__overall">84</span>
+                </div>
+            </div>
+
+            <!-- 3º Lugar (Destaque de Bronze) -->
+            <div class="ranking-item ranking-item--bronze" onclick="openPlayerCard('Bruno', 'Zagueiro', '81', '72', '58', '70', '68', '84', '85')">
+                <div class="ranking-item__position">
+                    <i class="fa-solid fa-medal ranking-item__medal"></i>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="Bruno" class="ranking-item__avatar">
+                <div class="ranking-item__info">
+                    <span class="ranking-item__name">Bruno</span>
+                    <span class="ranking-item__position-text">Zagueiro</span>
+                </div>
+                <div class="ranking-item__badge">
+                    <span class="ranking-item__overall">81</span>
+                </div>
+            </div>
+
+            <!-- Posição Regular (4º) -->
+            <div class="ranking-item" onclick="openPlayerCard('Mateus Silva', 'Goleiro', '78', '60', '45', '65', '62', '80', '74')">
+                <div class="ranking-item__position">
+                    <span class="ranking-item__number">4</span>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="Mateus" class="ranking-item__avatar">
+                <div class="ranking-item__info">
+                    <span class="ranking-item__name">Mateus Silva</span>
+                    <span class="ranking-item__position-text">Goleiro</span>
+                </div>
+                <div class="ranking-item__badge">
+                    <span class="ranking-item__overall">78</span>
+                </div>
+            </div>
+
+            <!-- Posição Regular (5º) -->
+            <div class="ranking-item" onclick="openPlayerCard('Thiago M.', 'Lateral', '75', '80', '62', '71', '73', '68', '70')">
+                <div class="ranking-item__position">
+                    <span class="ranking-item__number">5</span>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="Thiago" class="ranking-item__avatar">
+                <div class="ranking-item__info">
+                    <span class="ranking-item__name">Thiago M.</span>
+                    <span class="ranking-item__position-text">Lateral</span>
+                </div>
+                <div class="ranking-item__badge">
+                    <span class="ranking-item__overall">75</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- BARRA DE NAVEGAÇÃO INFERIOR -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="bottom-nav__item">
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
+            <a href="times.html" class="bottom-nav__item">
+                <i class="fa-solid fa-users"></i>
+                <span>Times</span>
+            </a>
+            <a href="chat.html" class="bottom-nav__item bottom-nav__item--active">
+                <i class="fa-solid fa-trophy"></i>
+                <span>Ranking</span>
+            </a>
+            <a href="historico.html" class="bottom-nav__item">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Histórico</span>
+            </a>
+            <a href="perfil.html" class="bottom-nav__item">
+                <i class="fa-solid fa-user"></i>
+                <span>Perfil</span>
+            </a>
+        </nav>
+
+    </main>
+
+    <!-- MODAL: CARTA DETALHADA DO JOGADOR (ESTILO UT) -->
+    <div id="playerModal" class="player-modal-overlay" onclick="closePlayerCard(event)">
+        <div class="player-card">
+            <button class="player-card__close" onclick="document.getElementById('playerModal').classList.remove('active')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="player-card__header">
+                <div class="player-card__main-info">
+                    <div class="player-card__badge">
+                        <span id="modalOverall" class="player-card__overall">--</span>
+                        <span id="modalPosition" class="player-card__pos">POS</span>
+                    </div>
+                    <img src="https://via.placeholder.com/80" alt="Jogador" class="player-card__avatar">
+                </div>
+                <h2 id="modalName" class="player-card__name">Nome do Jogador</h2>
+            </div>
+
+            <hr class="player-card__divider">
+
+            <div class="player-card__stats-grid">
+                <div class="player-card__stat"><span id="statPac" class="player-card__stat-val">--</span><span class="player-card__stat-lbl">RIT</span></div>
+                <div class="player-card__stat"><span id="statFin" class="player-card__stat-val">--</span><span class="player-card__stat-lbl">FIN</span></div>
+                <div class="player-card__stat"><span id="statPas" class="player-card__stat-val">--</span><span class="player-card__stat-lbl">PAS</span></div>
+                <div class="player-card__stat"><span id="statDri" class="player-card__stat-val">--</span><span class="player-card__stat-lbl">DRI</span></div>
+                <div class="player-card__stat"><span id="statDef" class="player-card__stat-val">--</span><span class="player-card__stat-lbl">DEF</span></div>
+                <div class="player-card__stat"><span id="statFis" class="player-card__stat-val">--</span><span class="player-card__stat-lbl">FIS</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGICA JAVASCRIPT DE MANIPULAÇÃO DOM -->
+    <script>
+        function openPlayerCard(name, position, overall, rit, fin, pas, dri, def, fis) {
+            document.getElementById('modalName').innerText = name;
+            document.getElementById('modalPosition').innerText = position.substring(0,3).toUpperCase();
+            document.getElementById('modalOverall').innerText = overall;
+            
+            document.getElementById('statPac').innerText = rit;
+            document.getElementById('statFin').innerText = fin;
+            document.getElementById('statPas').innerText = pas;
+            document.getElementById('statDri').innerText = dri;
+            document.getElementById('statDef').innerText = def;
+            document.getElementById('statFis').innerText = fis;
+
+            document.getElementById('playerModal').classList.add('active');
+        }
+
+        function closePlayerCard(event) {
+            if(event.target.id === 'playerModal') {
+                document.getElementById('playerModal').classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
