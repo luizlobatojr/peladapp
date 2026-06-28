@@ -1,39 +1,39 @@
 :root {
   /* ==========================================================================
-     Cores de Fundo (Ambiente Dark - Noite de Maracanã / Premium Dark)
+     Cores de Fundo (Atmosfera Noturna de Grande Campeonato)
      ========================================================================== */
-  --bg-main: #06101e;         /* Azul-escuro ultra profundo (baseado no azul da CBF) */
-  --bg-container: #0b1a30;    /* Container robusto em tom azulado fechado */
-  --bg-header: #102542;       /* Header destacado */
-  --bg-card: #0f2038;         /* Cards dos jogos e jogadores */
+  --bg-main: #0a0f18;         /* Azul-escuro absoluto (cor de noite de final de campeonato) */
+  --bg-container: #111926;    /* Tom de ardósia escura para o corpo do aplicativo */
+  --bg-header: #192538;       /* Header destacado com leve brilho azul-marinho */
+  --bg-card: #152030;         /* Fundo perfeito para os cards de jogadores/jogos */
 
   /* ==========================================================================
-     Cores de Destaque e Estado (O Clássico Amarelo Canarinho e Ouro)
+     Cores de Destaque (A Energia dos Refletores e das Taças)
      ========================================================================== */
-  --color-primary: #fbe116;   /* Amarelo Canarinho Oficial (Vibrante e radiante) */
-  --color-primary-dark: #ccb50c;
+  --color-primary: #00ff87;   /* Verde Neon Elétrico (A cor oficial do gramado moderno/Champions) */
+  --color-primary-dark: #00cc6a;
   --color-text-main: #ffffff;
-  --color-text-muted: #8fa7c7; /* Azul acinzentado para leitura confortável */
-  --color-star: #fbe116;       /* As 5 estrelas do escudo (Amarelo Ouro) */
+  --color-text-muted: #94a3b8; /* Cinza azulado suave para leitura de estatísticas e tabelas */
+  --color-star: #ffc107;       /* Ouro Taça FIFA (Dourado clássico para os cartões lendários) */
 
   /* ==========================================================================
-     Destakes Secundários & Cronômetro (Verde Bandeira / Gramado)
+     Destaques Secundários & Cronômetro (Grafismos de Placar da TV)
      ========================================================================== */
-  --color-blue-accent: #00e676; /* Verde Sálvia/Gramado Fluorescente para botões secundários */
-  --color-blue-dark: #00b34a;
+  --color-blue-accent: #38bdf8; /* Azul Sky (Traz contraste frio e equilíbrio ao verde) */
+  --color-blue-dark: #0284c7;
 
   /* ==========================================================================
-     Elementos de UI Genéricos (Botões de Ação do Mockup)
+     Elementos de UI Genéricos (Botões Auxiliares e Linhas de Campo)
      ========================================================================== */
-  --color-btn-ui: #f1f5f9;
+  --color-btn-ui: #f8fafc;      /* BrancoGiz (A cor das linhas de cal do campo) */
   --color-btn-ui-alt: #e2e8f0;
-  --color-btn-ui-text: #06101e;
+  --color-btn-ui-text: #0a0f18;
 
   /* ==========================================================================
-     Bordas e Divisores (Contornos em Azul Seleção)
+     Bordas e Divisores (Garante o contorno limpo da interface)
      ========================================================================== */
-  --border-color: #1a365d;
-  --border-container: #152c4d;
+  --border-color: #24344d;
+  --border-container: #1d2a3e;
 
   /* ==========================================================================
      Configuração de Fontes Controladas para o Header
@@ -42,47 +42,47 @@
   --header-subtitle-size: 0.7rem;
 
   /* ==========================================================================
-     Cores Extras (Eventos de Jogo / Arbitragem)
+     Cores Extras (Eventos de Jogo / Arbitragem Semântica)
      ========================================================================== */
-  --color-success: #2ed573;           /* Gol / Presença Confirmada */
-  --color-card-yellow: #ffdf00;       /* Cartão Amarelo */
-  --color-card-yellow-border: #c9af00;
-  --color-card-red: #ff4757;          /* Cartão Vermelho */
-  --color-card-red-border: #cc2e3b;
+  --color-success: #00ff87;           /* Gol / Vitória */
+  --color-card-yellow: #facc15;       /* Cartão Amarelo FIFA oficial */
+  --color-card-yellow-border: #ca8a04;
+  --color-card-red: #f43f5e;          /* Cartão Vermelho Moderno (Tom enérgico) */
+  --color-card-red-border: #e11d48;
 
   /* ==========================================================================
-     Cores de Times (Sorteio de Coletes internos - Pátria Amada)
+     Cores de Times (Sorteio de Coletes Equilibrado)
      ========================================================================== */
-  --color-team-aa: #002776;  /* Time A - Azul Marinho da Bandeira */
-  --color-team-bb: #009739;  /* Time B - Verde Bandeira Clássico */
-  --color-team-cc: #2ed573;  /* Time C - Verde Limão/Neon Alternativo */
+  --color-team-aa: #38bdf8;  /* Time Azul */
+  --color-team-bb: #f43f5e;  /* Time Vermelho/Rosa */
+  --color-team-cc: #ffc107;  /* Time Amarelo Ouro */
 
   /* ==========================================================================
-     Botão Principal / Gerar Sorteio (Destaque em Verde)
+     Botão Principal / Gerar Sorteio
      ========================================================================== */
-  --color-warning: #009739;  /* Botão "Gerar" ganha o Verde Bandeira de alta energia */
+  --color-warning: #ff8200;  /* Laranja de transmissão (Alta conversão de clique) */
 
   /* ==========================================================================
-     Cores para os Botões de Presença (Escalação)
+     Cores para os Botões de Presença (Escalação Dinâmica)
      ========================================================================== */
-  --color-attendance-yes-bg: rgba(0, 151, 57, 0.2); /* Fundo verde translúcido */
-  --color-attendance-no: #ff4757;
-  --color-attendance-no-dark: #cc2e3b;
+  --color-attendance-yes-bg: rgba(0, 255, 135, 0.12); /* Verde translúcido nos olhos */
+  --color-attendance-no: #f43f5e;
+  --color-attendance-no-dark: #e11d48;
 
   /* ==========================================================================
-     [NOVAS VARIÁVEIS] Cores das Conquistas (Badges) e Efeitos Estilo FIFA
+     Cores das Conquistas (Badges) e Efeitos Estilo FIFA
      ========================================================================== */
-  --badge-gold-bg: rgba(255, 215, 0, 0.15);
-  --badge-gold-color: #ffd700;
-  --badge-shield-bg: rgba(52, 152, 219, 0.15);
-  --badge-shield-color: #3498db;
-  --badge-star-bg: rgba(155, 89, 182, 0.15);
-  --badge-star-color: #9b59b6;
+  --badge-gold-bg: rgba(255, 193, 7, 0.15);
+  --badge-gold-color: #ffc107;
+  --badge-shield-bg: rgba(56, 189, 248, 0.15);
+  --badge-shield-color: #38bdf8;
+  --badge-star-bg: rgba(168, 85, 247, 0.15);
+  --badge-star-color: #a855f7;
   
-  /* Sombras Dinâmicas */
-  --shadow-app: 0 16px 40px rgba(0, 0, 0, 0.5);
-  --shadow-card: 0 8px 20px rgba(0, 0, 0, 0.4);
-  --shadow-card-hover: 0 12px 24px rgba(0, 0, 0, 0.6);
+  /* Sombras Profissionais */
+  --shadow-app: 0 16px 40px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 8px 24px rgba(0, 255, 135, 0.15); /* Brilho verde sutil no foco */
 
   /* Dimensões do Dispositivo Base */
   --app-max-width: 410px;
@@ -751,3 +751,4 @@ img, svg, video, canvas {
     display: none;
   }
 }
+

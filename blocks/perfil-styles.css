@@ -63,3 +63,8 @@
 .stats-table td.stats-empty {
     color: #4a5768;
 }
+
+.stats-table__empty {
+    color: #384556; /* Tom mais escuro para sumir visualmente */
+    font-weight: 400;
+}
