@@ -1,10 +1,10 @@
 // 1. Toda vez que atualizar o app, mude o número dessa versão (ex: v1, v2, v3...)
-const CACHE_NAME = 'pelada-pro-cache-v0.0.1'; 
+const CACHE_NAME = 'pelada-pro-cache-v0.0.2'; 
 
 const ASSETS = [
   '/',
   '/index.html',
-  '/styles.css',
+  '/pages/index.css',
   '/script.js',
   // Adicione aqui os caminhos para suas imagens ou ícones se houver
 ];
