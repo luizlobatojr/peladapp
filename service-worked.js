@@ -4,7 +4,7 @@ const CACHE_NAME = 'pelada-pro-cache-v0.0.1';
 const ASSETS = [
   '/',
   '/index.html',
-  '/style.css',
+  '/styles.css',
   '/script.js',
   // Adicione aqui os caminhos para suas imagens ou ícones se houver
 ];
