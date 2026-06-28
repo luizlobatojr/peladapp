@@ -4,7 +4,7 @@
 
 /* Background com gradiente focado no tema escuro do app */
 .onboarding-bg {
-    background: radial-gradient(circle at top, #1e2633 0%, #111622 100%);
+    background: radial-gradient(circle at top, var(--bg-header) 0%, #111622 100%); /* #1e2633 */
     position: relative;
     overflow: hidden;
     display: flex;
@@ -41,7 +41,7 @@
 
 .onboarding-logo__icon {
     font-size: 3rem;
-    color: #00ff87;
+    color: var(--color-primary); /* #00ff87 */
     margin-bottom: 12px;
     filter: drop-shadow(0 0 15px rgba(0, 255, 135, 0.4));
 }
@@ -54,7 +54,7 @@
 
 .onboarding-logo__tagline {
     font-size: 0.85rem;
-    color: #8fa0ba;
+    color: var(--color-text-muted); /* #8fa0ba */
     margin-top: 6px;
     font-weight: 500;
 }
@@ -68,7 +68,7 @@
     width: 60px;
     height: 60px;
     background-color: rgba(0, 255, 135, 0.1);
-    border: 1px solid #00ff87;
+    border: 1px solid var(--color-primary); /* #00ff87 */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -78,19 +78,19 @@
 
 .features-carousel__badge-icon i {
     font-size: 1.6rem;
-    color: #00ff87;
+    color: var(--color-primary); /* #00ff87 */
 }
 
 .features-carousel h3 {
     font-size: 1.2rem;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--color-text-main); /* #ffffff */
     margin-bottom: 8px;
 }
 
 .features-carousel p {
     font-size: 0.85rem;
-    color: #8fa0ba;
+    color: var(--color-text-muted); /* #8fa0ba */
     line-height: 1.5;
     max-width: 280px;
     margin: 0 auto;
@@ -108,11 +108,11 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #2a374d;
+    background-color: var(--border-color); /* #2a374d */
 }
 
 .dot--active {
-    background-color: #00ff87;
+    background-color: var(--color-primary); /* #00ff87 */
     width: 18px;
     border-radius: 4px;
     transition: all 0.3s ease;
@@ -143,15 +143,15 @@
 }
 
 .btn-onboarding--primary {
-    background-color: #00ff87;
-    color: #111622;
+    background-color: var(--color-primary); /* #00ff87 */
+    color: var(--color-btn-ui-text); /* #111622 -> #161c26 Mapeado para o tom escuro de texto em botões */
     box-shadow: 0 4px 15px rgba(0, 255, 135, 0.2);
 }
 
 .btn-onboarding--secondary {
-    background-color: #1e2633;
-    color: #ffffff;
-    border: 1px solid #2a374d;
+    background-color: var(--bg-header); /* #1e2633 */
+    color: var(--color-text-main); /* #ffffff */
+    border: 1px solid var(--border-color); /* #2a374d */
 }
 
 /* FOOTER */
@@ -161,8 +161,9 @@
 
 .onboarding-footer p {
     font-size: 0.65rem;
-    color: #5d6d7e;
+    color: #5d6d7e; /* Cor cinza intermediária de suporte */
 }
+
 /* ==========================================================================
    FORMULÁRIOS DE AUTENTICAÇÃO (LOGIN / CADASTRO)
    ========================================================================== */
@@ -178,7 +179,7 @@
 .input-field-group label {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #8fa0ba;
+    color: var(--color-text-muted); /* #8fa0ba */
     text-transform: uppercase;
     letter-spacing: 0.3px;
 }
@@ -204,9 +205,9 @@
 .input-wrapper input,
 .input-wrapper select {
     width: 100%;
-    background-color: #1e2633;
-    border: 1px solid #2a374d;
-    color: #ffffff;
+    background-color: var(--bg-header); /* #1e2633 */
+    border: 1px solid var(--border-color); /* #2a374d */
+    color: var(--color-text-main); /* #ffffff */
     padding: 14px 14px 14px 42px; /* Espaço para o ícone na esquerda */
     border-radius: 12px;
     font-size: 0.85rem;
@@ -216,7 +217,7 @@
     appearance: none; /* Remove seta padrão do select no mobile */
 }
 
-/* Seta customizada para o select caso necessário */
+/* Seta customizada para o select */
 .input-wrapper select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238fa0ba'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -227,13 +228,13 @@
 /* Efeito Focus (Borda Verde estilo Pelada Pro) */
 .input-wrapper input:focus,
 .input-wrapper select:focus {
-    border-color: #00ff87;
+    border-color: var(--color-primary); /* #00ff87 */
     box-shadow: 0 0 8px rgba(0, 255, 135, 0.15);
 }
 
 .input-wrapper input:focus + i,
 .input-wrapper select:focus + i {
-    color: #00ff87;
+    color: var(--color-primary); /* #00ff87 */
 }
 
 /* Placeholder discreto */
@@ -241,6 +242,7 @@
     color: #5d6d7e;
     font-weight: 500;
 }
+
 /* ==========================================================================
    ESTILIZAÇÃO DO CHECKBOX CUSTOMIZADO
    ========================================================================== */
@@ -250,8 +252,8 @@
     -webkit-appearance: none;
     width: 18px;
     height: 18px;
-    background-color: #1e2633;
-    border: 1px solid #2a374d;
+    background-color: var(--bg-header); /* #1e2633 */
+    border: 1px solid var(--border-color); /* #2a374d */
     border-radius: 4px;
     cursor: pointer;
     display: grid;
@@ -264,14 +266,14 @@
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     font-size: 0.65rem;
-    color: #111622;
+    color: var(--color-btn-ui-text); /* #111622 -> #161c26 Cor contrastante interna do check */
     transform: scale(0);
     transition: transform 0.15s ease-in-out;
 }
 
 .custom-checkbox:checked {
-    background-color: #00ff87;
-    border-color: #00ff87;
+    background-color: var(--color-primary); /* #00ff87 */
+    border-color: var(--color-primary);
 }
 
 .custom-checkbox:checked::before {
@@ -279,6 +281,6 @@
 }
 
 .custom-checkbox:focus {
-    border-color: #00ff87;
+    border-color: var(--color-primary); /* #00ff87 */
     box-shadow: 0 0 6px rgba(0, 255, 135, 0.2);
 }

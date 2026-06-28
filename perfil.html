@@ -17,11 +17,23 @@
     <main class="app-container">
       <!-- HEADER DO APP -->
       <header class="app-header">
-        <div class="app-header__logo">
-          <i class="fa-solid fa-futbol"></i>
-          <h1>PELADA <span class="app-header__logo--highlight">PRO</span></h1>
+        <div class="app-header__logo-container">
+          <div class="app-header__logo">
+            <i class="fa-solid fa-futbol"></i>
+            <h1>PELADA <span class="app-header__logo--highlight">PRO</span></h1>
+          </div>
+          <!-- No segundo arquivo, altere este texto para "Gestão de Partida" -->
+          <p class="app-header__subtitle">Perfil do Jogador</p>
         </div>
-        <p class="app-header__subtitle">Meu Perfil Atléti-Gamer</p>
+
+        <!-- Mantido mesmo sem ícone para equilibrar o alinhamento flex -->
+        <a
+          href="configuracoes.html"
+          class="app-header__settings-btn"
+          style="color: inherit; font-size: 1.25rem"
+        >
+          <i class="fa-solid fa-gear"></i>
+        </a>
       </header>
 
       <!-- CONTEÚDO PRINCIPAL (SCROLLÁVEL) -->

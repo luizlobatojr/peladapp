@@ -1,20 +1,16 @@
 /*@import url("../vendor/normalize.css");
-@import url("../vendor/fonts.css");
+@import url("../vendor/fonts.css");*/
 
-@import url("../blocks/root.css");
-@import url("../blocks/nav.css");
-@import url("../blocks/home.css");
-@import url("../blocks/mvp.css");
-@import url("../blocks/feature-card.css");
-@import url("../blocks/phone.css");
-@import url("../blocks/screen.css");
-@import url("../blocks/leader.css");
-@import url("../blocks/profile.css");
-@import url("../blocks/badge.css");
-@import url("../blocks/rating.css");
-@import url("../blocks/player.css");
-@import url("../blocks/match.css");
-@import url("../blocks/config.css");*/
 
+@import url("../styles.css");
+@import url("../times-styles.css");
+@import url("../sorteio-styles.css");
+@import url("../chat-styles.css");
+@import url("../historico-styles.css");
+@import url("../configuracoes-style.css");
+@import url("../onboarding-styles.css");
+@import url("../cadastro.html");
+@import url("../marcar-jogo.css");
+@import url("../perfil-styles.css");
 
 

@@ -20,20 +20,20 @@
 
 .form-section__icon {
     font-size: 2.2rem;
-    color: #00ff87; /* Verde Neon Padrão */
+    color: var(--color-primary); /* #00ff87 -> Verde Neon Padrão */
     margin-bottom: 10px;
 }
 
 .form-section__title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--color-text-main); /* #ffffff */
     margin-bottom: 6px;
 }
 
 .form-section__subtitle {
     font-size: 0.85rem;
-    color: #8fa0ba;
+    color: var(--color-text-muted); /* #8fa0ba */
     line-height: 1.4;
 }
 
@@ -65,7 +65,7 @@
 .form-label {
     font-size: 0.8rem;
     font-weight: 700;
-    color: #8fa0ba;
+    color: var(--color-text-muted); /* #8fa0ba */
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -80,7 +80,7 @@
 .input-icon {
     position: absolute;
     left: 14px;
-    color: #8fa0ba;
+    color: var(--color-text-muted); /* #8fa0ba */
     font-size: 1rem;
     pointer-events: none;
     transition: color 0.2s ease;
@@ -89,11 +89,11 @@
 .form-input {
     width: 100%;
     height: 48px;
-    background-color: #1e2633; /* Mesmo tom do header/cards */
-    border: 1px solid #2a374d;
+    background-color: var(--bg-header); /* #1e2633 -> Mesmo tom do header/cards */
+    border: 1px solid var(--border-color); /* #2a374d */
     border-radius: 12px;
     padding: 0 14px 0 42px; /* Espaço extra na esquerda para o ícone */
-    color: #ffffff;
+    color: var(--color-text-main); /* #ffffff */
     font-size: 0.95rem;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -101,18 +101,18 @@
 
 /* Estilização dos placeholders */
 .form-input::placeholder {
-    color: #56667d;
+    color: #56667d; /* Mantida cor cinza intermediária específica de placeholder */
 }
 
 /* Feedback visual de Focus */
 .form-input:focus {
-    border-color: #00ff87;
+    border-color: var(--color-primary); /* #00ff87 */
     box-shadow: 0 0 0 3px rgba(0, 255, 135, 0.1);
 }
 
 /* Altera a cor do ícone quando o input está focado */
 .input-container:focus-within .input-icon {
-    color: #00ff87;
+    color: var(--color-primary); /* #00ff87 */
 }
 
 /* Ajuste específico para inputs do tipo data e hora (Garante consistência no mobile) */
@@ -144,8 +144,8 @@
     justify-content: center;
     gap: 8px;
     height: 50px;
-    background: linear-gradient(135deg, #00ff87 0%, #00b35e 100%);
-    color: #161c26; /* Texto escuro para contraste */
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); /* #00ff87 para #00b35e */
+    color: var(--color-btn-ui-text); /* #161c26 -> Texto escuro para contraste */
     border: none;
     border-radius: 12px;
     font-size: 0.95rem;
@@ -162,7 +162,7 @@
 }
 
 /* ==========================================================================
-   A JUSTES RESPONSIVOS (MOBILE)
+   AJUSTES RESPONSIVOS (MOBILE)
    ========================================================================== */
 @media (max-width: 480px) {
     .form-section {

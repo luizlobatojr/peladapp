@@ -3,8 +3,8 @@
    ========================================================================== */
 .sub-tabs {
     display: flex;
-    background-color: #1e2633;
-    border-bottom: 1px solid #2a374d;
+    background-color: var(--bg-header);
+    border-bottom: 1px solid var(--border-color);
     min-width: 0;
 }
 
@@ -14,7 +14,7 @@
     background: none;
     border: none;
     padding: 12px 0;
-    color: #8fa0ba;
+    color: var(--color-text-muted);
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -23,8 +23,8 @@
 }
 
 .sub-tabs__button--active {
-    color: #00ff87;
-    border-bottom: 3px solid #00ff87;
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
     background-color: rgba(0, 255, 135, 0.02);
 }
 
@@ -44,10 +44,10 @@
    BLOCO DO CRONÔMETRO
    ========================================================================== */
 .match-timer {
-    background-color: #1e2633;
+    background-color: var(--bg-header);
     border-radius: 16px;
     padding: 16px;
-    border: 1px solid #2a374d;
+    border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,9 +67,9 @@
 .timer-btn {
     flex: 1;
     min-width: 58px;
-    background-color: #161c26;
-    border: 1px solid #2a374d;
-    color: #8fa0ba;
+    background-color: var(--bg-container);
+    border: 1px solid var(--border-color);
+    color: var(--color-text-muted);
     padding: 6px 2px;
     font-size: 0.75rem;
     font-weight: 600;
@@ -78,9 +78,9 @@
 }
 
 .timer-btn--active {
-    background-color: #2980b9;
-    color: #ffffff;
-    border-color: #3498db;
+    background-color: var(--color-blue-dark);
+    color: var(--color-text-main);
+    border-color: var(--color-blue-accent);
 }
 
 /* Display do Relógio Central */
@@ -105,17 +105,17 @@
 
 .timer-circle__bg {
     fill: none;
-    stroke: #161c26;
+    stroke: var(--bg-container);
     stroke-width: 6;
 }
 
 .timer-circle__progress {
     fill: none;
-    stroke: #2980b9;
+    stroke: var(--color-blue-dark);
     stroke-width: 6;
     stroke-linecap: round;
     stroke-dasharray: 283;
-    stroke-dashoffset: 70; /* Simula progresso do tempo */
+    stroke-dashoffset: 70; 
 }
 
 .match-timer__clock {
@@ -126,8 +126,8 @@
 
 /* Botão de Iniciar/Pausar */
 .match-timer__action-btn {
-    background-color: #e0e0e0;
-    color: #161c26;
+    background-color: var(--color-btn-ui-alt);
+    color: var(--color-btn-ui-text);
     border: none;
     padding: 6px 24px;
     font-size: 0.85rem;
@@ -141,9 +141,9 @@
    PAINEL DE REGISTRO DE EVENTOS
    ========================================================================== */
 .events-register__panel {
-    background-color: #1e2633;
+    background-color: var(--bg-header);
     border-radius: 16px;
-    border: 1px solid #2a374d;
+    border: 1px solid var(--border-color);
     padding: 16px;
     display: flex;
     gap: 12px;
@@ -164,10 +164,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #161c26;
+    background-color: var(--bg-container);
     padding: 6px;
     border-radius: 8px;
-    border: 1px solid #2a374d;
+    border: 1px solid var(--border-color);
     min-width: 0;
 }
 
@@ -183,7 +183,7 @@
     min-width: 0;
     background: none;
     border: none;
-    color: #ffffff;
+    color: var(--color-text-main);
     font-size: 0.8rem;
     font-weight: 700;
     outline: none;
@@ -202,8 +202,8 @@
 
 .action-btn {
     width: 100%;
-    background-color: #e5e5e5;
-    color: #161c26;
+    background-color: var(--color-btn-ui);
+    color: var(--color-btn-ui-text);
     border: none;
     padding: 8px 12px;
     font-size: 0.75rem;
@@ -222,9 +222,9 @@
 }
 
 /* Customização dos botões conforme o mockup */
-.action-btn--goal i { color: #161c26; }
-.action-btn--assist i { color: #27ae60; }
-.action-btn--save i { color: #2980b9; }
+.action-btn--goal i { color: var(--color-btn-ui-text); }
+.action-btn--assist i { color: var(--color-success); }
+.action-btn--save i { color: var(--color-blue-dark); }
 
 /* Ícones de cartões simulados em CSS pura */
 .card-icon {
@@ -233,9 +233,18 @@
     border-radius: 2px;
     flex: 0 0 auto;
 }
-.card-icon--yellow { background-color: #f1c40f; border: 1px solid #d4ac0d; }
-.card-icon--red { background-color: #e74c3c; border: 1px solid #c0392b; }
+.card-icon--yellow { 
+    background-color: var(--color-card-yellow); 
+    border: 1px solid var(--color-card-yellow-border); 
+}
+.card-icon--red { 
+    background-color: var(--color-card-red); 
+    border: 1px solid var(--color-card-red-border); 
+}
 
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
 @media (max-width: 768px) {
     .match-management {
         padding: 16px;
