@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelada Pro - Mais Opções</title>
+    <link rel="stylesheet" href="pages/index.css" />
+    <!-- Ícones FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- HEADER -->
+      <header class="app-header">
+        <div class="logo">
+          <i class="fa-solid fa-soccer-ball"></i> PELADA <span>PRO</span>
+        </div>
+        <div class="header-actions">
+          <div class="notification-badge">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">2</span>
+          </div>
+          <img
+            src="https://via.placeholder.com/40"
+            alt="Profile"
+            class="avatar-img"
+          />
+        </div>
+      </header>
+
+      <!-- RESUMO DO PERFIL LOGADO -->
+      <section class="profile-card-extended">
+        <div class="profile-main-info">
+          <img
+            src="https://via.placeholder.com/65"
+            alt="R. Silva"
+            class="profile-large-avatar"
+          />
+          <div class="profile-text-details">
+            <h2>R. Silva</h2>
+            <span class="username-tag">@rsilva.9</span>
+            <span class="status-badge"
+              ><i class="fa-solid fa-shield-halved"></i> Plano Premium</span
+            >
+          </div>
+        </div>
+        <div class="profile-footer-stats">
+          <div class="stat-item">
+            <strong>Nível 12</strong>
+            <span>820 / 1000 XP</span>
+          </div>
+          <div class="stat-item">
+            <strong>Desde</strong>
+            <span>Jan 2024</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- MENU DE OPÇÕES CATEGORIZADO -->
+      <main class="menu-options-container">
+        <!-- Grupo 1: Conta -->
+        <div class="options-group">
+          <h3 class="group-title">Minha Conta</h3>
+
+          <a href="#" class="option-item">
+            <div class="option-left">
+              <div class="option-icon bg-blue">
+                <i class="fa-regular fa-user"></i>
+              </div>
+              <span>Dados Pessoais</span>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </a>
+
+          <a href="#" class="option-item">
+            <div class="option-left">
+              <div class="option-icon bg-green">
+                <i class="fa-solid fa-wallet"></i>
+              </div>
+              <span>Histórico de Pagamentos</span>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </a>
+
+          <a href="#" class="option-item">
+            <div class="option-left">
+              <div class="option-icon bg-purple">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <span>Suas Conquistas e Troféus</span>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </a>
+        </div>
+
+        <!-- Grupo 2: Preferências -->
+        <div class="options-group">
+          <h3 class="group-title">Preferências</h3>
+
+          <a href="#" class="option-item">
+            <div class="option-left">
+              <div class="option-icon bg-orange">
+                <i class="fa-regular fa-bell"></i>
+              </div>
+              <span>Gerenciar Notificações</span>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </a>
+
+          <div class="option-item no-link">
+            <div class="option-left">
+              <div class="option-icon bg-teal">
+                <i class="fa-solid fa-moon"></i>
+              </div>
+              <span>Modo Escuro</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked disabled />
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Grupo 3: Suporte e Sistema -->
+        <div class="options-group">
+          <h3 class="group-title">Suporte</h3>
+
+          <a href="#" class="option-item">
+            <div class="option-left">
+              <div class="option-icon bg-gray">
+                <i class="fa-regular fa-circle-question"></i>
+              </div>
+              <span>Central de Ajuda / FAQ</span>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </a>
+
+          <a href="#" class="option-item">
+            <div class="option-left">
+              <div class="option-icon bg-gray">
+                <i class="fa-solid fa-shield-heart"></i>
+              </div>
+              <span>Políticas de Privacidade</span>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow"></i>
+          </a>
+        </div>
+
+        <!-- Botão Sair -->
+        <button class="btn-logout-danger">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Terminar Sessão
+        </button>
+
+        <!-- Versão do App -->
+        <span class="app-version-text">Pelada Pro v2.4.1 (2026)</span>
+      </main>
+
+      <!-- NAV BAR INFERIOR -->
+      <nav class="bottom-nav">
+        <a href="index.html" class="nav-item "
+          ><i class="fa-solid fa-house"></i><span>Início</span></a
+        >
+        <a href="partidas.html" class="nav-item"
+          ><i class="fa-regular fa-calendar"></i><span>Partidas</span></a
+        >
+        <a href="criar-partida.html" class="nav-item nav-create"
+          ><i class="fa-solid fa-plus"></i
+        ></a>
+        <a href="ranking.html" class="nav-item "
+          ><i class="fa-solid fa-trophy"></i><span>Ranking</span></a
+        >
+        <a href="mais.html" class="nav-item active"
+          ><i class="fa-solid fa-bars"></i><span>Mais</span></a
+        >
+      </nav>
+    </div>
+  </body>
+</html>

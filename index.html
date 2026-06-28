@@ -3,422 +3,236 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pelada Pro - Perfil do Jogador</title>
-    <link rel="manifest" href="manifesf.json" />
-    <link rel="stylesheet" href="pages/index.css" />
+    <title>Pelada Pro - Dashboard</title>
+    <link rel="stylesheet" href="pages/index.css"> 
 
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/favicon_io/android-chrome-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/favicon_io/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="images/favicon_io/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link
-      rel="apple-touch-icon"
-      href="images/favicon_io/android-chrome-512x512.png"
-    />
-
-    <!-- Permite que o app rode em tela cheia no iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-
-    <!-- Define a cor da barra de status (pode usar 'default', 'black' ou 'black-translucent') -->
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
-
-    <!-- Define o título do app no iOS -->
-    <meta name="apple-mobile-web-app-title" content="Pelada Pro" />
-    <!-- Ícones (Ex: FontAwesome para os cards e navegação) -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
   <body>
-    <!-- CONTAINER PRINCIPAL DO APP (Simulando a tela do celular) -->
-    <main class="app-container">
-      <!-- HEADER DO APP -->
+    <div class="app-container">
       <header class="app-header">
-        <div class="app-header__logo-container">
-          <div class="app-header__logo">
-            <i class="fa-solid fa-futbol"></i>
-            <h1>PELADA <span class="app-header__logo--highlight">PRO</span></h1>
-          </div>
-          <!-- No segundo arquivo, altere este texto para "Gestão de Partida" -->
-          <p class="app-header__subtitle">Início</p>
+        <div class="logo">
+          <i class="fa-solid fa-soccer-ball"></i> PELADA <span>PRO</span>
         </div>
-
-        <!-- Mantido mesmo sem ícone para equilibrar o alinhamento flex -->
-        <a
-          href="configuracoes.html"
-          class="app-header__settings-btn"
-          style="color: inherit; font-size: 1.25rem"
-        >
-          <i class="fa-solid fa-gear"></i>
-        </a>
+        <div class="header-actions">
+          <div class="notification-badge">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">2</span>
+          </div>
+          <img
+            src="https://via.placeholder.com/40"
+            alt="Profile"
+            class="avatar-img"
+          />
+        </div>
       </header>
 
-      <!-- CONTEÚDO DO PERFIL -->
-      <section class="profile">
-        <h3 class="section-title">Local</h3>
-        <!-- PAINEL DE CONTROLE DE PARTIDAS (NOVO) -->
-        <div class="match-control-panel">
-          <div class="next-match-card">
-            <div class="next-match-card__header">
-              <span class="badge-live"
-                ><i class="fa-solid fa-calendar-check"></i> Próxima Pelada</span
-              >
-              <span class="next-match-card__price">5,00€ / jogador</span>
-            </div>
-
-            <div class="next-match-card__details">
-              <div class="next-match-card__info">
-                <p class="match-text--main">
-                  <i class="fa-regular fa-calendar"></i> Próxima Sexta-Feira
-                </p>
-                <p class="match-text--sub">Horário: 20:00 - 21:30</p>
-              </div>
-              <div class="next-match-card__info">
-                <p class="match-text--main">
-                  <i class="fa-solid fa-location-dot"></i> Arena Gramado
-                  Sintético
-                </p>
-                <p class="match-text--sub">Matosinhos, Porto</p>
-              </div>
-            </div>
-
-            <!-- BOTÕES DE CONFIRMAÇÃO (SIM / NÃO) -->
-            <div class="attendance-actions">
-              <button
-                type="button"
-                class="btn-attendance btn-attendance--yes"
-                id="btnPresencaSim"
-              >
-                <i class="fa-solid fa-thumbs-up"></i> Eu vou
-              </button>
-              <button
-                type="button"
-                class="btn-attendance btn-attendance--no"
-                id="btnPresencaNao"
-              >
-                <i class="fa-solid fa-thumbs-down"></i> Não vou
-              </button>
-            </div>
-          </div>
-
-          <!-- BOTÃO PARA CRIAR NOVO JOGO -->
-          <a href="marcar-jogo.html" class="btn-create-match">
-            <i class="fa-solid fa-calendar-plus"></i> Criar Nova Partida
-          </a>
+      <section class="welcome-section">
+        <div class="welcome-text">
+          <h1>Olá, R. Silva! 👋</h1>
+          <p>Pronto para mais uma pelada?</p>
         </div>
-        <h3 class="section-title">Perfil</h3>
-        <!-- Bloco do Usuário -->
-        <div class="profile__card">
-          <div class="profile__avatar-container">
-            <img
-              src="https://www.w3schools.com/howto/img_avatar.png"
-              alt="Foto de R. Silva"
-              class="profile__avatar"
-            />
-          </div>
-          <h2 class="profile__name">R. Silva</h2>
-          <p class="profile__level">
-            Nível: <span class="profile__level--status">Veterano</span>
-          </p>
-          <div class="profile__stars">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-          </div>
-        </div>
-
-        <!-- SEÇÃO DOS CARTÕES ESTILO UT / FIFA (Linha e Goleiro Juntos) -->
-        <div class="cards-section">
-          <h3 class="section-title">Cartões de Atributos</h3>
-
-          <div class="cards-container">
-            <!-- Cartão Jogador de Linha -->
-            <div class="fifa-card fifa-card--gold">
-              <div class="fifa-card__header">
-                <span class="fifa-card__rating">86</span>
-                <span class="fifa-card__position">LIN</span>
-              </div>
-              <img
-                src="https://www.w3schools.com/howto/img_avatar.png"
-                alt="R. Silva Linha"
-                class="fifa-card__player-img"
-              />
-              <h4 class="fifa-card__player-name">R. SILVA</h4>
-              <div class="fifa-card__stats">
-                <div class="fifa-card__stat-col">
-                  <p><span>85</span> PAC</p>
-                  <p><span>88</span> SHO</p>
-                  <p><span>82</span> PAS</p>
-                </div>
-                <div class="fifa-card__stat-col">
-                  <p><span>84</span> DRI</p>
-                  <p><span>55</span> DEF</p>
-                  <p><span>78</span> PHY</p>
-                </div>
-              </div>
+        <div class="level-card">
+          <div class="level-badge">12</div>
+          <div class="level-progress-container">
+            <span class="level-title">Nível 12</span>
+            <div class="progress-bar">
+              <div class="progress" style="width: 82%"></div>
             </div>
-
-            <!-- Cartão Goleiro (Manga Larga) -->
-            <div class="fifa-card fifa-card--gk">
-              <div class="fifa-card__header">
-                <span class="fifa-card__rating">79</span>
-                <span class="fifa-card__position">GOL</span>
-              </div>
-              <img
-                src="https://www.w3schools.com/howto/img_avatar.png"
-                alt="R. Silva Goleiro"
-                class="fifa-card__player-img"
-              />
-              <h4 class="fifa-card__player-name">R. SILVA</h4>
-              <div class="fifa-card__stats">
-                <div class="fifa-card__stat-col">
-                  <p><span>80</span> DIV</p>
-                  <p><span>75</span> HAN</p>
-                  <p><span>72</span> KIC</p>
-                </div>
-                <div class="fifa-card__stat-col">
-                  <p><span>82</span> REF</p>
-                  <p><span>45</span> SPD</p>
-                  <p><span>78</span> POS</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SEÇÃO DE CONQUISTAS (BADGES) -->
-        <div class="achievements-section">
-          <h3 class="section-title">Conquistas Desbloqueadas</h3>
-
-          <div class="achievements-grid">
-            <!-- CONQUISTA 9: CATA-VENTO (MUITO PAC / VELOCIDADE) -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon"
-                style="
-                  background: rgba(168, 85, 247, 0.15);
-                  color: #a855f7;
-                  border-color: #a855f7;
-                "
-              >
-                <i class="fa-solid fa-wind"></i>
-              </div>
-              <p class="achievement-badge__title">Foguete</p>
-            </div>
-
-            <!-- CONQUISTA 10: PROFESSOR (ORGANIZADOR / JOGA DE TERNO) -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon"
-                style="
-                  background: rgba(236, 72, 153, 0.15);
-                  color: #ec4899;
-                  border-color: #ec4899;
-                "
-              >
-                <i class="fa-solid fa-graduation-cap"></i>
-              </div>
-              <p class="achievement-badge__title">Professor</p>
-            </div>
-
-            <!-- CONQUISTA 11: CORAÇÃO VALENTE (GUARDA-REDES QUE VAI PARA A LINHA) -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon"
-                style="
-                  background: rgba(6, 182, 212, 0.15);
-                  color: #06b6d4;
-                  border-color: #06b6d4;
-                "
-              >
-                <i class="fa-solid fa-glove"></i>
-              </div>
-              <p class="achievement-badge__title">Coringa</p>
-            </div>
-
-            <!-- CONQUISTA 12: CACHEGRE (O JOGADOR QUE LEVA O CARTÃO) -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon"
-                style="
-                  background: rgba(249, 115, 22, 0.15);
-                  color: #f97316;
-                  border-color: #f97316;
-                "
-              >
-                <i class="fa-solid fa-copy"></i>
-              </div>
-              <p class="achievement-badge__title">Xerife</p>
-            </div>
-
-            <!-- CONQUISTA 5: BOTA DE OURO (GOLOS ACUMULADOS) -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon"
-                style="
-                  background: rgba(234, 179, 8, 0.15);
-                  color: #eab308;
-                  border-color: #eab308;
-                "
-              >
-                <i class="fa-solid fa-shoe-prints"></i>
-              </div>
-              <p class="achievement-badge__title">Bota de Ouro</p>
-            </div>
-
-            <!-- CONQUISTA 6: CONVOCADO (PRESENÇA PERFEITA) -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon"
-                style="
-                  background: rgba(34, 197, 94, 0.15);
-                  color: #22c55e;
-                  border-color: #22c55e;
-                "
-              >
-                <i class="fa-solid fa-flag"></i>
-              </div>
-              <p class="achievement-badge__title">Convocado</p>
-            </div>
-
-            <!-- CONQUISTA 7: RAÇA PURA (GARRA E DEFESA) -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon"
-                style="
-                  background: rgba(239, 68, 68, 0.15);
-                  color: #ef4444;
-                  border-color: #ef4444;
-                "
-              >
-                <i class="fa-solid fa-fire"></i>
-              </div>
-              <p class="achievement-badge__title">Raça Pura</p>
-            </div>
-
-            <!-- CONQUISTA 8: MAESTRO (ASSISTÊNCIAS) -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon"
-                style="
-                  background: rgba(59, 130, 246, 0.15);
-                  color: #3b82f6;
-                  border-color: #3b82f6;
-                "
-              >
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-              </div>
-              <p class="achievement-badge__title">Maestro</p>
-            </div>
-            <!-- Conquista 1 -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon achievement-badge__icon--gold"
-              >
-                <i class="fa-solid fa-rocket"></i>
-              </div>
-              <p class="achievement-badge__title">Artilheiro</p>
-            </div>
-
-            <!-- Conquista 2 -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon achievement-badge__icon--trophy"
-              >
-                <i class="fa-solid fa-trophy"></i>
-              </div>
-              <p class="achievement-badge__title">MVP do Mês</p>
-            </div>
-
-            <!-- Conquista 3 -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon achievement-badge__icon--shield"
-              >
-                <i class="fa-solid fa-shield-halved"></i>
-              </div>
-              <p class="achievement-badge__title">Paredão</p>
-            </div>
-
-            <!-- Conquista 4 -->
-            <div class="achievement-badge">
-              <div
-                class="achievement-badge__icon achievement-badge__icon--star"
-              >
-                <i class="fa-solid fa-star-and-crescent"></i>
-              </div>
-              <p class="achievement-badge__title">Inimigo do Fim</p>
-            </div>
+            <span class="xp-text">820 / 1000 XP</span>
           </div>
         </div>
       </section>
 
-      <!-- BARRA DE NAVEGAÇÃO INFERIOR (BOTTOM NAV) -->
+      <section class="next-match-card">
+        <div class="match-details">
+          <div class="match-info-header">
+            <i class="fa-regular fa-calendar-days icon-green"></i>
+            <div>
+              <span class="tag-title">PRÓXIMA PELADA</span>
+              <h2>Sexta-feira, 14 Jun • 20:00</h2>
+              <p>
+                <i class="fa-solid fa-location-dot"></i> Arena Gramado Sintético
+              </p>
+              <p class="sub-location">Matosinhos, Porto</p>
+            </div>
+          </div>
+          <div class="match-actions">
+            <button class="btn btn-confirm">
+              <i class="fa-regular fa-thumbs-up"></i> EU VOU
+            </button>
+            <button class="btn btn-decline">
+              <i class="fa-regular fa-thumbs-down"></i> NÃO VOU
+            </button>
+          </div>
+        </div>
+
+        <div class="match-status">
+          <span class="price-tag">5,00€ / jogador</span>
+          <div class="confirmed-count">
+            <span class="label">Confirmados</span>
+            <span class="count">16 <span>/ 20</span></span>
+          </div>
+          <div class="avatar-group">
+            <img src="https://via.placeholder.com/30" alt="Player" />
+            <img src="https://via.placeholder.com/30" alt="Player" />
+            <img src="https://via.placeholder.com/30" alt="Player" />
+            <div class="avatar-more">+7</div>
+          </div>
+        </div>
+      </section>
+
+      <main class="dashboard-grid">
+        <div class="grid-column">
+          <div class="mini-stats-grid">
+            <div class="stat-box">
+              <div class="stat-icon">
+                <i class="fa-solid fa-soccer-ball"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Gols</span>
+                <span class="stat-value">27</span>
+                <span class="stat-sub">#3 no ranking</span>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-icon"><i class="fa-solid fa-bullseye"></i></div>
+              <div class="stat-content">
+                <span class="stat-label">Assistências</span>
+                <span class="stat-value">15</span>
+                <span class="stat-sub">#4 no ranking</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card my-ranking-card">
+            <h3>
+              <i class="fa-solid fa-chart-simple icon-green"></i> MEU RANKING
+            </h3>
+            <div class="ranking-content">
+              <div>
+                <span class="rank-number">#4</span>
+                <span class="rank-text">da temporada</span>
+                <span class="badge-up"
+                  ><i class="fa-solid fa-caret-up"></i> 2 posições</span
+                >
+              </div>
+              <div class="trophy-badge">
+                <i class="fa-solid fa-award"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3><i class="fa-solid fa-wallet icon-green"></i> PAGAMENTOS</h3>
+            <div class="payment-info">
+              <div>
+                <span class="stat-label">Arrecadado</span>
+                <span class="payment-value green-text">80,00€</span>
+              </div>
+              <div>
+                <span class="stat-label">Meta</span>
+                <span class="payment-value">100,00€</span>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 80%"></div>
+            </div>
+            <div class="payment-status">
+              <i class="fa-solid fa-circle-check green-text"></i> Pago
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-column">
+          <div class="card">
+            <div class="card-header">
+              <h3>RANKING DA TEMPORADA</h3>
+              <a href="#" class="view-all">Ver tudo</a>
+            </div>
+            <ul class="ranking-list">
+              <li class="ranking-item">
+                <span class="pos gold">1</span>
+                <img
+                  src="https://via.placeholder.com/30"
+                  class="player-thumb"
+                />
+                <span class="player-name">João Pereira</span>
+                <span class="points">95</span>
+              </li>
+              <li class="ranking-item">
+                <span class="pos silver">2</span>
+                <img
+                  src="https://via.placeholder.com/30"
+                  class="player-thumb"
+                />
+                <span class="player-name">Pedro Santos</span>
+                <span class="points">92</span>
+              </li>
+              <li class="ranking-item current-user">
+                <span class="pos">4</span>
+                <img
+                  src="https://via.placeholder.com/30"
+                  class="player-thumb"
+                />
+                <span class="player-name">R. Silva</span>
+                <span class="points">86</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card profile-summary-card">
+            <div class="card-header">
+              <h3><i class="fa-regular fa-user icon-green"></i> MEU PERFIL</h3>
+              <a href="#" class="view-all">Ver perfil</a>
+            </div>
+            <div class="profile-meta">
+              <img
+                src="https://via.placeholder.com/60"
+                class="profile-main-avatar"
+              />
+              <div>
+                <h4>R. Silva</h4>
+                <span class="tier-text"
+                  >Nível: <span class="green-text">Veterano</span></span
+                >
+                <div class="stars">⭐⭐⭐⭐★</div>
+              </div>
+            </div>
+            <div class="profile-stats-badge">
+              <div class="p-badge"><strong>86</strong><span>Overall</span></div>
+              <div class="p-badge"><strong>72</strong><span>Jogos</span></div>
+              <div class="p-badge">
+                <strong>45</strong><span>Vitórias</span>
+              </div>
+              <div class="p-badge">
+                <strong>68%</strong><span>Aproveit.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
       <nav class="bottom-nav">
-        <a href="index.html" class="bottom-nav__item bottom-nav__item--active">
-          <i class="fa-solid fa-house"></i>
-          <span>Início</span>
-        </a>
-        <a href="times.html" class="bottom-nav__item">
-          <i class="fa-solid fa-users"></i>
-          <span>Times</span>
-        </a>
-        <a href="carta.html" class="bottom-nav__item">
-          <i class="fa-solid fa-trophy"></i>
-          <span>Ranking</span>
-        </a>
-        <a href="historico.html" class="bottom-nav__item">
-          <i class="fa-solid fa-clock-rotate-left"></i>
-          <span>Histórico</span>
-        </a>
-        <a href="perfil.html" class="bottom-nav__item">
-          <i class="fa-solid fa-user"></i>
-          <span>Perfil</span>
-        </a>
+        <a href="index.html" class="nav-item active"
+          ><i class="fa-solid fa-house"></i><span>Início</span></a
+        >
+        <a href="partidas.html" class="nav-item"
+          ><i class="fa-regular fa-calendar"></i><span>Partidas</span></a
+        >
+        <a href="criar-partida.html" class="nav-item nav-create"
+          ><i class="fa-solid fa-plus"></i
+        ></a>
+        <a href="ranking.html" class="nav-item"
+          ><i class="fa-solid fa-trophy"></i><span>Ranking</span></a
+        >
+        <a href="mais.html" class="nav-item"
+          ><i class="fa-solid fa-bars"></i><span>Mais</span></a
+        >
       </nav>
-    </main>
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/sw.js");
-      }
-    </script>
-    <script>
-      const btnSim = document.getElementById("btnPresencaSim");
-      const btnNao = document.getElementById("btnPresencaNao");
-
-      if (btnSim && btnNao) {
-        // Clique no SIM
-        btnSim.addEventListener("click", () => {
-          btnSim.classList.add("is-active");
-          btnNao.classList.remove("is-active");
-        });
-
-        // Clique no NÃO
-        btnNao.addEventListener("click", () => {
-          btnNao.classList.add("is-active");
-          btnSim.classList.remove("is-active");
-        });
-      }
-    </script>
+    </div>
   </body>
 </html>

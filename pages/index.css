@@ -2,10 +2,19 @@
 @import url("../vendor/fonts.css");*/
 
 
-@import url("../blocks/styles.css");
-@import url("../blocks/times-styles.css");
-@import url("../blocks/sorteio-styles.css");
-@import url("../blocks/chat-styles.css");
+@import url("../blocks/style.css");
+
+@import url("../blocks/partidas.css");
+
+
+@import url("../blocks/criar-partida.css");
+
+@import url("../blocks/ranking.css");
+
+
+@import url("../blocks/mais.css");
+
+
 @import url("../blocks/historico-styles.css");
 @import url("../blocks/configuracoes-style.css");
 @import url("../blocks/onboarding-styles.css");

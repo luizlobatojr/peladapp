@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelada Pro - Ranking da Temporada</title>
+    <link rel="stylesheet" href="pages/index.css">
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-soccer-ball"></i> PELADA <span>PRO</span>
+            </div>
+            <div class="header-actions">
+                <div class="notification-badge">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge">2</span>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="Profile" class="avatar-img">
+            </div>
+        </header>
+
+        <!-- TÍTULO DA TELA -->
+        <section class="screen-header">
+            <h1>Ranking Geral</h1>
+            <p>Temporada Atual • Junho 2026</p>
+        </section>
+
+        <!-- DESTAQUE DO SEU RANKING -->
+        <section class="user-rank-banner">
+            <div class="banner-info">
+                <span class="banner-lbl">Sua posição atual</span>
+                <div class="banner-main">
+                    <span class="user-position">#4</span>
+                    <div class="user-details-inline">
+                        <h3>R. Silva</h3>
+                        <span class="trend-up"><i class="fa-solid fa-caret-up"></i> Subiu 2 posições esta semana</span>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-points">
+                <span class="pts-num">86</span>
+                <span class="pts-lbl">Pontos</span>
+            </div>
+        </section>
+
+        <!-- FILTROS DE RANKING -->
+        <div class="filters-scroll">
+            <button class="filter-btn active">Geral</button>
+            <button class="filter-btn">Gols</button>
+            <button class="filter-btn">Assistências</button>
+            <button class="filter-btn">MVPs</button>
+        </div>
+
+        <!-- LISTA COMPLETA DE CLASSIFICAÇÃO -->
+        <main class="ranking-leaderboard">
+            
+            <!-- Pos 1: Ouro -->
+            <div class="leaderboard-item rank-gold">
+                <div class="rank-badge">
+                    <i class="fa-solid fa-crown crown-icon"></i>
+                    <span class="number">1</span>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="João Pereira" class="player-avatar">
+                <div class="player-meta">
+                    <span class="name">João Pereira</span>
+                    <span class="sub-stats">14 Jogos • 12 Vitórias</span>
+                </div>
+                <div class="score-display">
+                    <strong>95</strong>
+                    <span>pts</span>
+                </div>
+            </div>
+
+            <!-- Pos 2: Prata -->
+            <div class="leaderboard-item rank-silver">
+                <div class="rank-badge">
+                    <span class="number">2</span>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="Pedro Santos" class="player-avatar">
+                <div class="player-meta">
+                    <span class="name">Pedro Santos</span>
+                    <span class="sub-stats">15 Jogos • 10 Vitórias</span>
+                </div>
+                <div class="score-display">
+                    <strong>92</strong>
+                    <span>pts</span>
+                </div>
+            </div>
+
+            <!-- Pos 3: Bronze -->
+            <div class="leaderboard-item rank-bronze">
+                <div class="rank-badge">
+                    <span class="number">3</span>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="Carlos Eduardo" class="player-avatar">
+                <div class="player-meta">
+                    <span class="name">Carlos Eduardo</span>
+                    <span class="sub-stats">12 Jogos • 9 Vitórias</span>
+                </div>
+                <div class="score-display">
+                    <strong>90</strong>
+                    <span>pts</span>
+                </div>
+            </div>
+
+            <!-- Pos 4: Usuário Atual (Destaque na lista) -->
+            <div class="leaderboard-item current-user-item">
+                <div class="rank-badge">
+                    <span class="number">4</span>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="R. Silva" class="player-avatar user-bordered">
+                <div class="player-meta">
+                    <span class="name">R. Silva <small class="you-tag">(Você)</small></span>
+                    <span class="sub-stats">13 Jogos • 8 Vitórias</span>
+                </div>
+                <div class="score-display">
+                    <strong class="green-text">86</strong>
+                    <span>pts</span>
+                </div>
+            </div>
+
+            <!-- Pos 5: Normal -->
+            <div class="leaderboard-item">
+                <div class="rank-badge">
+                    <span class="number">5</span>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="Bruno Costa" class="player-avatar">
+                <div class="player-meta">
+                    <span class="name">Bruno Costa</span>
+                    <span class="sub-stats">14 Jogos • 7 Vitórias</span>
+                </div>
+                <div class="score-display">
+                    <strong>84</strong>
+                    <span>pts</span>
+                </div>
+            </div>
+
+            <!-- Pos 6: Normal -->
+            <div class="leaderboard-item">
+                <div class="rank-badge">
+                    <span class="number">6</span>
+                </div>
+                <img src="https://via.placeholder.com/40" alt="Miguel Alves" class="player-avatar">
+                <div class="player-meta">
+                    <span class="name">Miguel Alves</span>
+                    <span class="sub-stats">11 Jogos • 6 Vitórias</span>
+                </div>
+                <div class="score-display">
+                    <strong>79</strong>
+                    <span>pts</span>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- NAV BAR INFERIOR -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item active"
+          ><i class="fa-solid fa-house"></i><span>Início</span></a
+        >
+        <a href="partidas.html" class="nav-item"
+          ><i class="fa-regular fa-calendar"></i><span>Partidas</span></a
+        >
+        <a href="criar-partida.html" class="nav-item nav-create"
+          ><i class="fa-solid fa-plus"></i
+        ></a>
+        <a href="ranking.html" class="nav-item"
+          ><i class="fa-solid fa-trophy"></i><span>Ranking</span></a
+        >
+        <a href="mais.html" class="nav-item"
+          ><i class="fa-solid fa-bars"></i><span>Mais</span></a
+        >
+        </nav>
+
+    </div>
+
+</body>
+</html>
