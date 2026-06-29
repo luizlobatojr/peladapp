@@ -3,20 +3,14 @@
 
 
 @import url("../blocks/style.css");
-
 @import url("../blocks/partidas.css");
-
-
 @import url("../blocks/criar-partida.css");
-
 @import url("../blocks/ranking.css");
-
-
 @import url("../blocks/mais.css");
+@import url("../blocks/historico.css");
+@import url("../blocks/calendario.css");
 
 
-@import url("../blocks/historico-styles.css");
-@import url("../blocks/configuracoes-style.css");
 @import url("../blocks/onboarding-styles.css");
 @import url("../blocks/cadastro.html");
 @import url("../blocks/marcar-jogo.css");
