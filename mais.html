@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pelada Pro - Mais Opções</title>
+    <title>Pelada Pro - Centro de Controle</title>
     <link rel="stylesheet" href="pages/index.css" />
     <!-- Ícones FontAwesome -->
     <link
@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="app-container">
-      <!-- HEADER -->
+      <!-- HEADER DO APP -->
       <header class="app-header">
         <div class="logo">
           <i class="fa-solid fa-soccer-ball"></i> PELADA <span>PRO</span>
@@ -21,7 +21,7 @@
         <div class="header-actions">
           <div class="notification-badge">
             <i class="fa-regular fa-bell"></i>
-            <span class="badge">2</span>
+            <span class="badge">4</span>
           </div>
           <img
             src="https://via.placeholder.com/40"
@@ -31,148 +31,257 @@
         </div>
       </header>
 
-      <!-- RESUMO DO PERFIL LOGADO -->
-      <section class="profile-card-extended">
-        <div class="profile-main-info">
-          <img
-            src="https://via.placeholder.com/65"
-            alt="R. Silva"
-            class="profile-large-avatar"
-          />
-          <div class="profile-text-details">
-            <h2>R. Silva</h2>
-            <span class="username-tag">@rsilva.9</span>
-            <span class="status-badge"
-              ><i class="fa-solid fa-shield-halved"></i> Plano Premium</span
-            >
+      <!-- 👤 HEADER ESTILO EA SPORTS / PLAYSTATION -->
+      <section class="ea-profile-hub">
+        <div class="profile-header-main">
+          <div class="avatar-wrapper-hub">
+            <img
+              src="https://via.placeholder.com/75"
+              alt="Luiz Lobato Jr"
+              class="hub-avatar"
+            />
+            <div class="overall-badge-hub">86</div>
+          </div>
+          <div class="profile-names">
+            <h2>
+              Luiz Lobato Jr
+              <i
+                class="fa-solid fa-circle-check verification-icon"
+                title="Perfil Verificado"
+              ></i>
+            </h2>
+            <div class="tags-row">
+              <span class="hub-tag tag-veteran"
+                ><i class="fa-solid fa-crown"></i> Veterano</span
+              >
+              <span class="hub-tag tag-rank">#4 da Temporada</span>
+            </div>
           </div>
         </div>
-        <div class="profile-footer-stats">
-          <div class="stat-item">
-            <strong>Nível 12</strong>
-            <span>820 / 1000 XP</span>
+
+        <!-- Barra de Progresso de XP -->
+        <div class="xp-progress-container">
+          <div class="xp-labels">
+            <span>Nível 14</span>
+            <span class="xp-numeric">820 / 1000 XP</span>
           </div>
-          <div class="stat-item">
-            <strong>Desde</strong>
-            <span>Jan 2024</span>
+          <div class="xp-bar-bg">
+            <div class="xp-bar-fill" style="width: 82%"></div>
           </div>
         </div>
       </section>
 
-      <!-- MENU DE OPÇÕES CATEGORIZADO -->
-      <main class="menu-options-container">
-        <!-- Grupo 1: Conta -->
-        <div class="options-group">
-          <h3 class="group-title">Minha Conta</h3>
-
-          <a href="#" class="option-item">
-            <div class="option-left">
-              <div class="option-icon bg-blue">
-                <i class="fa-regular fa-user"></i>
-              </div>
-              <span>Dados Pessoais</span>
-            </div>
-            <i class="fa-solid fa-chevron-right arrow"></i>
-          </a>
-
-          <a href="#" class="option-item">
-            <div class="option-left">
-              <div class="option-icon bg-green">
-                <i class="fa-solid fa-wallet"></i>
-              </div>
-              <span>Histórico de Pagamentos</span>
-            </div>
-            <i class="fa-solid fa-chevron-right arrow"></i>
-          </a>
-
-          <a href="#" class="option-item">
-            <div class="option-left">
-              <div class="option-icon bg-purple">
-                <i class="fa-solid fa-award"></i>
-              </div>
-              <span>Suas Conquistas e Troféus</span>
-            </div>
-            <i class="fa-solid fa-chevron-right arrow"></i>
-          </a>
+      <!-- 📊 CARDS RÁPIDOS (HORIZONTAL SCROLL) -->
+      <section class="quick-cards-slider">
+        <div class="quick-card">
+          <i class="fa-solid fa-trophy card-icon gold-text"></i>
+          <span class="card-lbl">Ranking</span>
+          <strong class="card-val green-neon">#4</strong>
         </div>
+        <div class="quick-card">
+          <i class="fa-solid fa-soccer-ball card-icon"></i>
+          <span class="card-lbl">Gols</span>
+          <strong class="card-val">27</strong>
+        </div>
+        <div class="quick-card">
+          <i class="fa-solid fa-bullseye card-icon text-purple"></i>
+          <span class="card-lbl">Assist.</span>
+          <strong class="card-val">15</strong>
+        </div>
+        <div class="quick-card">
+          <i class="fa-solid fa-fire card-icon text-orange"></i>
+          <span class="card-lbl">Jogos</span>
+          <strong class="card-val">72</strong>
+        </div>
+      </section>
 
-        <!-- Grupo 2: Preferências -->
-        <div class="options-group">
-          <h3 class="group-title">Preferências</h3>
+      <!-- ⚡ GRID DE ATALHOS PRINCIPAIS -->
+      <section class="menu-section">
+        <h3 class="section-title">Atalhos Rápidos</h3>
+        <div class="shortcuts-grid">
+          <a href="#" class="shortcut-box"
+            ><i class="fa-solid fa-calendar-plus green-neon"></i
+            ><span>Criar Partida</span></a
+          >
+          <a href="#" class="shortcut-box"
+            ><i class="fa-solid fa-user-group"></i><span>Jogadores</span></a
+          >
+          <a href="#" class="shortcut-box"
+            ><i class="fa-solid fa-trophy gold-text"></i><span>Ranking</span></a
+          >
+          <a href="#" class="shortcut-box"
+            ><i class="fa-regular fa-calendar"></i><span>Calendário</span></a
+          >
+          <a href="#" class="shortcut-box"
+            ><i class="fa-solid fa-dice text-purple"></i><span>Sorteio</span></a
+          >
+          <a href="#" class="shortcut-box"
+            ><i class="fa-regular fa-credit-card text-orange"></i
+            ><span>Pagamentos</span></a
+          >
+        </div>
+      </section>
 
-          <a href="#" class="option-item">
-            <div class="option-left">
-              <div class="option-icon bg-orange">
-                <i class="fa-regular fa-bell"></i>
-              </div>
-              <span>Gerenciar Notificações</span>
-            </div>
-            <i class="fa-solid fa-chevron-right arrow"></i>
-          </a>
+      <!-- 🛠️ PAINEL DE ADMINISTRAÇÃO (EXCLUSIVO) -->
+      <section class="menu-section admin-panel-box">
+        <h3 class="section-title text-red">
+          <i class="fa-solid fa-user-gear"></i> Administração da Pelada
+        </h3>
+        <div class="admin-actions-list">
+          <a href="#" class="admin-item"
+            ><span><i class="fa-solid fa-user-plus"></i> Adicionar jogador</span
+            ><i class="fa-solid fa-angle-right"></i
+          ></a>
+          <a href="#" class="admin-item"
+            ><span><i class="fa-solid fa-user-minus"></i> Remover jogador</span
+            ><i class="fa-solid fa-angle-right"></i
+          ></a>
+          <a href="#" class="admin-item"
+            ><span><i class="fa-solid fa-plus"></i> Criar jogo</span
+            ><i class="fa-solid fa-angle-right"></i
+          ></a>
+          <a href="#" class="admin-item"
+            ><span><i class="fa-solid fa-dice"></i> Sortear Times</span
+            ><i class="fa-solid fa-angle-right"></i
+          ></a>
+          <a href="#" class="admin-item"
+            ><span
+              ><i class="fa-solid fa-ranking-star"></i> Atualizar Ranking</span
+            ><i class="fa-solid fa-angle-right"></i
+          ></a>
+          <a href="#" class="admin-item"
+            ><span><i class="fa-solid fa-bullhorn"></i> Enviar aviso</span
+            ><i class="fa-solid fa-angle-right"></i
+          ></a>
+          <a href="#" class="admin-item"
+            ><span
+              ><i class="fa-solid fa-sack-dollar"></i> Controle Financeiro</span
+            ><i class="fa-solid fa-angle-right"></i
+          ></a>
+        </div>
+      </section>
 
-          <div class="option-item no-link">
-            <div class="option-left">
-              <div class="option-icon bg-teal">
-                <i class="fa-solid fa-moon"></i>
-              </div>
-              <span>Modo Escuro</span>
-            </div>
-            <label class="switch">
-              <input type="checkbox" checked disabled />
-              <span class="slider round"></span>
-            </label>
+      <!-- 📉 MINHA TEMPORADA (ESTATÍSTICAS COMPLETAS) -->
+      <section class="menu-section">
+        <h3 class="section-title">Minha Temporada</h3>
+        <div class="stats-dashboard-grid">
+          <div class="stat-mini-box">
+            <h5>Vitórias</h5>
+            <span class="green-neon">18</span>
+          </div>
+          <div class="stat-mini-box">
+            <h5>Empates</h5>
+            <span>7</span>
+          </div>
+          <div class="stat-mini-box">
+            <h5>Derrotas</h5>
+            <span class="text-red">7</span>
+          </div>
+          <div class="stat-mini-box">
+            <h5>MVP</h5>
+            <span class="gold-text">4</span>
+          </div>
+          <div class="stat-mini-box">
+            <h5>Assistências</h5>
+            <span>15</span>
+          </div>
+          <div class="stat-mini-box">
+            <h5>Gols</h5>
+            <span>27</span>
+          </div>
+          <div class="stat-mini-box full-width-stat">
+            <h5>Nota Média da Temporada</h5>
+            <strong class="large-rating-num"
+              >8.2 <i class="fa-solid fa-star"></i
+            ></strong>
           </div>
         </div>
+      </section>
 
-        <!-- Grupo 3: Suporte e Sistema -->
-        <div class="options-group">
-          <h3 class="group-title">Suporte</h3>
-
-          <a href="#" class="option-item">
-            <div class="option-left">
-              <div class="option-icon bg-gray">
-                <i class="fa-regular fa-circle-question"></i>
-              </div>
-              <span>Central de Ajuda / FAQ</span>
-            </div>
-            <i class="fa-solid fa-chevron-right arrow"></i>
-          </a>
-
-          <a href="#" class="option-item">
-            <div class="option-left">
-              <div class="option-icon bg-gray">
-                <i class="fa-solid fa-shield-heart"></i>
-              </div>
-              <span>Políticas de Privacidade</span>
-            </div>
-            <i class="fa-solid fa-chevron-right arrow"></i>
-          </a>
+      <!-- 🔥 FEED DE ATIVIDADES -->
+      <section class="menu-section">
+        <h3 class="section-title">Feed da Pelada</h3>
+        <div class="activity-feed-list">
+          <div class="feed-item">
+            <i class="fa-solid fa-user-plus text-blue"></i>
+            <p><strong>Pedro</strong> entrou na pelada.</p>
+          </div>
+          <div class="feed-item">
+            <i class="fa-solid fa-award gold-text"></i>
+            <p><strong>João</strong> virou MVP da última partida.</p>
+          </div>
+          <div class="feed-item">
+            <i class="fa-regular fa-circle-check green-neon"></i>
+            <p><strong>Carlos</strong> marcou presença para Sexta-feira.</p>
+          </div>
+          <div class="feed-item highlight-xp">
+            <i class="fa-solid fa-bolt text-purple"></i>
+            <p>Você ganhou <strong>+20 XP</strong> por consistência.</p>
+          </div>
+          <div class="feed-item highlight-ovr">
+            <i class="fa-solid fa-angles-up gold-text"></i>
+            <p>Parabéns! Você subiu para <strong>Overall 87</strong>.</p>
+          </div>
         </div>
+      </section>
 
-        <!-- Botão Sair -->
-        <button class="btn-logout-danger">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i> Terminar Sessão
-        </button>
+      <!-- ⚙️ CONFIGURAÇÕES E SUPORTE -->
+      <section class="menu-section">
+        <h3 class="section-title">Configurações & Suporte</h3>
+        <div class="settings-list-options">
+          <div class="setting-row-item">
+            <span><i class="fa-regular fa-moon"></i> Modo escuro</span>
+            <label class="switch"
+              ><input type="checkbox" checked /><span
+                class="slider round"
+              ></span
+            ></label>
+          </div>
+          <a href="#" class="setting-row-item"
+            ><span><i class="fa-regular fa-bell"></i> Notificações</span
+            ><i class="fa-solid fa-angle-right"></i
+          ></a>
+          <a href="#" class="setting-row-item"
+            ><span><i class="fa-solid fa-globe"></i> Idioma</span
+            ><span class="sub-setting-text">PT-BR</span></a
+          >
+          <a href="#" class="setting-row-item"
+            ><span
+              ><i class="fa-solid fa-share-nodes"></i> Compartilhar App</span
+            ><i class="fa-solid fa-angle-right"></i
+          ></a>
+          <a href="#" class="setting-row-item"
+            ><span><i class="fa-regular fa-star"></i> Avaliar App</span
+            ><i class="fa-solid fa-angle-right"></i
+          ></a>
+          <a href="#" class="setting-row-item"
+            ><span><i class="fa-regular fa-envelope"></i> Suporte Técnico</span
+            ><i class="fa-solid fa-angle-right"></i
+          ></a>
+        </div>
+      </section>
 
-        <!-- Versão do App -->
-        <span class="app-version-text">Pelada Pro v2.4.1 (2026)</span>
-      </main>
+      <!-- BOTÃO SAIR -->
+      <button class="btn-logout-hub">
+        <i class="fa-solid fa-power-off"></i> Terminar Sessão
+      </button>
+      <span class="app-version">Pelada Pro • Versão 3.1.0</span>
 
-      <!-- NAV BAR INFERIOR -->
+      <!-- NAV BAR INFERIOR DE 5 ABAS -->
       <nav class="bottom-nav">
-        <a href="index.html" class="nav-item "
+        <a href="index.html" class="nav-item"
           ><i class="fa-solid fa-house"></i><span>Início</span></a
         >
-        <a href="partidas.html" class="nav-item"
+        <a href="partidas.html" class="nav-item active"
           ><i class="fa-regular fa-calendar"></i><span>Partidas</span></a
         >
         <a href="criar-partida.html" class="nav-item nav-create"
           ><i class="fa-solid fa-plus"></i
         ></a>
-        <a href="ranking.html" class="nav-item "
+        <a href="ranking" class="nav-item"
           ><i class="fa-solid fa-trophy"></i><span>Ranking</span></a
         >
-        <a href="mais.html" class="nav-item active"
+        <a href="mais.html" class="nav-item"
           ><i class="fa-solid fa-bars"></i><span>Mais</span></a
         >
       </nav>

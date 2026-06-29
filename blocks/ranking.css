@@ -1,17 +1,19 @@
-/* VARIÁVEIS E BASE */
+/* VARIÁVEIS E CONFIGURAÇÕES VISUAIS */
 :root {
     --bg-main: #0b0f12;
     --bg-card: #13191e;
-    --bg-card-secondary: #1a232a;
-    --green-primary: #22c55e;
+    --bg-input: #182026;
+    --green-neon: #22c55e;
+    --green-glow: rgba(34, 197, 94, 0.2);
     --text-main: #ffffff;
     --text-muted: #64748b;
-    --border-color: #1e293b;
+    --border-color: #202b36;
     
-    /* Cores do Pódio */
-    --gold: #eab308;
+    /* Medalhas e Pódio */
+    --gold: #f59e0b;
     --silver: #94a3b8;
     --bronze: #b45309;
+    --purple-epic: #a855f7;
 }
 
 * {
@@ -42,92 +44,139 @@ body {
 
 /* HEADER */
 .app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
 }
 .logo { font-weight: 800; font-size: 1.2rem; }
-.logo span { color: var(--green-primary); }
+.logo span { color: var(--green-neon); }
 .header-actions { display: flex; align-items: center; gap: 14px; }
 .notification-badge { position: relative; font-size: 1.3rem; }
 .notification-badge .badge { position: absolute; top: -4px; right: -4px; background-color: #ef4444; color: white; font-size: 0.65rem; padding: 1px 5px; border-radius: 50%; }
-.avatar-img { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--green-primary); }
+.avatar-img { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--green-neon); }
 
 /* SCREEN HEADER */
-.screen-header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 2px; }
+.screen-header h1 { font-size: 1.4rem; font-weight: 700; }
 .screen-header p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; }
 
-/* BANNER DE DESTAQUE DO USUÁRIO */
-.user-rank-banner {
-    background: linear-gradient(135deg, #16221a, var(--bg-card));
-    border: 1px solid rgba(34, 197, 94, 0.25);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+/* SEARCH BAR E FILTROS COMPACTOS */
+.search-filter-section { display: flex; gap: 8px; margin-bottom: 12px; }
+.search-bar-wrapper { position: relative; flex: 1; }
+.search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem; }
+.search-bar-wrapper input {
+    width: 100%; background-color: var(--bg-input); border: 1px solid var(--border-color); color: var(--text-main); padding: 10px 10px 10px 38px; border-radius: 8px; font-size: 0.85rem;
 }
-.banner-lbl { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-.banner-main { display: flex; align-items: center; gap: 14px; margin-top: 4px; }
-.user-position { font-size: 2.2rem; font-weight: 900; color: var(--green-primary); line-height: 1; }
-.user-details-inline h3 { font-size: 1.1rem; font-weight: 700; }
-.trend-up { font-size: 0.7rem; color: var(--green-primary); display: block; margin-top: 2px; }
-
-.banner-points { text-align: center; border-left: 1px solid var(--border-color); padding-left: 16px; }
-.pts-num { font-size: 1.5rem; font-weight: 800; display: block; line-height: 1; }
-.pts-lbl { font-size: 0.65rem; color: var(--text-muted); }
-
-/* FILTROS NAVEGÁVEIS */
-.filters-scroll { display: flex; gap: 8px; overflow-x: auto; margin-bottom: 16px; padding-bottom: 4px; }
-.filter-btn {
-    background-color: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: 0.2s;
+.btn-toggle-filters {
+    background-color: var(--bg-input); border: 1px solid var(--border-color); color: var(--text-main); width: 40px; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: 0.2s;
 }
-.filter-btn.active { background-color: var(--green-primary); color: #000; border-color: var(--green-primary); }
+.btn-toggle-filters:active { color: var(--green-neon); border-color: var(--green-neon); }
 
-/* LISTA DE CLASSIFICAÇÃO */
-.ranking-leaderboard { display: flex; flex-direction: column; gap: 10px; }
-.leaderboard-item {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 12px;
-    display: grid;
-    grid-template-columns: 35px 40px 1fr 60px;
-    align-items: center;
+/* BOX DE FILTROS AVANÇADOS */
+.advanced-filters-box {
+    background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 10px;
+}
+.filter-grid-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.filter-select-cell { display: flex; flex-direction: column; gap: 4px; }
+.filter-select-cell label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: bold; }
+.filter-select-cell select {
+    background-color: var(--bg-input); border: 1px solid var(--border-color); color: var(--text-main); padding: 6px 10px; border-radius: 6px; font-size: 0.8rem;
+}
+.filter-chips-row { display: flex; gap: 6px; overflow-x: auto; padding-top: 4px; }
+.chip-btn {
+    background: none; border: 1px solid var(--border-color); color: var(--text-muted); padding: 5px 12px; border-radius: 14px; font-size: 0.75rem; font-weight: 600; cursor: pointer; white-space: nowrap;
+}
+.chip-btn.active { background-color: rgba(34, 197, 94, 0.1); border-color: var(--green-neon); color: var(--green-neon); }
+
+/* ABAS DE SELEÇÃO DE ESTATÍSTICA (TABS) */
+.ranking-tabs-scroll { display: flex; gap: 6px; overflow-x: auto; margin-bottom: 16px; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; }
+.tab-item {
+    background: none; border: none; color: var(--text-muted); padding: 6px 14px; font-size: 0.85rem; font-weight: bold; cursor: pointer; position: relative; white-space: nowrap;
+}
+.tab-item.active { color: var(--green-neon); }
+.tab-item.active::after {
+    content: ''; position: absolute; bottom: -7px; left: 0; width: 100%; height: 2px; background-color: var(--green-neon);
 }
 
-/* Customizações do Pódio */
-.rank-gold { border-left: 4px solid var(--gold); }
-.rank-silver { border-left: 4px solid var(--silver); }
-.rank-bronze { border-left: 4px solid var(--bronze); }
+/* 🏆 SISTEMA DO PÓDIO VIRTUAL */
+.podium-section {
+    display: flex; justify-content: center; align-items: flex-end; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px 10px; margin-bottom: 18px; gap: 8px;
+}
+.podium-column { display: flex; flex-direction: column; align-items: center; flex: 1; text-align: center; }
+.podium-avatar-wrapper { position: relative; margin-bottom: 8px; }
+.podium-avatar-wrapper img { border-radius: 50%; object-fit: cover; border: 2px solid var(--border-color); background-color: var(--bg-main); }
 
-.rank-badge { display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
-.rank-badge .number { font-weight: 800; font-size: 1rem; }
-.crown-icon { color: var(--gold); font-size: 0.65rem; position: absolute; top: -10px; }
+.podium-badge-number {
+    position: absolute; bottom: -2px; right: 50%; transform: translateX(50%); background-color: var(--border-color); color: white; font-size: 0.7rem; font-weight: 900; width: 18px; height: 18px; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 1px solid var(--bg-card);
+}
+.podium-name { font-size: 0.8rem; font-weight: 700; max-width: 85px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.podium-ovr { font-size: 0.75rem; font-weight: 800; color: var(--text-muted); margin-top: 2px; }
+.podium-sub { font-size: 0.65rem; color: var(--text-muted); }
 
-.rank-gold .rank-badge .number { color: var(--gold); font-size: 1.2rem; }
-.rank-silver .rank-badge .number { color: var(--silver); }
-.rank-bronze .rank-badge .number { color: var(--bronze); }
+/* Customizações do 1º Lugar (Ouro) */
+.pos-1 .podium-avatar-wrapper img { width: 64px; height: 64px; border-color: var(--gold); box-shadow: 0 0 12px rgba(245, 158, 11, 0.2); }
+.pos-1 .podium-badge-number { background-color: var(--gold); color: black; }
+.podium-crown { color: var(--gold); font-size: 0.8rem; position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(0deg); }
+.gold-text { color: var(--gold) !important; font-weight: bold; }
 
-.player-avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; }
-.user-bordered { border: 2px solid var(--green-primary); }
+/* Customizações do 2º e 3º Lugar */
+.pos-2 .podium-avatar-wrapper img { width: 52px; height: 52px; border-color: var(--silver); }
+.pos-2 .podium-badge-number { background-color: var(--silver); color: black; }
+.pos-3 .podium-avatar-wrapper img { width: 52px; height: 52px; border-color: var(--bronze); }
+.pos-3 .podium-badge-number { background-color: var(--bronze); color: white; }
 
-.player-meta { padding-left: 12px; }
-.player-meta .name { font-size: 0.9rem; font-weight: 600; display: block; }
-.player-meta .sub-stats { font-size: 0.7rem; color: var(--text-muted); }
-.you-tag { color: var(--green-primary); font-weight: normal; font-size: 0.75rem; }
+/* LISTA DE CLASSIFICAÇÃO COMPLETA */
+.ranking-leaderboard-list { display: flex; flex-direction: column; gap: 8px; }
+.leaderboard-row {
+    background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 10px 12px; display: grid; grid-template-columns: 42px 46px 1fr 48px; align-items: center; transition: 0.2s;
+}
 
-.score-display { text-align: right; }
-.score-display strong { font-size: 1.2rem; font-weight: 800; display: block; line-height: 1; }
-.score-display span { font-size: 0.65rem; color: var(--text-muted); }
-.green-text { color: var(--green-primary) !important; }
+/* Coluna 1: Posição e Evolução */
+.rank-num-col { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.row-position { font-size: 1rem; font-weight: 800; }
+.evolution-indicator { font-size: 0.65rem; font-weight: bold; margin-top: 1px; display: flex; align-items: center; gap: 1px; }
+.evolution-indicator.up { color: var(--green-neon); }
+.evolution-indicator.down { color: #ef4444; }
+.evolution-indicator.stable { color: var(--text-muted); }
 
-/* Item de Destaque do Usuário Logado */
-.current-user-item {
-    background-color: #161f26;
-    border: 1px solid rgba(34, 197, 94, 0.4);
+/* Coluna 2: Avatar + Foguito de Sequência */
+.avatar-medals-col { position: relative; width: 42px; height: 42px; }
+.row-avatar { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 1.5px solid transparent; }
+.border-green { border-color: var(--green-neon) !important; }
+
+.streak-fire {
+    position: absolute; top: -6px; right: -6px; background-color: #ef4444; color: white; font-size: 0.6rem; font-weight: bold; padding: 1px 4px; border-radius: 8px; display: flex; align-items: center; gap: 1px; box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+.animate-fire { animation: pulseFire 1.2s infinite alternate; }
+@keyframes pulseFire { 0% { transform: scale(1); } 100% { transform: scale(1.15); color: #f97316; } }
+
+/* Coluna 3: Info do Jogador e Medalhas */
+.player-info-col { padding-left: 8px; display: flex; flex-direction: column; gap: 2px; }
+.name-medals-row { display: flex; align-items: center; gap: 6px; }
+.player-name { font-size: 0.85rem; font-weight: 700; color: #f1f5f9; }
+.you-tag { color: var(--green-neon); font-size: 0.75rem; font-weight: normal; }
+
+.medals-box { display: flex; gap: 3px; align-items: center; }
+.medals-box i { font-size: 0.75rem; }
+.icon-medal-gold { color: var(--gold); }
+.icon-medal-silver { color: var(--silver); }
+.icon-medal-purple { color: var(--purple-epic); }
+
+.player-stats-summary { font-size: 0.68rem; color: var(--text-muted); }
+.player-stats-summary span { color: #cbd5e1; }
+.gk-tag { background-color: #3b82f6; color: white; font-size: 0.6rem; font-weight: 900; padding: 1px 4px; border-radius: 4px; }
+
+/* Coluna 4: Emblema de Overall */
+.overall-badge-col { display: flex; justify-content: flex-end; }
+.overall-display-box {
+    background-color: var(--bg-main); border: 1px solid var(--border-color); width: 44px; height: 44px; border-radius: 6px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+.ovr-num { font-size: 1.05rem; font-weight: 900; line-height: 1; color: #e2e8f0; }
+.green-neon-text { color: var(--green-neon) !important; text-shadow: 0 0 6px var(--green-glow); }
+.ovr-lbl { font-size: 0.55rem; color: var(--text-muted); font-weight: bold; margin-top: 1px; }
+
+/* 👤 DESTAQUE EXCLUSIVO PARA O JOGADOR LOGADO */
+.user-logged-highlight {
+    background: linear-gradient(90deg, #122218, var(--bg-card));
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.05);
 }
 
 /* NAVBAR INFERIOR */
@@ -136,9 +185,9 @@ body {
 }
 .nav-item { color: var(--text-muted); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 0.7rem; gap: 4px; flex: 1; }
 .nav-item i { font-size: 1.1rem; }
-.nav-item.active { color: var(--green-primary); }
+.nav-item.active { color: var(--green-neon); }
 
 .nav-create {
-    background-color: var(--green-primary); color: #000 !important; width: 44px; height: 44px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-top: -22px; box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3); flex: none;
+    background-color: var(--green-neon); color: #000 !important; width: 44px; height: 44px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-top: -22px; box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3); flex: none;
 }
 .nav-create i { font-size: 1.2rem; }

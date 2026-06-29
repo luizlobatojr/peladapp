@@ -1,185 +1,313 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pelada Pro - Ranking da Temporada</title>
-    <link rel="stylesheet" href="pages/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelada Pro - Ranking Avançado</title>
+    <link rel="stylesheet" href="pages/index.css" />
     <!-- Ícones FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <div class="app-container">
-        
-        <!-- HEADER -->
-        <header class="app-header">
-            <div class="logo">
-                <i class="fa-solid fa-soccer-ball"></i> PELADA <span>PRO</span>
-            </div>
-            <div class="header-actions">
-                <div class="notification-badge">
-                    <i class="fa-regular fa-bell"></i>
-                    <span class="badge">2</span>
-                </div>
-                <img src="https://via.placeholder.com/40" alt="Profile" class="avatar-img">
-            </div>
-        </header>
+      <!-- HEADER -->
+      <header class="app-header">
+        <div class="logo">
+          <i class="fa-solid fa-soccer-ball"></i> PELADA <span>PRO</span>
+        </div>
+        <div class="header-actions">
+          <div class="notification-badge">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">2</span>
+          </div>
+          <img
+            src="https://via.placeholder.com/40"
+            alt="Profile"
+            class="avatar-img"
+          />
+        </div>
+      </header>
 
-        <!-- TÍTULO DA TELA -->
-        <section class="screen-header">
-            <h1>Ranking Geral</h1>
-            <p>Temporada Atual • Junho 2026</p>
-        </section>
+      <!-- TÍTULO DA TELA -->
+      <section class="screen-header">
+        <h1>Ranking da Temporada</h1>
+        <p>Estatísticas oficiais e classificação</p>
+      </section>
 
-        <!-- DESTAQUE DO SEU RANKING -->
-        <section class="user-rank-banner">
-            <div class="banner-info">
-                <span class="banner-lbl">Sua posição atual</span>
-                <div class="banner-main">
-                    <span class="user-position">#4</span>
-                    <div class="user-details-inline">
-                        <h3>R. Silva</h3>
-                        <span class="trend-up"><i class="fa-solid fa-caret-up"></i> Subiu 2 posições esta semana</span>
-                    </div>
-                </div>
-            </div>
-            <div class="banner-points">
-                <span class="pts-num">86</span>
-                <span class="pts-lbl">Pontos</span>
-            </div>
-        </section>
+      <!-- BUSCA E BOTÃO DE FILTROS Extensíveis -->
+      <section class="search-filter-section">
+        <div class="search-bar-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" placeholder="Buscar jogador pelo nome..." />
+        </div>
+        <button class="btn-toggle-filters" title="Abrir Filtros Avançados">
+          <i class="fa-solid fa-sliders"></i>
+        </button>
+      </section>
 
-        <!-- FILTROS DE RANKING -->
-        <div class="filters-scroll">
-            <button class="filter-btn active">Geral</button>
-            <button class="filter-btn">Gols</button>
-            <button class="filter-btn">Assistências</button>
-            <button class="filter-btn">MVPs</button>
+      <!-- CONTAINER DE FILTROS AVANÇADOS (CONFIGURÁVEIS) -->
+      <div class="advanced-filters-box">
+        <div class="filter-grid-row">
+          <div class="filter-select-cell">
+            <label>Temporada</label>
+            <select>
+              <option>Temporada 2026</option>
+            </select>
+          </div>
+          <div class="filter-select-cell">
+            <label>Mês</label>
+            <select>
+              <option>Junho</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-chips-row">
+          <button class="chip-btn active">Todos</button>
+          <button class="chip-btn">Últimos 10 jogos</button>
+          <button class="chip-btn">
+            <i class="fa-solid fa-glove"></i> Goleiros
+          </button>
+          <button class="chip-btn">Linha</button>
+        </div>
+      </div>
+
+      <!-- ABAS DE RANKING (ESTATÍSTICAS) -->
+      <nav class="ranking-tabs-scroll">
+        <button class="tab-item active">Overall</button>
+        <button class="tab-item">Artilheiros</button>
+        <button class="tab-item">Assistências</button>
+        <button class="tab-item">Goleiros</button>
+        <button class="tab-item">Presença</button>
+        <button class="tab-item">MVP</button>
+      </nav>
+
+      <!-- 🏆 PÓDIO DOS 3 MELHORES (ESTILO MINI-BANNER COMPETITIVO) -->
+      <section class="podium-section">
+        <!-- 2º LUGAR (ESQUERDA) -->
+        <div class="podium-column pos-2">
+          <div class="podium-avatar-wrapper">
+            <img src="https://via.placeholder.com/55" alt="Pedro Santos" />
+            <span class="podium-badge-number">2</span>
+          </div>
+          <span class="podium-name">P. Santos</span>
+          <div class="podium-ovr">OVR 84</div>
+          <span class="podium-sub">🥈 Prata</span>
         </div>
 
-        <!-- LISTA COMPLETA DE CLASSIFICAÇÃO -->
-        <main class="ranking-leaderboard">
-            
-            <!-- Pos 1: Ouro -->
-            <div class="leaderboard-item rank-gold">
-                <div class="rank-badge">
-                    <i class="fa-solid fa-crown crown-icon"></i>
-                    <span class="number">1</span>
-                </div>
-                <img src="https://via.placeholder.com/40" alt="João Pereira" class="player-avatar">
-                <div class="player-meta">
-                    <span class="name">João Pereira</span>
-                    <span class="sub-stats">14 Jogos • 12 Vitórias</span>
-                </div>
-                <div class="score-display">
-                    <strong>95</strong>
-                    <span>pts</span>
-                </div>
+        <!-- 1º LUGAR (CENTRO - DESTAQUE) -->
+        <div class="podium-column pos-1">
+          <div class="podium-avatar-wrapper gold-wrap">
+            <i class="fa-solid fa-crown podium-crown"></i>
+            <img src="https://via.placeholder.com/65" alt="João Pereira" />
+            <span class="podium-badge-number">1</span>
+          </div>
+          <span class="podium-name">João Pereira</span>
+          <div class="podium-ovr gold-text">OVR 88</div>
+          <span class="podium-sub gold-text">🥇 Campeão</span>
+        </div>
+
+        <!-- 3º LUGAR (DIREITA) -->
+        <div class="podium-column pos-3">
+          <div class="podium-avatar-wrapper">
+            <img src="https://via.placeholder.com/55" alt="C. Eduardo" />
+            <span class="podium-badge-number">3</span>
+          </div>
+          <span class="podium-name">C. Eduardo</span>
+          <div class="podium-ovr">OVR 82</div>
+          <span class="podium-sub">🥉 Bronze</span>
+        </div>
+      </section>
+
+      <!-- LISTA COMPLETA DE CLASSIFICAÇÃO (RANKING COMPLETO) -->
+      <main class="ranking-leaderboard-list">
+        <!-- JOGADOR LOGADO (DESTAQUE COM BORDA VERDE + INDICADOR DE EVOLUÇÃO) -->
+        <div class="leaderboard-row user-logged-highlight">
+          <div class="rank-num-col">
+            <span class="row-position">#4</span>
+            <span class="evolution-indicator up"
+              ><i class="fa-solid fa-caret-up"></i> 2</span
+            >
+          </div>
+
+          <div class="avatar-medals-col">
+            <img
+              src="https://via.placeholder.com/42"
+              alt="Você"
+              class="row-avatar border-green"
+            />
+            <div class="streak-fire" title="Sequência de 4 vitórias">
+              <i class="fa-solid fa-fire animate-fire"></i><span>4v</span>
             </div>
+          </div>
 
-            <!-- Pos 2: Prata -->
-            <div class="leaderboard-item rank-silver">
-                <div class="rank-badge">
-                    <span class="number">2</span>
-                </div>
-                <img src="https://via.placeholder.com/40" alt="Pedro Santos" class="player-avatar">
-                <div class="player-meta">
-                    <span class="name">Pedro Santos</span>
-                    <span class="sub-stats">15 Jogos • 10 Vitórias</span>
-                </div>
-                <div class="score-display">
-                    <strong>92</strong>
-                    <span>pts</span>
-                </div>
+          <div class="player-info-col">
+            <div class="name-medals-row">
+              <span class="player-name"
+                >R. Silva <small class="you-tag">(Você)</small></span
+              >
+              <div class="medals-box">
+                <i
+                  class="fa-solid fa-medal icon-medal-gold"
+                  title="Artilheiro do Mês"
+                ></i>
+                <i
+                  class="fa-solid fa-star icon-medal-purple"
+                  title="Craque da Galera"
+                ></i>
+              </div>
             </div>
-
-            <!-- Pos 3: Bronze -->
-            <div class="leaderboard-item rank-bronze">
-                <div class="rank-badge">
-                    <span class="number">3</span>
-                </div>
-                <img src="https://via.placeholder.com/40" alt="Carlos Eduardo" class="player-avatar">
-                <div class="player-meta">
-                    <span class="name">Carlos Eduardo</span>
-                    <span class="sub-stats">12 Jogos • 9 Vitórias</span>
-                </div>
-                <div class="score-display">
-                    <strong>90</strong>
-                    <span>pts</span>
-                </div>
+            <!-- Estatísticas detalhadas na linha -->
+            <div class="player-stats-summary">
+              <span>⚽ 14 Gols</span> • <span>🎯 8 Ast</span> •
+              <span>🔥 78% Vit</span>
             </div>
+          </div>
 
-            <!-- Pos 4: Usuário Atual (Destaque na lista) -->
-            <div class="leaderboard-item current-user-item">
-                <div class="rank-badge">
-                    <span class="number">4</span>
-                </div>
-                <img src="https://via.placeholder.com/40" alt="R. Silva" class="player-avatar user-bordered">
-                <div class="player-meta">
-                    <span class="name">R. Silva <small class="you-tag">(Você)</small></span>
-                    <span class="sub-stats">13 Jogos • 8 Vitórias</span>
-                </div>
-                <div class="score-display">
-                    <strong class="green-text">86</strong>
-                    <span>pts</span>
-                </div>
+          <div class="overall-badge-col">
+            <div class="overall-display-box">
+              <span class="ovr-num green-neon-text">81</span>
+              <span class="ovr-lbl">OVR</span>
             </div>
+          </div>
+        </div>
 
-            <!-- Pos 5: Normal -->
-            <div class="leaderboard-item">
-                <div class="rank-badge">
-                    <span class="number">5</span>
-                </div>
-                <img src="https://via.placeholder.com/40" alt="Bruno Costa" class="player-avatar">
-                <div class="player-meta">
-                    <span class="name">Bruno Costa</span>
-                    <span class="sub-stats">14 Jogos • 7 Vitórias</span>
-                </div>
-                <div class="score-display">
-                    <strong>84</strong>
-                    <span>pts</span>
-                </div>
+        <!-- JOGADOR 5 (LINHA NORMAL) -->
+        <div class="leaderboard-row">
+          <div class="rank-num-col">
+            <span class="row-position">#5</span>
+            <span class="evolution-indicator stable"
+              ><i class="fa-solid fa-minus"></i
+            ></span>
+          </div>
+
+          <div class="avatar-medals-col">
+            <img
+              src="https://via.placeholder.com/42"
+              alt="Bruno Costa"
+              class="row-avatar"
+            />
+            <div class="streak-fire" title="Sequência de 2 vitórias">
+              <i class="fa-solid fa-fire"></i><span>2v</span>
             </div>
+          </div>
 
-            <!-- Pos 6: Normal -->
-            <div class="leaderboard-item">
-                <div class="rank-badge">
-                    <span class="number">6</span>
-                </div>
-                <img src="https://via.placeholder.com/40" alt="Miguel Alves" class="player-avatar">
-                <div class="player-meta">
-                    <span class="name">Miguel Alves</span>
-                    <span class="sub-stats">11 Jogos • 6 Vitórias</span>
-                </div>
-                <div class="score-display">
-                    <strong>79</strong>
-                    <span>pts</span>
-                </div>
+          <div class="player-info-col">
+            <div class="name-medals-row">
+              <span class="player-name">Bruno Costa</span>
+              <div class="medals-box">
+                <i
+                  class="fa-solid fa-medal icon-medal-silver"
+                  title="Garçom da temporada"
+                ></i>
+              </div>
             </div>
+            <div class="player-stats-summary">
+              <span>⚽ 9 Gols</span> • <span>🎯 12 Ast</span> •
+              <span>🔥 60% Vit</span>
+            </div>
+          </div>
 
-        </main>
+          <div class="overall-badge-col">
+            <div class="overall-display-box">
+              <span class="ovr-num">79</span>
+              <span class="ovr-lbl">OVR</span>
+            </div>
+          </div>
+        </div>
 
-        <!-- NAV BAR INFERIOR -->
-        <nav class="bottom-nav">
-            <a href="index.html" class="nav-item active"
+        <!-- JOGADOR 6 (GOLEIRO - MOSTRANDO DEFESAS 🧤) -->
+        <div class="leaderboard-row">
+          <div class="rank-num-col">
+            <span class="row-position">#6</span>
+            <span class="evolution-indicator down"
+              ><i class="fa-solid fa-caret-down"></i> 1</span
+            >
+          </div>
+
+          <div class="avatar-medals-col">
+            <img
+              src="https://via.placeholder.com/42"
+              alt="Marcos Goleiro"
+              class="row-avatar"
+            />
+          </div>
+
+          <div class="player-info-col">
+            <div class="name-medals-row">
+              <span class="player-name">Marcos Araújo</span>
+              <span class="gk-tag">GK</span>
+            </div>
+            <div class="player-stats-summary">
+              <span>🧤 42 Defesas</span> • <span>⚽ 0 Gols</span> •
+              <span>🛡️ 3 J. Sem Sofrer</span>
+            </div>
+          </div>
+
+          <div class="overall-badge-col">
+            <div class="overall-display-box">
+              <span class="ovr-num">78</span>
+              <span class="ovr-lbl">OVR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- JOGADOR 7 (LINHA NORMAL) -->
+        <div class="leaderboard-row">
+          <div class="rank-num-col">
+            <span class="row-position">#7</span>
+            <span class="evolution-indicator up"
+              ><i class="fa-solid fa-caret-up"></i> 3</span
+            >
+          </div>
+
+          <div class="avatar-medals-col">
+            <img
+              src="https://via.placeholder.com/42"
+              alt="Miguel Alves"
+              class="row-avatar"
+            />
+          </div>
+
+          <div class="player-info-col">
+            <div class="name-medals-row">
+              <span class="player-name">Miguel Alves</span>
+            </div>
+            <div class="player-stats-summary">
+              <span>⚽ 11 Gols</span> • <span>🎯 4 Ast</span> •
+              <span>🔥 52% Vit</span>
+            </div>
+          </div>
+
+          <div class="overall-badge-col">
+            <div class="overall-display-box">
+              <span class="ovr-num">76</span>
+              <span class="ovr-lbl">OVR</span>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- NAV BAR INFERIOR -->
+      <nav class="bottom-nav">
+        <a href="index.html" class="nav-item"
           ><i class="fa-solid fa-house"></i><span>Início</span></a
         >
-        <a href="partidas.html" class="nav-item"
+        <a href="partidas.html" class="nav-item active"
           ><i class="fa-regular fa-calendar"></i><span>Partidas</span></a
         >
         <a href="criar-partida.html" class="nav-item nav-create"
           ><i class="fa-solid fa-plus"></i
         ></a>
-        <a href="ranking.html" class="nav-item"
+        <a href="ranking" class="nav-item active"
           ><i class="fa-solid fa-trophy"></i><span>Ranking</span></a
         >
         <a href="mais.html" class="nav-item"
           ><i class="fa-solid fa-bars"></i><span>Mais</span></a
         >
-        </nav>
-
+      </nav>
     </div>
-
-</body>
+  </body>
 </html>
