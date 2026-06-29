@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelada Pro - Painel de Estatísticas</title>
+    <link rel="stylesheet" href="pages/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- HEADER DO APP -->
+      <header class="app-header">
+        <div class="logo">
+          <i class="fa-solid fa-soccer-ball"></i> PELADA <span>PRO</span>
+        </div>
+        <div class="header-actions">
+          <div class="notification-badge">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">2</span>
+          </div>
+          <img
+            src="https://via.placeholder.com/40"
+            alt="Profile"
+            class="avatar-img"
+          />
+        </div>
+      </header>
+
+      <section class="screen-title-area">
+        <h1>Meu Desempenho</h1>
+        <button class="btn-create-match">
+          <i class="fa-solid fa-plus"></i> Criar Partida
+        </button>
+      </section>
+
+      <!-- NAVEGAÇÃO PRINCIPAL -->
+      <nav class="tabs-nav">
+        <a href="partidas.html" class="tab-item">PRÓXIMAS</a>
+        <a href="historico.html" class="tab-item active">HISTÓRICO</a>
+        <a href="calendario.html" class="tab-item">CALENDÁRIO</a>
+      </nav>
+
+      <!-- 🚀 SUB-NAVEGAÇÃO COM LINK DIRETRO PARA AS PÁGINAS -->
+      <nav class="history-sub-tabs">
+        <a href="historico.html" class="sub-tab-item">
+          <i class="fa-regular fa-clipboard"></i> Partidas
+        </a>
+        <a href="estatisticas.html" class="sub-tab-item active">
+          <i class="fa-solid fa-chart-simple"></i> Estatísticas
+        </a>
+        <a href="premios.html" class="sub-tab-item">
+          <i class="fa-solid fa-medal"></i> Prêmios
+        </a>
+        <a href="evolucao.html" class="sub-tab-item">
+          <i class="fa-solid fa-chart-line"></i> Evolução
+        </a>
+      </nav>
+
+      <!-- CARD 1: RESUMO GERAL PREMIUM -->
+      <section class="section-block">
+        <div class="stats-premium-main-card">
+          <div class="premium-badge-top">
+            <i class="fa-solid fa-crown"></i> VISÃO GERAL DA TEMPORADA
+          </div>
+          <div class="main-rating-center">
+            <span>NOTA MÉDIA</span>
+            <strong>8.3</strong>
+            <div class="stars-row">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+          </div>
+          <div class="main-stats-grid-three">
+            <div class="m-box"><strong>32</strong><span>Jogos</span></div>
+            <div class="m-box"><strong>58</strong><span>Gols</span></div>
+            <div class="m-box">
+              <strong>22</strong><span>Assistências</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="stats-dashboard-grid-two">
+        <!-- CARD 2: ESTATÍSTICAS OFENSIVAS -->
+        <div class="dashboard-inner-card">
+          <h3><i class="fa-solid fa-fire text-red"></i> Ataque</h3>
+          <div class="bar-stat-group">
+            <div class="bar-info"><span>Gols</span><strong>58</strong></div>
+            <div class="bar-track">
+              <div class="bar-fill bg-green" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="bar-stat-group">
+            <div class="bar-info">
+              <span>Assistências</span><strong>22</strong>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill bg-blue" style="width: 55%"></div>
+            </div>
+          </div>
+          <div class="bar-stat-group">
+            <div class="bar-info">
+              <span>Finalizações</span><strong>103</strong>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill bg-yellow" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="single-data-row-inline">
+            <span>Precisão de Chute</span>
+            <strong class="text-green">89%</strong>
+          </div>
+        </div>
+
+        <!-- CARD 3: ESTATÍSTICAS DE PASSE -->
+        <div class="dashboard-inner-card">
+          <h3><i class="fa-solid fa-bullseye text-blue"></i> Distribuição</h3>
+          <div class="bar-stat-group">
+            <div class="bar-info">
+              <span>Passes Tentados</span><strong>945</strong>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill bg-blue" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="bar-stat-group">
+            <div class="bar-info">
+              <span>Passes Certos</span><strong>857</strong>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill bg-green" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="single-data-row-inline" style="margin-top: 18px">
+            <span>Precisão do Passe</span>
+            <strong class="text-blue">90%</strong>
+          </div>
+          <div class="single-data-row-inline">
+            <span>Assistências Totais</span>
+            <strong>22</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4: BARRA DE ATRIBUTOS (EA FC STYLE) -->
+      <section class="section-block">
+        <div class="dashboard-inner-card font-ea-style">
+          <h3>
+            <i class="fa-solid fa-chart-radar text-yellow"></i> Matriz de
+            Atributos
+          </h3>
+          <div class="ea-attribute-row">
+            <span class="attr-name">Ataque</span>
+            <div class="bar-track">
+              <div class="bar-fill bg-green" style="width: 92%"></div>
+            </div>
+            <strong class="attr-val">92</strong>
+          </div>
+          <div class="ea-attribute-row">
+            <span class="attr-name">Passe</span>
+            <div class="bar-track">
+              <div class="bar-fill bg-blue" style="width: 84%"></div>
+            </div>
+            <strong class="attr-val">84</strong>
+          </div>
+          <div class="ea-attribute-row">
+            <span class="attr-name">Defesa</span>
+            <div class="bar-track">
+              <div class="bar-fill bg-red" style="width: 60%"></div>
+            </div>
+            <strong class="attr-val">60</strong>
+          </div>
+          <div class="ea-attribute-row">
+            <span class="attr-name">Velocidade</span>
+            <div class="bar-track">
+              <div class="bar-fill bg-yellow" style="width: 83%"></div>
+            </div>
+            <strong class="attr-val">83</strong>
+          </div>
+          <div class="ea-attribute-row">
+            <span class="attr-name">Finalização</span>
+            <div class="bar-track">
+              <div class="bar-fill bg-green" style="width: 91%"></div>
+            </div>
+            <strong class="attr-val">91</strong>
+          </div>
+        </div>
+      </section>
+
+      <div class="stats-dashboard-grid-two">
+        <!-- CARD 5: COMPARAÇÃO COM A MÉDIA -->
+        <div class="dashboard-inner-card">
+          <h3><i class="fa-solid fa-code-compare"></i> Você vs Média Geral</h3>
+          <div class="vs-comparison-element">
+            <div class="vs-bar-user">
+              <div class="vs-info">
+                <span>Sua Nota</span><strong>8.3</strong>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill bg-green" style="width: 83%"></div>
+              </div>
+            </div>
+            <div class="vs-bar-avg">
+              <div class="vs-info">
+                <span>Média Atletas</span><strong>7.4</strong>
+              </div>
+              <div class="bar-track">
+                <div
+                  class="bar-fill"
+                  style="width: 74%; background: #64748b"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6: EVOLUÇÃO RECENTE (GRÁFICO VERTICAL) -->
+        <div class="dashboard-inner-card">
+          <h3><i class="fa-solid fa-chart-line"></i> Últimas 5 Notas</h3>
+          <div class="vertical-chart-mock">
+            <div class="v-pillar">
+              <div class="v-fill bg-green" style="height: 94%">
+                <span>9.4</span>
+              </div>
+            </div>
+            <div class="v-pillar">
+              <div class="v-fill bg-green" style="height: 89%">
+                <span>8.9</span>
+              </div>
+            </div>
+            <div class="v-pillar">
+              <div class="v-fill bg-blue" style="height: 81%">
+                <span>8.1</span>
+              </div>
+            </div>
+            <div class="v-pillar">
+              <div class="v-fill bg-yellow" style="height: 73%">
+                <span>7.3</span>
+              </div>
+            </div>
+            <div class="v-pillar">
+              <div class="v-fill bg-red" style="height: 65%">
+                <span>6.5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 7: RECORDES -->
+      <section class="section-block">
+        <div class="dashboard-inner-card">
+          <h3>
+            <i class="fa-solid fa-trophy text-gold"></i> Recordes & Destaques
+            Temporada
+          </h3>
+          <div class="records-grid-list">
+            <div class="rec-item">
+              <span>Maior nota obtida</span
+              ><strong class="text-green">9.8 ⭐</strong>
+            </div>
+            <div class="rec-item">
+              <span>Maior sequência de vitórias</span
+              ><strong class="text-green">8 jogos 🔥</strong>
+            </div>
+            <div class="rec-item">
+              <span>Recorde de gols num jogo</span>export
+              <strong>4 gols ⚽</strong>
+            </div>
+            <div class="rec-item">
+              <span>Recorde de assistências</span><strong>3 ass. 🎯</strong>
+            </div>
+            <div class="rec-item">
+              <span>Vezes eleito MVP</span
+              ><strong class="text-gold">11x 👑</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 8: RANKING -->
+      <section class="section-block">
+        <div class="ranking-position-showcase-card">
+          <div class="rank-medal-zone">🥉</div>
+          <div class="rank-text-zone">
+            <h4>Posição Atual no Ranking</h4>
+            <h2>3º Lugar</h2>
+            <p class="text-green">
+              <i class="fa-solid fa-caret-up"></i> Subiu 2 posições esta semana
+            </p>
+          </div>
+          <div class="rank-percentile-pill">
+            Top <strong>13%</strong>
+            <span>do app</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTÃO DE RODA-PÉ -->
+      <section class="section-block" style="margin-bottom: 30px">
+        <button class="btn-advanced-stats-redirect">
+          Ver Estatísticas Avançadas Completas
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </section>
+
+      <!-- MENU INFERIOR FIXO -->
+      <nav class="bottom-nav">
+        <a href="index.html" class="nav-item"
+          ><i class="fa-solid fa-house"></i><span>Início</span></a
+        >
+        <a href="partidas.html" class="nav-item active"
+          ><i class="fa-regular fa-calendar"></i><span>Partidas</span></a
+        >
+        <a href="criar-partida.html" class="nav-item nav-create"
+          ><i class="fa-solid fa-plus"></i
+        ></a>
+        <a href="ranking.html" class="nav-item"
+          ><i class="fa-solid fa-trophy"></i><span>Ranking</span></a
+        >
+        <a href="mais.html" class="nav-item"
+          ><i class="fa-solid fa-bars"></i><span>Mais</span></a
+        >
+      </nav>
+    </div>
+  </body>
+</html>

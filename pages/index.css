@@ -9,10 +9,10 @@
 @import url("../blocks/mais.css");
 @import url("../blocks/historico.css");
 @import url("../blocks/calendario.css");
+@import url("../blocks/estatisticas.css");
+@import url("../blocks/evolucao.css");
 
 
-@import url("../blocks/onboarding-styles.css");
-@import url("../blocks/cadastro.html");
 @import url("../blocks/marcar-jogo.css");
 @import url("../blocks/perfil-styles.css");
 @import url("../blocks/carta.css");

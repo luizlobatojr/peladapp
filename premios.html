@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelada Pro - Galeria de Prêmios</title>
+    <link rel="stylesheet" href="pages/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- HEADER DO APP -->
+      <header class="app-header">
+        <div class="logo">
+          <i class="fa-solid fa-soccer-ball"></i> PELADA <span>PRO</span>
+        </div>
+        <div class="header-actions">
+          <div class="notification-badge">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">2</span>
+          </div>
+          <img
+            src="https://via.placeholder.com/40"
+            alt="Profile"
+            class="avatar-img"
+          />
+        </div>
+      </header>
+
+      <section class="screen-title-area">
+        <h1>Minha Vitrine</h1>
+        <button class="btn-create-match">
+          <i class="fa-solid fa-plus"></i> Criar Partida
+        </button>
+      </section>
+
+      <!-- NAVEGAÇÃO PRINCIPAL -->
+      <nav class="tabs-nav">
+        <a href="partidas.html" class="tab-item">PRÓXIMAS</a>
+        <a href="historico.html" class="tab-item active">HISTÓRICO</a>
+        <a href="calendario.html" class="tab-item">CALENDÁRIO</a>
+      </nav>
+
+      <!-- SUB-NAVEGAÇÃO (PREMIOS ATIVO) -->
+      <nav class="history-sub-tabs">
+        <a href="historico.html" class="sub-tab-item">
+          <i class="fa-regular fa-clipboard"></i> Partidas
+        </a>
+        <a href="estatisticas.html" class="sub-tab-item">
+          <i class="fa-solid fa-chart-simple"></i> Estatísticas
+        </a>
+        <a href="premios.html" class="sub-tab-item active">
+          <i class="fa-solid fa-medal"></i> Prêmios
+        </a>
+        <a href="evolucao.html" class="sub-tab-item">
+          <i class="fa-solid fa-chart-line"></i> Evolução
+        </a>
+      </nav>
+
+      <!-- 🥇 SEÇÃO 1: DESTAQUES INDIVIDUAIS (CARDS PREMIUM) -->
+      <section class="section-block">
+        <h3 class="section-subtitle-premium"><i class="fa-solid fa-star text-yellow"></i> Prêmios Individuais</h3>
+        <div class="awards-showcase-grid">
+          
+          <!-- Card MVP -->
+          <div class="award-premium-card card-gold-glow">
+            <div class="award-icon-wrap bg-yellow-dim">
+              <i class="fa-solid fa-crown text-yellow"></i>
+            </div>
+            <div class="award-card-info">
+              <h4>Rei da Quadra</h4>
+              <p>Eleito MVP da Partida</p>
+              <span class="award-counter-pill">11 Vezes</span>
+            </div>
+          </div>
+
+          <!-- Card Artilheiro -->
+          <div class="award-premium-card card-blue-glow">
+            <div class="award-icon-wrap bg-blue-dim">
+              <i class="fa-solid fa-shoe-prints text-blue"></i>
+            </div>
+            <div class="award-card-info">
+              <h4>Pé de Bota</h4>
+              <p>Artilheiro da Rodada</p>
+              <span class="award-counter-pill blue-pill">6 Vezes</span>
+            </div>
+          </div>
+
+          <!-- Card Garçom / Assistências -->
+          <div class="award-premium-card card-green-glow">
+            <div class="award-icon-wrap bg-green-dim">
+              <i class="fa-solid fa-magic-wand-sparkles text-green"></i>
+            </div>
+            <div class="award-card-info">
+              <h4>Garçom Fino</h4>
+              <p>Líder em Assistências</p>
+              <span class="award-counter-pill green-pill">4 Vezes</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 🎯 SEÇÃO 2: MARCOS HISTÓRICOS (ESTILO CONQUISTAS / RECOMPENSAS) -->
+      <section class="section-block">
+        <h3 class="section-subtitle-premium"><i class="fa-solid fa-circle-check text-blue"></i> Desafios Concluídos</h3>
+        <div class="achievements-list-stack">
+          
+          <!-- Conquista 1 -->
+          <div class="achievement-row-item unlocked">
+            <div class="ach-badge"><i class="fa-solid fa-fire"></i></div>
+            <div class="ach-details">
+              <h5>Incontrolável</h5>
+              <p>Marcar 3 ou mais golos no mesmo jogo.</p>
+            </div>
+            <div class="ach-status-date">Desbloqueado</div>
+          </div>
+
+          <!-- Conquista 2 -->
+          <div class="achievement-row-item unlocked">
+            <div class="ach-badge"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="ach-details">
+              <h5>Muralha Intransponível</h5>
+              <p>Passar uma partida inteira sem sofrer golos (Defesa/Guarda-redes).</p>
+            </div>
+            <div class="ach-status-date">Desbloqueado</div>
+          </div>
+
+          <!-- Conquista 3 (Bloqueada/Em Progresso) -->
+          <div class="achievement-row-item locked">
+            <div class="ach-badge"><i class="fa-solid fa-infinity"></i></div>
+            <div class="ach-details">
+              <h5>Dono do Pedaço</h5>
+              <p>Alcançar uma sequência de 10 vitórias consecutivas no app.</p>
+            </div>
+            <div class="ach-progress-tracker">
+              <div class="ach-bar"><div class="ach-bar-fill" style="width: 80%;"></div></div>
+              <span>8/10</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 🏆 SEÇÃO 3: TAÇAS DE EQUIPA -->
+      <section class="section-block" style="margin-bottom: 30px;">
+        <h3 class="section-subtitle-premium"><i class="fa-solid fa-trophy text-gold"></i> Torneios e Copas</h3>
+        <div class="team-cups-showcase">
+          <div class="cup-item-box">
+            <span class="cup-emoji">🏆</span>
+            <h5>Copa Verão 2026</h5>
+            <span class="cup-meta-tag win-bg">Campeão</span>
+          </div>
+          <div class="cup-item-box gray-scale-locked">
+            <span class="cup-emoji">🥈</span>
+            <h5>Torneio do Prédio</h5>
+            <span class="cup-meta-tag draw-bg">Vice</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- MENU INFERIOR FIXO -->
+      <nav class="bottom-nav">
+        <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Início</span></a>
+        <a href="partidas.html" class="nav-item active"><i class="fa-regular fa-calendar"></i><span>Partidas</span></a>
+        <a href="criar-partida.html" class="nav-item nav-create"><i class="fa-solid fa-plus"></i></a>
+        <a href="ranking.html" class="nav-item"><i class="fa-solid fa-trophy"></i><span>Ranking</span></a>
+        <a href="mais.html" class="nav-item"><i class="fa-solid fa-bars"></i><span>Mais</span></a>
+      </nav>
+    </div>
+  </body>
+</html>

@@ -8,6 +8,14 @@
   --text-main: #ffffff;
   --text-muted: #94a3b8;
   --border-color: #1e293b;
+/*
+  --color-bg-base: #0f172a;
+  --color-card-base: #1e293b;
+  --color-green: #22c55e;
+  --color-blue: #3b82f6;
+  --color-yellow: #facc15;
+  --color-red: #ef4444;
+  --color-text-white: #f8fafc;*/
 }
 
 * {

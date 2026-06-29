@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelada Pro - Evolução</title>
+    <link rel="stylesheet" href="pages/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- HEADER DO APP -->
+      <header class="app-header">
+        <div class="logo">
+          <i class="fa-solid fa-soccer-ball"></i> PELADA <span>PRO</span>
+        </div>
+        <div class="header-actions">
+          <div class="notification-badge">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge">2</span>
+          </div>
+          <img
+            src="https://via.placeholder.com/40"
+            alt="Profile"
+            class="avatar-img"
+          />
+        </div>
+      </header>
+
+      <section class="screen-title-area">
+        <h1>Minha Evolução</h1>
+        <button class="btn-create-match">
+          <i class="fa-solid fa-plus"></i> Criar Partida
+        </button>
+      </section>
+
+      <!-- NAVEGAÇÃO PRINCIPAL -->
+      <nav class="tabs-nav">
+        <a href="partidas.html" class="tab-item">PRÓXIMAS</a>
+        <a href="historico.html" class="tab-item active">HISTÓRICO</a>
+        <a href="calendario.html" class="tab-item">CALENDÁRIO</a>
+      </nav>
+
+      <!-- SUB-NAVEGAÇÃO (EVOLUCAO ATIVO) -->
+      <nav class="history-sub-tabs">
+        <a href="historico.html" class="sub-tab-item">
+          <i class="fa-regular fa-clipboard"></i> Partidas
+        </a>
+        <a href="estatisticas.html" class="sub-tab-item">
+          <i class="fa-solid fa-chart-simple"></i> Estatísticas
+        </a>
+        <a href="premios.html" class="sub-tab-item">
+          <i class="fa-solid fa-medal"></i> Prêmios
+        </a>
+        <a href="evolucao.html" class="sub-tab-item active">
+          <i class="fa-solid fa-chart-line"></i> Evolução
+        </a>
+      </nav>
+
+      <!-- ⚡ SEÇÃO 1: MOMENTUM & GUIA DE FORMA (SOFASCORE STYLE) -->
+      <section class="section-block">
+        <div class="evolution-momentum-card">
+          <div class="momentum-header">
+            <h3>Fase Atual</h3>
+            <span class="momentum-status text-green"><i class="fa-solid fa-arrow-trend-up"></i> Em Alta</span>
+          </div>
+          <p class="momentum-desc">Sua nota média subiu <strong>12%</strong> nas últimas 5 partidas em relação ao início da temporada.</p>
+          
+          <div class="form-guide-row">
+            <span class="form-label">Últimos 5 jogos:</span>
+            <div class="form-pills-container">
+              <div class="form-pill pill-win" title="Vitória - Nota 9.4">V</div>
+              <div class="form-pill pill-win" title="Vitória - Nota 8.9">V</div>
+              <div class="form-pill pill-draw" title="Empate - Nota 8.1">E</div>
+              <div class="form-pill pill-loss" title="Derrota - Nota 6.5">D</div>
+              <div class="form-pill pill-win" title="Vitória - Nota 8.5">V</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 📊 SEÇÃO 2: GRÁFICO DE TENDÊNCIA (NOTAS) -->
+      <section class="section-block">
+        <div class="dashboard-inner-card">
+          <h3><i class="fa-solid fa-chart-area text-blue"></i> Trajetória de Desempenho</h3>
+          
+          <!-- Lollipop Chart CSS (Responsivo) -->
+          <div class="lollipop-chart-container">
+            <!-- Eixo Y Mockup -->
+            <div class="chart-y-axis">
+              <span>10</span>
+              <span>8</span>
+              <span>6</span>
+              <span>4</span>
+            </div>
+            
+            <!-- Barras / Pontos -->
+            <div class="chart-plot-area">
+              <!-- Ponto 1 -->
+              <div class="plot-item">
+                <div class="plot-stem" style="height: 65%;">
+                  <div class="plot-dot bg-red">6.5</div>
+                </div>
+                <span class="plot-label">J12</span>
+              </div>
+              <!-- Ponto 2 -->
+              <div class="plot-item">
+                <div class="plot-stem" style="height: 73%;">
+                  <div class="plot-dot bg-yellow">7.3</div>
+                </div>
+                <span class="plot-label">J13</span>
+              </div>
+              <!-- Ponto 3 -->
+              <div class="plot-item">
+                <div class="plot-stem" style="height: 81%;">
+                  <div class="plot-dot bg-blue">8.1</div>
+                </div>
+                <span class="plot-label">J14</span>
+              </div>
+              <!-- Ponto 4 -->
+              <div class="plot-item">
+                <div class="plot-stem" style="height: 89%;">
+                  <div class="plot-dot bg-green">8.9</div>
+                </div>
+                <span class="plot-label">J15</span>
+              </div>
+              <!-- Ponto 5 -->
+              <div class="plot-item">
+                <div class="plot-stem" style="height: 94%;">
+                  <div class="plot-dot bg-green">9.4</div>
+                </div>
+                <span class="plot-label">J16</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ⬆️ SEÇÃO 3: CRESCIMENTO DE ATRIBUTOS (EA FC STYLE UPGRADES) -->
+      <section class="section-block" style="margin-bottom: 30px;">
+        <div class="dashboard-inner-card font-ea-style">
+          <h3><i class="fa-solid fa-angles-up text-green"></i> Evolução de Atributos</h3>
+          <p style="font-size: 0.7rem; color: #64748b; margin-bottom: 12px;">Comparação com o início da temporada.</p>
+          
+          <div class="attribute-upgrade-list">
+            
+            <div class="upgrade-row">
+              <span class="upg-name">Finalização</span>
+              <div class="upg-values">
+                <span class="upg-old">85</span>
+                <i class="fa-solid fa-arrow-right-long text-muted"></i>
+                <span class="upg-new">91</span>
+              </div>
+              <span class="upg-delta text-green">+6 <i class="fa-solid fa-caret-up"></i></span>
+            </div>
+
+            <div class="upgrade-row">
+              <span class="upg-name">Passe</span>
+              <div class="upg-values">
+                <span class="upg-old">80</span>
+                <i class="fa-solid fa-arrow-right-long text-muted"></i>
+                <span class="upg-new">84</span>
+              </div>
+              <span class="upg-delta text-green">+4 <i class="fa-solid fa-caret-up"></i></span>
+            </div>
+
+            <div class="upgrade-row">
+              <span class="upg-name">Físico (Stamina)</span>
+              <div class="upg-values">
+                <span class="upg-old">72</span>
+                <i class="fa-solid fa-arrow-right-long text-muted"></i>
+                <span class="upg-new">75</span>
+              </div>
+              <span class="upg-delta text-green">+3 <i class="fa-solid fa-caret-up"></i></span>
+            </div>
+
+            <div class="upgrade-row">
+              <span class="upg-name">Defesa</span>
+              <div class="upg-values">
+                <span class="upg-old">62</span>
+                <i class="fa-solid fa-arrow-right-long text-muted"></i>
+                <span class="upg-new">60</span>
+              </div>
+              <span class="upg-delta text-red">-2 <i class="fa-solid fa-caret-down"></i></span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- MENU INFERIOR FIXO -->
+      <nav class="bottom-nav">
+        <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Início</span></a>
+        <a href="partidas.html" class="nav-item active"><i class="fa-regular fa-calendar"></i><span>Partidas</span></a>
+        <a href="criar-partida.html" class="nav-item nav-create"><i class="fa-solid fa-plus"></i></a>
+        <a href="ranking.html" class="nav-item"><i class="fa-solid fa-trophy"></i><span>Ranking</span></a>
+        <a href="mais.html" class="nav-item"><i class="fa-solid fa-bars"></i><span>Mais</span></a>
+      </nav>
+    </div>
+  </body>
+</html>
