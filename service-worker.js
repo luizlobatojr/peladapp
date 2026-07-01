@@ -1,33 +1,33 @@
-// 1. Toda vez que atualizar o app, mude o número dessa versão (ex: v1, v2, v3...)
-const CACHE_NAME = 'pelada-pro-cache-v0.0.2'; 
+const CACHE_NAME = "pelada-pro-cache-v0.0.3";
 
+// Dica: Adicione aqui as outras páginas e blocos de CSS importantes para o app funcionar offline
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/pages/index.css',
-  '/script.js',
-  // Adicione aqui os caminhos para suas imagens ou ícones se houver
+  "/",
+  "/index.html",
+  "/pages/index.css",
+  "/script.js",
+  "/manifest.json",
+  "/assets/icon/icon.png"
 ];
 
-// Instala o Service Worker e guarda os arquivos no cache do celular
-self.addEventListener('install', (event) => {
+// Instala o Service Worker e guarda os arquivos no cache
+self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(ASSETS);
     })
   );
-  // Força o Service Worker a se tornar ativo imediatamente
-  self.skipWaiting();
+  // REMOVIDO: self.skipWaiting() daqui para permitir que o usuário controle a atualização pelo botão
 });
 
 // Limpa caches antigos quando uma nova versão assume o controle
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cache) => {
           if (cache !== CACHE_NAME) {
-            console.log('Removendo cache antigo:', cache);
+            console.log("Removendo cache antigo:", cache);
             return caches.delete(cache);
           }
         })
@@ -37,10 +37,17 @@ self.addEventListener('activate', (event) => {
 });
 
 // Serve os arquivos do cache (faz o app abrir instantaneamente)
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);
     })
   );
+});
+
+// Escuta o comando do botão "Atualizar Agora" vindo do script.js
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.action === "skipWaiting") {
+    self.skipWaiting();
+  }
 });
