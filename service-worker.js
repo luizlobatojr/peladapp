@@ -1,13 +1,18 @@
-const CACHE_NAME = "pelada-pro-cache-v0.0.3";
+const CACHE_NAME = "pelada-pro-cache-v0.0.6";
 
 // Dica: Adicione aqui as outras páginas e blocos de CSS importantes para o app funcionar offline
 const ASSETS = [
   "/",
   "/index.html",
   "/pages/index.css",
+  
+  "/assets/icon/icon.png",
+
+  // Adicione aqui os blocos de CSS específicos que compõem esse dashboard, por exemplo:
+  "/blocks/calendario.css",
+  "/blocks/estatisticas.css",
   "/script.js",
-  "/manifest.json",
-  "/assets/icon/icon.png"
+  "/manifest.json"
 ];
 
 // Instala o Service Worker e guarda os arquivos no cache
