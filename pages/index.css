@@ -2,18 +2,20 @@
 @import url("../vendor/fonts.css");*/
 
 
-@import url("../blocks/style.css");
-@import url("../blocks/partidas.css");
-@import url("../blocks/criar-partida.css");
-@import url("../blocks/ranking.css");
-@import url("../blocks/mais.css");
-@import url("../blocks/historico.css");
-@import url("../blocks/calendario.css");
-@import url("../blocks/estatisticas.css");
-@import url("../blocks/evolucao.css");
-@import url("../blocks/premios.css");
-@import url("../blocks/boas-vindas.css");
-@import url("../blocks/cadastro.css");
+@import url("./blocks/style.css");
+@import url("./blocks/partidas.css");
+@import url("./blocks/criar-partida.css");
+@import url("./blocks/ranking.css");
+@import url("./blocks/mais.css");
+@import url("./blocks/historico.css");
+@import url("./blocks/calendario.css");
+@import url("./blocks/estatisticas.css");
+@import url("./blocks/evolucao.css");
+@import url("./blocks/premios.css");
+@import url("./blocks/boas-vindas.css");
+@import url("./blocks/cadastro.css");
+@import url("./blocks/login.css");
+@import url("./blocks/detalhes-partida.css");
 
 
 
