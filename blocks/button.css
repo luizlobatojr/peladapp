@@ -39,7 +39,12 @@
 .input-field-group .input-wrapper select {
   width: 100%;
   padding: 12px 14px 12px 42px; /* Espaço para o ícone na esquerda */
-  background-color: rgba(19, 25, 30, 0.85); /* Fundo escuro sutil combinando com o onboarding */
+  background-color: rgba(
+    19,
+    25,
+    30,
+    0.85
+  ); /* Fundo escuro sutil combinando com o onboarding */
   border: 1px solid var(--border-color);
   border-radius: 10px;
   color: #ffffff;
@@ -72,3 +77,69 @@
 .input-field-group .input-wrapper input::placeholder {
   color: #576880;
 }
+/* ==========================================================================
+   ELEMENTOS ADICIONAIS DA TELA DE LOGIN
+   ========================================================================== */
+
+/* Remove o sublinhado e adiciona um efeito de opacidade ao link "Esqueceu?" */
+.input-field-group a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Customização do Checkbox (Manter Conectado) */
+.auth-options {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+  font-size: 0.8rem;
+  color: #8fa0ba;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Customização sutil do input do tipo checkbox para casar com o dark mode */
+.custom-checkbox {
+  appearance: none; /* Remove o visual padrão do sistema operacional */
+  background-color: rgba(19, 25, 30, 0.85);
+  border: 1px solid var(--border-color);
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: all 0.2s ease;
+}
+
+/* Efeito de hover no checkbox */
+.custom-checkbox:hover {
+  border-color: #8fa0ba;
+}
+
+/* Estado marcado (Checked) */
+.custom-checkbox:checked {
+  background-color: var(--green-primary);
+  border-color: var(--green-primary);
+}
+
+/* Ícone de "check" inserido via CSS quando marcado */
+.custom-checkbox:checked::before {
+  content: "✓";
+  color: #000000;
+  font-size: 0.65rem;
+  font-weight: 900;
+}
+
+/* Ajuste fino para alinhar verticalmente o label do checkbox */
+.auth-options label {
+  padding-left: 2px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+}
+
+
