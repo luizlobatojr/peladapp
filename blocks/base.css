@@ -50,7 +50,7 @@ body {
 .app-container {
   background-color: var(--bg-main);
   width: 100%;
-  max-width: 480px;
+  max-width: 1448px;
   min-height: 100vh;
   padding: 20px 14px 100px 14px;
   position: relative;
