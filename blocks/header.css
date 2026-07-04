@@ -1,0 +1,88 @@
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* Logo */
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.header__logo-icon {
+  font-size: 1.2rem;
+}
+
+.header__logo-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header__logo-highlight {
+  color: var(--green-primary);
+}
+
+/* Ações */
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Notificação */
+
+.header__notification {
+  position: relative;
+  cursor: pointer;
+}
+
+.header__notification-icon {
+  font-size: 1.4rem;
+}
+
+.header__notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 18px;
+  height: 18px;
+
+  background-color: #ef4444;
+  color: #fff;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  border-radius: 50%;
+}
+
+/* Avatar */
+
+.header__avatar {
+  width: 40px;
+  height: 40px;
+
+  border: 2px solid var(--green-primary);
+  border-radius: 50%;
+
+  object-fit: cover;
+}

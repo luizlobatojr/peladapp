@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FutRANK - Dashboard</title>
+    <title>FUTRANK</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="pages/index.css" />
     <!-- Ícone padrão para navegadores -->
@@ -33,19 +33,23 @@
   </head>
   <body>
     <div class="app-container">
-      <header class="app-header">
-        <div class="logo">
-          <i class="fa-solid fa-soccer-ball"></i> fut <span>Rank</span>
+      <header class="header">
+        <div class="header__logo">
+          <i class="header__logo-icon fa-solid fa-soccer-ball"></i>
+          <span class="header__logo-text">
+            FUT<span class="header__logo-highlight">RANK</span>
+          </span>
         </div>
-        <div class="header-actions">
-          <div class="notification-badge">
-            <i class="fa-regular fa-bell"></i>
-            <span class="badge">2</span>
+
+        <div class="header__actions">
+          <div class="header__notification">
+            <i class="header__notification-icon fa-regular fa-bell"></i>
+            <span class="header__notification-badge">2</span>
           </div>
           <img
             src="https://via.placeholder.com/40"
             alt="Profile"
-            class="avatar-img"
+            class="header__avatar"
           />
         </div>
       </header>

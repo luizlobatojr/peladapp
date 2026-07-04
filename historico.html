@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FutRANK - Histórico de Partidas</title>
+    <title>FUTRANK - Histórico de Partidas</title>
     <link rel="stylesheet" href="pages/index.css" />
     <link
       rel="stylesheet"
@@ -13,19 +13,23 @@
   <body>
     <div class="app-container">
       <!-- HEADER DO APP -->
-      <header class="app-header">
-        <div class="logo">
-         <i class="fa-solid fa-soccer-ball"></i> fut <span>Rank</span>
+      <header class="header">
+        <div class="header__logo">
+          <i class="header__logo-icon fa-solid fa-soccer-ball"></i>
+          <span class="header__logo-text">
+            FUT<span class="header__logo-highlight">RANK</span>
+          </span>
         </div>
-        <div class="header-actions">
-          <div class="notification-badge">
-            <i class="fa-regular fa-bell"></i>
-            <span class="badge">2</span>
+
+        <div class="header__actions">
+          <div class="header__notification">
+            <i class="header__notification-icon fa-regular fa-bell"></i>
+            <span class="header__notification-badge">2</span>
           </div>
           <img
             src="https://via.placeholder.com/40"
             alt="Profile"
-            class="avatar-img"
+            class="header__avatar"
           />
         </div>
       </header>
@@ -131,13 +135,28 @@
         </div>
       </section>
 
-      <!-- MENU INFERIOR FIXO -->
       <nav class="bottom-nav">
-        <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Início</span></a>
-        <a href="partidas.html" class="nav-item active"><i class="fa-regular fa-calendar"></i><span>Partidas</span></a>
-        <a href="criar-partida.html" class="nav-item nav-create"><i class="fa-solid fa-plus"></i></a>
-        <a href="ranking.html" class="nav-item"><i class="fa-solid fa-trophy"></i><span>Ranking</span></a>
-        <a href="mais.html" class="nav-item"><i class="fa-solid fa-bars"></i><span>Mais</span></a>
+        <a href="index.html" class="bottom-nav__item "
+          ><i class="fa-solid fa-house"></i
+          ><span class="bottom-nav__text">Início</span></a
+        >
+        <a href="partidas.html" class="bottom-nav__item bottom-nav__item--active"
+          ><i class="fa-regular fa-calendar"></i
+          ><span class="bottom-nav__text">Partidas</span></a
+        >
+        <a
+          href="criar-partida.html"
+          class="bottom-nav__item bottom-nav__item--create"
+          ><i class="fa-solid fa-plus"></i
+        ></a>
+        <a href="ranking.html" class="bottom-nav__item"
+          ><i class="fa-solid fa-trophy"></i
+          ><span class="bottom-nav__text">Ranking</span></a
+        >
+        <a href="mais.html" class="bottom-nav__item"
+          ><i class="fa-solid fa-bars"></i
+          ><span class="bottom-nav__text">Mais</span></a
+        >
       </nav>
     </div>
   </body>
