@@ -15,56 +15,38 @@
     <div class="app-container onboarding-bg">
       <main class="">
         <div class="onboarding-overlay"></div>
-        
-        <div
-          class=""
-          style="justify-content: flex-start; gap: 24px"
-        >
-          <!-- CABEÇALHO DO FORMULÁRIO -->
-          <div
-            class=""
-            style="text-align: left; width: 100%; margin-top: 10px"
-          >
-            <a
-              href="boas-vindas.html"
-              style="color: #8fa0ba; text-decoration: none; font-size: 0.9rem"
-            >
-              <i class="fa-solid fa-arrow-left"></i> Voltar
+        <div class="register">
+          <!-- CABEÇALHO -->
+          <div class="register__header">
+            <a href="boas-vindas.html" class="register__back">
+              <i class="fa-solid fa-arrow-left"></i>
+              Voltar
             </a>
-            <h2 style="font-size: 1.6rem; font-weight: 800; margin-top: 16px">
-              Criar nova conta
-            </h2>
-            <p style="font-size: 0.8rem; color: #8fa0ba; margin-top: 4px">
+
+            <h2 class="register__title">Criar nova conta</h2>
+
+            <p class="register__subtitle">
               Monte o seu perfil de atleta e comece a pontuar.
             </p>
           </div>
 
-          <!-- FORMULÁRIO DE CADASTRO -->
-          <form
-            class="auth-form"
-            action="index.html"
-            style="
-              width: 100%;
-              display: flex;
-              flex-direction: column;
-              gap: 16px;
-            "
-          >
-            <!-- Nome Completo -->
+          <!-- FORMULÁRIO -->
+          <form class="register__form" action="index.html">
             <div class="input-field-group">
               <label>Nome Completo</label>
+
               <div class="input-wrapper">
                 <i class="fa-solid fa-user"></i>
                 <input type="text" placeholder="Ex: Luiz Otávio" required />
               </div>
             </div>
 
-            <!-- Nome de Jogo (FUT Card) -->
             <div class="input-field-group">
-              <label
-                >Nome de Jogo
-                <span style="color: #e67e22">(Aparece no Card)</span></label
-              >
+              <label>
+                Nome de Jogo
+                <span class="register__highlight">(Aparece no Card)</span>
+              </label>
+
               <div class="input-wrapper">
                 <i class="fa-solid fa-id-card"></i>
                 <input
@@ -76,9 +58,9 @@
               </div>
             </div>
 
-            <!-- E-mail -->
             <div class="input-field-group">
               <label>E-mail</label>
+
               <div class="input-wrapper">
                 <i class="fa-solid fa-envelope"></i>
                 <input
@@ -89,27 +71,32 @@
               </div>
             </div>
 
-            <!-- Posição Principal -->
             <div class="input-field-group">
               <label>Onde costuma jogar?</label>
+
               <div class="input-wrapper">
                 <i class="fa-solid fa-shield-halved"></i>
+
                 <select required>
                   <option value="" disabled selected hidden>
                     Selecione sua posição...
                   </option>
+
                   <option value="linha">Jogador de Linha (LIN)</option>
+
                   <option value="goleiro">Goleiro (GOL)</option>
+
                   <option value="misto">Misto (Linha e Gol)</option>
                 </select>
               </div>
             </div>
 
-            <!-- Senha -->
             <div class="input-field-group">
               <label>Senha</label>
+
               <div class="input-wrapper">
                 <i class="fa-solid fa-lock"></i>
+
                 <input
                   type="password"
                   placeholder="No mínimo 6 caracteres"
@@ -118,32 +105,19 @@
               </div>
             </div>
 
-            <!-- BOTÃO DE SUBMIT -->
             <button
               type="submit"
-              class="btn-onboarding btn-onboarding--primary"
-              style="margin-top: 10px; border: none; cursor: pointer"
+              class="btn-onboarding btn-onboarding--primary register__button"
             >
               CONCLUIR CADASTRO
             </button>
           </form>
 
-          <!-- LINK ALTERNATIVO -->
-          <p
-            style="
-              font-size: 0.8rem;
-              color: #8fa0ba;
-              width: 100%;
-              text-align: center;
-              margin-top: 10px;
-            "
-          >
+          <!-- LOGIN -->
+          <p class="register__footer">
             Já tem uma conta?
-            <a
-              href="login.html"
-              style="color: #00ff87; font-weight: 700; text-decoration: none"
-              >Faça Login</a
-            >
+
+            <a href="login.html" class="register__login-link"> Faça Login </a>
           </p>
         </div>
       </main>

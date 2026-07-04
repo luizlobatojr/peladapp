@@ -1,0 +1,116 @@
+/* ====================================
+   LOGIN
+==================================== */
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 32px;
+}
+
+/* ====================================
+   HEADER
+==================================== */
+
+.login__header {
+  width: 100%;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.login__back {
+  color: #8fa0ba;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.login__back:hover {
+  color: #00ff87;
+}
+
+.login__title {
+  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.login__subtitle {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #8fa0ba;
+}
+
+/* ====================================
+   FORM
+==================================== */
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Cabeçalho da senha */
+
+.login__password-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.login__forgot-password {
+  color: #e67e22;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.login__forgot-password:hover {
+  color: #f39c12;
+}
+
+/* Checkbox */
+
+.login__remember {
+  font-size: 0.8rem;
+  color: #8fa0ba;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Botão */
+
+.login__button {
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ====================================
+   FOOTER
+==================================== */
+
+.login__footer {
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #8fa0ba;
+}
+
+.login__register-link {
+  color: #00ff87;
+  text-decoration: none;
+  font-weight: 700;
+  transition: opacity 0.3s;
+}
+
+.login__register-link:hover {
+  opacity: 0.8;
+}

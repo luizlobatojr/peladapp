@@ -16,124 +16,104 @@
       <main class="">
         <div class="onboarding-overlay"></div>
 
-        <div class="" style="justify-content: flex-start; gap: 32px">
-          <!-- CABEÇALHO DA TELA -->
-          <div class="" style="text-align: left; width: 100%; margin-top: 20px">
-            <a
-              href="boas-vindas.html"
-              style="color: #8fa0ba; text-decoration: none; font-size: 0.9rem"
-            >
-              <i class="fa-solid fa-arrow-left"></i> Voltar
-            </a>
-            <h2 style="font-size: 1.8rem; font-weight: 800; margin-top: 20px">
-              Aceder à conta
-            </h2>
-            <p style="font-size: 0.8rem; color: #8fa0ba; margin-top: 4px">
-              Entre para conferir as suas estatísticas e convocatórias.
-            </p>
-          </div>
+   <div class="login">
 
-          <!-- FORMULÁRIO DE LOGIN -->
-          <form
-            class=""
-            action="index.html"
-            style="
-              width: 100%;
-              display: flex;
-              flex-direction: column;
-              gap: 20px;
-            "
-          >
-            <!-- E-mail -->
-            <div class="input-field-group">
-              <label>E-mail</label>
-              <div class="input-wrapper">
-                <i class="fa-solid fa-envelope"></i>
-                <input
-                  type="email"
-                  placeholder="seuemail@provedor.com"
-                  required
-                />
-              </div>
-            </div>
+  <!-- CABEÇALHO -->
+  <div class="login__header">
+    <a href="boas-vindas.html" class="login__back">
+      <i class="fa-solid fa-arrow-left"></i>
+      Voltar
+    </a>
 
-            <!-- Senha -->
-            <div class="input-field-group">
-              <div
-                style="
-                  width: 100%;
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                "
-              >
-                <label>Senha</label>
-                <a
-                  href="#"
-                  style="
-                    color: #e67e22;
-                    font-size: 0.75rem;
-                    font-weight: 600;
-                    text-decoration: none;
-                  "
-                  >Esqueceu?</a
-                >
-              </div>
+    <h2 class="login__title">
+      Aceder à conta
+    </h2>
 
-              <div class="input-wrapper">
-                <i class="fa-solid fa-lock"></i>
-                <input
-                  type="password"
-                  placeholder="Digite a sua senha"
-                  required
-                />
-              </div>
-            </div>
+    <p class="login__subtitle">
+      Entre para conferir as suas estatísticas e convocatórias.
+    </p>
+  </div>
 
-            <!-- LEMBRAR-ME / MANTER CONECTADO -->
-            <div class="auth-options">
-              <input type="checkbox" id="remember" class="custom-checkbox" />
-              <label
-                for="remember"
-                style="
-                  font-size: 0.8rem;
-                  color: #8fa0ba;
-                  cursor: pointer;
-                  user-select: none;
-                "
-              >
-                Manter-me conectado neste dispositivo
-              </label>
-            </div>
+  <!-- FORMULÁRIO -->
+  <form class="login__form" action="index.html">
 
-            <!-- BOTÃO DE LOGIN -->
-            <button
-              type="submit"
-              class="btn-onboarding btn-onboarding--primary"
-              style="margin-top: 10px; border: none; cursor: pointer"
-            >
-              ENTRAR NO CAMPO
-            </button>
-          </form>
+    <!-- E-mail -->
+    <div class="input-field-group">
+      <label>E-mail</label>
 
-          <!-- LINK PARA CADASTRO -->
-          <p
-            style="
-              font-size: 0.8rem;
-              color: #8fa0ba;
-              width: 100%;
-              text-align: center;
-              margin-top: 10px;
-            "
-          >
-            Ainda não tem conta?
-            <a
-              href="cadastro.html"
-              style="color: #00ff87; font-weight: 700; text-decoration: none"
-              >Criar Conta</a
-            >
-          </p>
-        </div>
+      <div class="input-wrapper">
+        <i class="fa-solid fa-envelope"></i>
+
+        <input
+          type="email"
+          placeholder="seuemail@provedor.com"
+          required
+        />
+      </div>
+    </div>
+
+    <!-- Senha -->
+    <div class="input-field-group">
+
+      <div class="login__password-header">
+        <label>Senha</label>
+
+        <a href="#" class="login__forgot-password">
+          Esqueceu?
+        </a>
+      </div>
+
+      <div class="input-wrapper">
+        <i class="fa-solid fa-lock"></i>
+
+        <input
+          type="password"
+          placeholder="Digite a sua senha"
+          required
+        />
+      </div>
+
+    </div>
+
+    <!-- Manter conectado -->
+    <div class="auth-options">
+      <input
+        type="checkbox"
+        id="remember"
+        class="custom-checkbox"
+      />
+
+      <label
+        for="remember"
+        class="login__remember"
+      >
+        Manter-me conectado neste dispositivo
+      </label>
+    </div>
+
+    <!-- Botão -->
+    <button
+      type="submit"
+      class="btn-onboarding btn-onboarding--primary login__button"
+    >
+      ENTRAR NO CAMPO
+    </button>
+
+  </form>
+
+  <!-- Rodapé -->
+  <p class="login__footer">
+    Ainda não tem conta?
+
+    <a
+      href="cadastro.html"
+      class="login__register-link"
+    >
+      Criar Conta
+    </a>
+  </p>
+
+</div>
       </main>
     </div>
   </body>
