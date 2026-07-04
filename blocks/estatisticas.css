@@ -1,12 +1,4 @@
-:root {
-  --color-bg-base: #0f172a;
-  --color-card-base: #1e293b;
-  --color-green: #22c55e;
-  --color-blue: #3b82f6;
-  --color-yellow: #facc15;
-  --color-red: #ef4444;
-  --color-text-white: #f8fafc;
-}
+
 
 /* Utilitários de Cor de Preenchimento */
 .bg-green { background-color: var(--color-green) !important; }

@@ -1,95 +1,152 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FUTRANK - Criar Conta</title>
-    <link rel="stylesheet" href="pages/index.css">
+    <link rel="stylesheet" href="pages/index.css" />
     <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
-    <main class="app-container onboarding-bg">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <main class="app-container onboarding-bg">
         <div class="onboarding-overlay"></div>
 
-        <div class="onboarding-content" style="justify-content: flex-start; gap: 24px;">
-            
-            <!-- CABEÇALHO DO FORMULÁRIO -->
-            <div class="auth-header" style="text-align: left; width: 100%; margin-top: 10px;">
-                <a href="boas-vindas.html" style="color: #8fa0ba; text-decoration: none; font-size: 0.9rem;">
-                    <i class="fa-solid fa-arrow-left"></i> Voltar
-                </a>
-                <h2 style="font-size: 1.6rem; font-weight: 800; margin-top: 16px;">Criar nova conta</h2>
-                <p style="font-size: 0.8rem; color: #8fa0ba; margin-top: 4px;">Monte o seu perfil de atleta e comece a pontuar.</p>
+        <div
+          class="onboarding-content"
+          style="justify-content: flex-start; gap: 24px"
+        >
+          <!-- CABEÇALHO DO FORMULÁRIO -->
+          <div
+            class="auth-header"
+            style="text-align: left; width: 100%; margin-top: 10px"
+          >
+            <a
+              href="boas-vindas.html"
+              style="color: #8fa0ba; text-decoration: none; font-size: 0.9rem"
+            >
+              <i class="fa-solid fa-arrow-left"></i> Voltar
+            </a>
+            <h2 style="font-size: 1.6rem; font-weight: 800; margin-top: 16px">
+              Criar nova conta
+            </h2>
+            <p style="font-size: 0.8rem; color: #8fa0ba; margin-top: 4px">
+              Monte o seu perfil de atleta e comece a pontuar.
+            </p>
+          </div>
+
+          <!-- FORMULÁRIO DE CADASTRO -->
+          <form
+            class="auth-form"
+            action="index.html"
+            style="
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+            "
+          >
+            <!-- Nome Completo -->
+            <div class="input-field-group">
+              <label>Nome Completo</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Ex: Luiz Otávio" required />
+              </div>
             </div>
 
-            <!-- FORMULÁRIO DE CADASTRO -->
-            <form class="auth-form" action="index.html" style="width: 100%; display: flex; flex-direction: column; gap: 16px;">
-                
-                <!-- Nome Completo -->
-                <div class="input-field-group">
-                    <label>Nome Completo</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Ex: Luiz Otávio" required>
-                    </div>
-                </div>
+            <!-- Nome de Jogo (FUT Card) -->
+            <div class="input-field-group">
+              <label
+                >Nome de Jogo
+                <span style="color: #e67e22">(Aparece no Card)</span></label
+              >
+              <div class="input-wrapper">
+                <i class="fa-solid fa-id-card"></i>
+                <input
+                  type="text"
+                  placeholder="Ex: L. OTÁVIO"
+                  maxlength="12"
+                  required
+                />
+              </div>
+            </div>
 
-                <!-- Nome de Jogo (FUT Card) -->
-                <div class="input-field-group">
-                    <label>Nome de Jogo <span style="color: #e67e22;">(Aparece no Card)</span></label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-id-card"></i>
-                        <input type="text" placeholder="Ex: L. OTÁVIO" maxlength="12" required>
-                    </div>
-                </div>
+            <!-- E-mail -->
+            <div class="input-field-group">
+              <label>E-mail</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-envelope"></i>
+                <input
+                  type="email"
+                  placeholder="seuemail@provedor.com"
+                  required
+                />
+              </div>
+            </div>
 
-                <!-- E-mail -->
-                <div class="input-field-group">
-                    <label>E-mail</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="seuemail@provedor.com" required>
-                    </div>
-                </div>
+            <!-- Posição Principal -->
+            <div class="input-field-group">
+              <label>Onde costuma jogar?</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-shield-halved"></i>
+                <select required>
+                  <option value="" disabled selected hidden>
+                    Selecione sua posição...
+                  </option>
+                  <option value="linha">Jogador de Linha (LIN)</option>
+                  <option value="goleiro">Goleiro (GOL)</option>
+                  <option value="misto">Misto (Linha e Gol)</option>
+                </select>
+              </div>
+            </div>
 
-                <!-- Posição Principal -->
-                <div class="input-field-group">
-                    <label>Onde costuma jogar?</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <select required>
-                            <option value="" disabled selected hidden>Selecione sua posição...</option>
-                            <option value="linha">Jogador de Linha (LIN)</option>
-                            <option value="goleiro">Goleiro (GOL)</option>
-                            <option value="misto">Misto (Linha e Gol)</option>
-                        </select>
-                    </div>
-                </div>
+            <!-- Senha -->
+            <div class="input-field-group">
+              <label>Senha</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-lock"></i>
+                <input
+                  type="password"
+                  placeholder="No mínimo 6 caracteres"
+                  required
+                />
+              </div>
+            </div>
 
-                <!-- Senha -->
-                <div class="input-field-group">
-                    <label>Senha</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="No mínimo 6 caracteres" required>
-                    </div>
-                </div>
+            <!-- BOTÃO DE SUBMIT -->
+            <button
+              type="submit"
+              class="btn-onboarding btn-onboarding--primary"
+              style="margin-top: 10px; border: none; cursor: pointer"
+            >
+              CONCLUIR CADASTRO
+            </button>
+          </form>
 
-                <!-- BOTÃO DE SUBMIT -->
-                <button type="submit" class="btn-onboarding btn-onboarding--primary" style="margin-top: 10px; border: none; cursor: pointer;">
-                    CONCLUIR CADASTRO
-                </button>
-            </form>
-
-            <!-- LINK ALTERNATIVO -->
-            <p style="font-size: 0.8rem; color: #8fa0ba; width: 100%; text-align: center; margin-top: 10px;">
-                Já tem uma conta? <a href="login.html" style="color: #00ff87; font-weight: 700; text-decoration: none;">Faça Login</a>
-            </p>
-
+          <!-- LINK ALTERNATIVO -->
+          <p
+            style="
+              font-size: 0.8rem;
+              color: #8fa0ba;
+              width: 100%;
+              text-align: center;
+              margin-top: 10px;
+            "
+          >
+            Já tem uma conta?
+            <a
+              href="login.html"
+              style="color: #00ff87; font-weight: 700; text-decoration: none"
+              >Faça Login</a
+            >
+          </p>
         </div>
-    </main>
-
-</body>
+      </main>
+    </div>
+  </body>
 </html>

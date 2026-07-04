@@ -1,74 +1,154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FUTRANK - Login</title>
-    <link rel="stylesheet" href="pages/index.css">
+    <link rel="stylesheet" href="pages/index.css" />
     <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
-    <main class="app-container onboarding-bg">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <main class="app-container onboarding-bg">
         <div class="onboarding-overlay"></div>
 
-        <div class="onboarding-content" style="justify-content: flex-start; gap: 32px;">
-            
-            <!-- CABEÇALHO DA TELA -->
-            <div class="auth-header" style="text-align: left; width: 100%; margin-top: 20px;">
-                <a href="boas-vindas.html" style="color: #8fa0ba; text-decoration: none; font-size: 0.9rem;">
-                    <i class="fa-solid fa-arrow-left"></i> Voltar
-                </a>
-                <h2 style="font-size: 1.8rem; font-weight: 800; margin-top: 20px;">Aceder à conta</h2>
-                <p style="font-size: 0.8rem; color: #8fa0ba; margin-top: 4px;">Entre para conferir as suas estatísticas e convocatórias.</p>
+        <div
+          class="onboarding-content"
+          style="justify-content: flex-start; gap: 32px"
+        >
+          <!-- CABEÇALHO DA TELA -->
+          <div
+            class="auth-header"
+            style="text-align: left; width: 100%; margin-top: 20px"
+          >
+            <a
+              href="boas-vindas.html"
+              style="color: #8fa0ba; text-decoration: none; font-size: 0.9rem"
+            >
+              <i class="fa-solid fa-arrow-left"></i> Voltar
+            </a>
+            <h2 style="font-size: 1.8rem; font-weight: 800; margin-top: 20px">
+              Aceder à conta
+            </h2>
+            <p style="font-size: 0.8rem; color: #8fa0ba; margin-top: 4px">
+              Entre para conferir as suas estatísticas e convocatórias.
+            </p>
+          </div>
+
+          <!-- FORMULÁRIO DE LOGIN -->
+          <form
+            class="auth-form"
+            action="index.html"
+            style="
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+            "
+          >
+            <!-- E-mail -->
+            <div class="input-field-group">
+              <label>E-mail</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-envelope"></i>
+                <input
+                  type="email"
+                  placeholder="seuemail@provedor.com"
+                  required
+                />
+              </div>
             </div>
 
-            <!-- FORMULÁRIO DE LOGIN -->
-            <form class="auth-form" action="index.html" style="width: 100%; display: flex; flex-direction: column; gap: 20px;">
-                
-                <!-- E-mail -->
-                <div class="input-field-group">
-                    <label>E-mail</label>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="seuemail@provedor.com" required>
-                    </div>
-                </div>
+            <!-- Senha -->
+            <div class="input-field-group">
+              <div
+                style="
+                  width: 100%;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <label>Senha</label>
+                <a
+                  href="#"
+                  style="
+                    color: #e67e22;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    text-decoration: none;
+                  "
+                  >Esqueceu?</a
+                >
+              </div>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-lock"></i>
+                <input
+                  type="password"
+                  placeholder="Digite a sua senha"
+                  required
+                />
+              </div>
+            </div>
 
-                <!-- Senha -->
-                <div class="input-field-group">
-                    <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-                        <label>Senha</label>
-                        <a href="#" style="color: #e67e22; font-size: 0.75rem; font-weight: 600; text-decoration: none;">Esqueceu?</a>
-                    </div>
-                    <div class="input-wrapper">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Digite a sua senha" required>
-                    </div>
-                </div>
+            <!-- LEMBRAR-ME / MANTER CONECTADO -->
+            <div
+              class="auth-options"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                width: 100%;
+                text-align: left;
+              "
+            >
+              <input type="checkbox" id="remember" class="custom-checkbox" />
+              <label
+                for="remember"
+                style="
+                  font-size: 0.8rem;
+                  color: #8fa0ba;
+                  cursor: pointer;
+                  user-select: none;
+                "
+              >
+                Manter-me conectado neste dispositivo
+              </label>
+            </div>
 
-                <!-- LEMBRAR-ME / MANTER CONECTADO -->
-                <div class="auth-options" style="display: flex; align-items: center; gap: 8px; width: 100%; text-align: left;">
-                    <input type="checkbox" id="remember" class="custom-checkbox">
-                    <label for="remember" style="font-size: 0.8rem; color: #8fa0ba; cursor: pointer; user-select: none;">
-                        Manter-me conectado neste dispositivo
-                    </label>
-                </div>
+            <!-- BOTÃO DE LOGIN -->
+            <button
+              type="submit"
+              class="btn-onboarding btn-onboarding--primary"
+              style="margin-top: 10px; border: none; cursor: pointer"
+            >
+              ENTRAR NO CAMPO
+            </button>
+          </form>
 
-                <!-- BOTÃO DE LOGIN -->
-                <button type="submit" class="btn-onboarding btn-onboarding--primary" style="margin-top: 10px; border: none; cursor: pointer;">
-                    ENTRAR NO CAMPO
-                </button>
-            </form>
-
-            <!-- LINK PARA CADASTRO -->
-            <p style="font-size: 0.8rem; color: #8fa0ba; width: 100%; text-align: center; margin-top: 10px;">
-                Ainda não tem conta? <a href="cadastro.html" style="color: #00ff87; font-weight: 700; text-decoration: none;">Criar Conta</a>
-            </p>
-
+          <!-- LINK PARA CADASTRO -->
+          <p
+            style="
+              font-size: 0.8rem;
+              color: #8fa0ba;
+              width: 100%;
+              text-align: center;
+              margin-top: 10px;
+            "
+          >
+            Ainda não tem conta?
+            <a
+              href="cadastro.html"
+              style="color: #00ff87; font-weight: 700; text-decoration: none"
+              >Criar Conta</a
+            >
+          </p>
         </div>
-    </main>
-
-</body>
+      </main>
+    </div>
+  </body>
 </html>

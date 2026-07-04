@@ -1,49 +1,4 @@
-/* RESET E CONFIGURAÇÕES GERAIS */
-:root {
-  --bg-main: #0b0f12;
-  --bg-card: #13191e;
-  --bg-card-secondary: #1a2229;
-  --green-primary: #22c55e;
-  --green-dark: #15803d;
-  --text-main: #ffffff;
-  --text-muted: #94a3b8;
-  --border-color: #1e293b;
-/*
-  --color-bg-base: #0f172a;
-  --color-card-base: #1e293b;
-  --color-green: #22c55e;
-  --color-blue: #3b82f6;
-  --color-yellow: #facc15;
-  --color-red: #ef4444;
-  --color-text-white: #f8fafc;*/
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-  background-color: #000000;
-  color: var(--text-main);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-/* CONTAINER SIMULANDO TELA DE CELULAR COMPRIDA / DESKTOP RESPONSIVO */
-.app-container {
-  background-color: var(--bg-main);
-  width: 100%;
-  max-width: 480px;
-  min-height: 100vh;
-  padding: 20px 16px 100px 16px;
-  position: relative;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-}
 
 
 /* WELCOME & LEVEL */
