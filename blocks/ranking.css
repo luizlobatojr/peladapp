@@ -42,16 +42,6 @@ body {
     box-shadow: 0 0 24px rgba(0,0,0,0.9);
 }
 
-/* HEADER */
-.app-header {
-    display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
-}
-.logo { font-weight: 800; font-size: 1.2rem; }
-.logo span { color: var(--green-neon); }
-.header-actions { display: flex; align-items: center; gap: 14px; }
-.notification-badge { position: relative; font-size: 1.3rem; }
-.notification-badge .badge { position: absolute; top: -4px; right: -4px; background-color: #ef4444; color: white; font-size: 0.65rem; padding: 1px 5px; border-radius: 50%; }
-.avatar-img { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--green-neon); }
 
 /* SCREEN HEADER */
 .screen-header h1 { font-size: 1.4rem; font-weight: 700; }
