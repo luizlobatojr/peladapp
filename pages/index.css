@@ -1,6 +1,7 @@
 /*@import url("../vendor/normalize.css");
 @import url("../vendor/fonts.css");*/
 
+@import url("../blocks/bottom-nav.css");
 
 @import url("../blocks/style.css");
 @import url("../blocks/partidas.css");
@@ -14,6 +15,7 @@
 @import url("../blocks/premios.css");
 @import url("../blocks/boas-vindas.css");
 @import url("../blocks/cadastro.css");
+
 
 
 

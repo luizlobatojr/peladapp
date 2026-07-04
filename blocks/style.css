@@ -558,7 +558,7 @@ body {
   z-index: 100;
 }
 
-.nav-item {
+.bottom-nav__item {
   color: var(--text-muted);
   text-decoration: none;
   display: flex;
@@ -569,15 +569,15 @@ body {
   flex: 1;
 }
 
-.nav-item i {
+.bottom-nav__item i {
   font-size: 1.2rem;
 }
 
-.nav-item.active {
+.bottom-nav__item.bottom-nav__item--active {
   color: var(--green-primary);
 }
 
-.nav-create {
+.bottom-nav__item--create {
   background-color: var(--green-primary);
   color: #000 !important;
   width: 48px;
@@ -592,6 +592,6 @@ body {
   flex: none;
 }
 
-.nav-create i {
+.bottom-nav__item--create i {
   font-size: 1.4rem;
 }
