@@ -95,7 +95,6 @@
 /* Status de Cores nos Números */
 .day-num.status-green::after,
 .day-num.status-yellow::after,
-.day-num.status-orange::after,
 .day-num.status-red::after,
 .day-num.status-blue::after,
 .day-num.event-special::after {
@@ -113,9 +112,6 @@
 }
 .day-num.status-yellow::after {
   background: #eab308;
-}
-.day-num.status-orange::after {
-  background: #f97316;
 }
 .day-num.status-red::after {
   background: #ef4444;

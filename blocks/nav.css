@@ -1,5 +1,5 @@
 /* BOTTOM NAVIGATION */
-.bottom-nav {
+.nav {
   position: fixed;
   bottom: 0;
   left: 50%;
@@ -15,7 +15,7 @@
   z-index: 100;
 }
 
-.bottom-nav__item {
+.nav__item {
   color: var(--text-muted);
   text-decoration: none;
   display: flex;
@@ -26,15 +26,15 @@
   flex: 1;
 }
 
-.bottom-nav__item i {
+.nav__item i {
   font-size: 1.2rem;
 }
 
-.bottom-nav__item.bottom-nav__item--active {
+.nav__item.nav__item--active {
   color: var(--green-primary);
 }
 
-.bottom-nav__item--create {
+.nav__item--create {
   background-color: var(--green-primary);
   color: #000 !important;
   width: 48px;
@@ -49,6 +49,6 @@
   flex: none;
 }
 
-.bottom-nav__item--create i {
+.nav__item--create i {
   font-size: 1.4rem;
 }

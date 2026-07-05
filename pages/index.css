@@ -1,9 +1,11 @@
 /*@import url("../vendor/normalize.css");
 @import url("../vendor/fonts.css");*/
 
-@import url("../blocks/bottom-nav.css");
+@import url("../blocks/nav.css");
 @import url("../blocks/header.css");
 @import url("../blocks/base.css");
+@import url("../blocks/welcome.css");
+
 @import url("../blocks/onboarding.css");
 @import url("../blocks/button.css");
 @import url("../blocks/cadastro.css");

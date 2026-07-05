@@ -65,10 +65,9 @@
 
   min-width: 18px;
   height: 18px;
-
-  background-color: #ef4444;
-  color: #fff;
-
+  
+  background-color: var(--color-red);
+  color: var(--text-main);
   font-size: 0.7rem;
   font-weight: 600;
 

@@ -62,10 +62,6 @@
   margin-bottom: 6px;
 }
 
-.onboarding__title--highlight {
-  color: var(--green-primary);
-}
-
 .onboarding__tagline {
   font-size: 0.95rem;
   color: var(--text-muted);

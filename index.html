@@ -54,19 +54,21 @@
         </div>
       </header>
 
-      <section class="welcome-section">
-        <div class="welcome-text">
-          <h1>Olá, R. Silva! 👋</h1>
-          <p>Pronto para mais uma pelada?</p>
+      <section class="welcome">
+        <div class="welcome__text">
+          <h1 class="welcome__text-title">Olá, R. Silva! 👋</h1>
+          <p class="welcome__text-text">Pronto para mais uma pelada?</p>
         </div>
+
         <div class="level-card">
-          <div class="level-badge">12</div>
-          <div class="level-progress-container">
-            <span class="level-title">Nível 12</span>
+          <div class="level-card__badge">12</div>
+          <div class="level-card__progress">
+            <span class="level-card__label">Nível 12</span>
+
             <div class="progress-bar">
-              <div class="progress" style="width: 82%"></div>
+              <div class="progress-bar__fill" style="width: 82%"></div>
             </div>
-            <span class="xp-text">820 / 1000 XP</span>
+            <span class="level-card__xp">820 / 1000 XP</span>
           </div>
         </div>
       </section>
@@ -108,7 +110,31 @@
           </div>
         </div>
       </section>
-
+      <div class="card profile-summary-card">
+        <div class="card-header">
+          <h3><i class="fa-regular fa-user icon-green"></i> MEU PERFIL</h3>
+          <a href="#" class="view-all">Ver perfil</a>
+        </div>
+        <div class="profile-meta">
+          <img
+            src="https://via.placeholder.com/60"
+            class="profile-main-avatar"
+          />
+          <div>
+            <h4>R. Silva</h4>
+            <span class="tier-text"
+              >Nível: <span class="green-text">Veterano</span></span
+            >
+            <div class="stars">⭐⭐⭐⭐★</div>
+          </div>
+        </div>
+        <div class="profile-stats-badge">
+          <div class="p-badge"><strong>86</strong><span>Overall</span></div>
+          <div class="p-badge"><strong>72</strong><span>Jogos</span></div>
+          <div class="p-badge"><strong>45</strong><span>Vitórias</span></div>
+          <div class="p-badge"><strong>68%</strong><span>Aproveit.</span></div>
+        </div>
+      </div>
       <main class="dashboard-grid">
         <div class="grid-column">
           <div class="mini-stats-grid">
@@ -116,6 +142,7 @@
               <div class="stat-icon">
                 <i class="fa-solid fa-soccer-ball"></i>
               </div>
+
               <div class="stat-content">
                 <span class="stat-label">Gols</span>
                 <span class="stat-value">27</span>
@@ -149,136 +176,28 @@
               </div>
             </div>
           </div>
-
-          <div class="card my-ranking-card">
-            <h3>
-              <i class="fa-solid fa-chart-simple icon-green"></i> MEU RANKING
-            </h3>
-            <div class="ranking-content">
-              <div>
-                <span class="rank-number">#4</span>
-                <span class="rank-text">da temporada</span>
-                <span class="badge-up"
-                  ><i class="fa-solid fa-caret-up"></i> 2 posições</span
-                >
-              </div>
-              <div class="trophy-badge">
-                <i class="fa-solid fa-award"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3><i class="fa-solid fa-wallet icon-green"></i> PAGAMENTOS</h3>
-            <div class="payment-info">
-              <div>
-                <span class="stat-label">Arrecadado</span>
-                <span class="payment-value green-text">80,00€</span>
-              </div>
-              <div>
-                <span class="stat-label">Meta</span>
-                <span class="payment-value">100,00€</span>
-              </div>
-            </div>
-            <div class="progress-bar">
-              <div class="progress" style="width: 80%"></div>
-            </div>
-            <div class="payment-status">
-              <i class="fa-solid fa-circle-check green-text"></i> Pago
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-column">
-          <div class="card">
-            <div class="card-header">
-              <h3>RANKING DA TEMPORADA</h3>
-              <a href="#" class="view-all">Ver tudo</a>
-            </div>
-            <ul class="ranking-list">
-              <li class="ranking-item">
-                <span class="pos gold">1</span>
-                <img
-                  src="https://via.placeholder.com/30"
-                  class="player-thumb"
-                />
-                <span class="player-name">João Pereira</span>
-                <span class="points">95</span>
-              </li>
-              <li class="ranking-item">
-                <span class="pos silver">2</span>
-                <img
-                  src="https://via.placeholder.com/30"
-                  class="player-thumb"
-                />
-                <span class="player-name">Pedro Santos</span>
-                <span class="points">92</span>
-              </li>
-              <li class="ranking-item current-user">
-                <span class="pos">4</span>
-                <img
-                  src="https://via.placeholder.com/30"
-                  class="player-thumb"
-                />
-                <span class="player-name">R. Silva</span>
-                <span class="points">86</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="card profile-summary-card">
-            <div class="card-header">
-              <h3><i class="fa-regular fa-user icon-green"></i> MEU PERFIL</h3>
-              <a href="#" class="view-all">Ver perfil</a>
-            </div>
-            <div class="profile-meta">
-              <img
-                src="https://via.placeholder.com/60"
-                class="profile-main-avatar"
-              />
-              <div>
-                <h4>R. Silva</h4>
-                <span class="tier-text"
-                  >Nível: <span class="green-text">Veterano</span></span
-                >
-                <div class="stars">⭐⭐⭐⭐★</div>
-              </div>
-            </div>
-            <div class="profile-stats-badge">
-              <div class="p-badge"><strong>86</strong><span>Overall</span></div>
-              <div class="p-badge"><strong>72</strong><span>Jogos</span></div>
-              <div class="p-badge">
-                <strong>45</strong><span>Vitórias</span>
-              </div>
-              <div class="p-badge">
-                <strong>68%</strong><span>Aproveit.</span>
-              </div>
-            </div>
-          </div>
         </div>
       </main>
 
-      <nav class="bottom-nav">
-        <a href="index.html" class="bottom-nav__item bottom-nav__item--active"
+      <nav class="nav">
+        <a href="index.html" class="nav__item nav__item--active"
           ><i class="fa-solid fa-house"></i
-          ><span class="bottom-nav__text">Início</span></a
+          ><span class="nav__text">Início</span></a
         >
-        <a href="partidas.html" class="bottom-nav__item"
+        <a href="partidas.html" class="nav__item"
           ><i class="fa-regular fa-calendar"></i
-          ><span class="bottom-nav__text">Partidas</span></a
+          ><span class="nav__text">Partidas</span></a
         >
-        <a
-          href="criar-partida.html"
-          class="bottom-nav__item bottom-nav__item--create"
+        <a href="criar-partida.html" class="nav__item nav__item--create"
           ><i class="fa-solid fa-plus"></i
         ></a>
-        <a href="ranking.html" class="bottom-nav__item"
+        <a href="ranking.html" class="nav__item"
           ><i class="fa-solid fa-trophy"></i
-          ><span class="bottom-nav__text">Ranking</span></a
+          ><span class="nav__text">Ranking</span></a
         >
-        <a href="mais.html" class="bottom-nav__item"
+        <a href="mais.html" class="nav__item"
           ><i class="fa-solid fa-bars"></i
-          ><span class="bottom-nav__text">Mais</span></a
+          ><span class="nav__text">Mais</span></a
         >
       </nav>
     </div>

@@ -1,5 +1,3 @@
-
-
 /* TÍTULO DA TELA E BOTÃO CRIAR */
 .screen-title-area {
     display: flex;
@@ -67,12 +65,6 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 12px;
-}
-
-.view-all-link {
-    color: var(--green-primary);
-    font-size: 0.8rem;
-    text-decoration: none;
 }
 
 /* CARD DESTAQUE: PRÓXIMA PARTIDA */
@@ -161,78 +153,6 @@
 .btn-rsvp { flex: 1; padding: 10px; border-radius: 8px; border: none; font-weight: bold; font-size: 0.85rem; cursor: pointer; }
 .btn-rsvp.yes { background-color: var(--green-primary); color: #000; }
 .btn-rsvp.no { background-color: #1e262e; color: var(--text-main); border: 1px solid var(--border-color); }
-
-/* LISTA DE OUTRAS PARTIDAS */
-.matches-list { display: flex; flex-direction: column; gap: 10px; }
-.list-match-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 12px;
-    display: grid;
-    grid-template-columns: 60px 1fr 70px 20px;
-    align-items: center;
-}
-
-.list-date { display: flex; flex-direction: column; align-items: center; border-right: 1px solid var(--border-color); padding-right: 8px; }
-.l-day { font-size: 0.65rem; color: var(--text-muted); }
-.l-num { font-size: 1.2rem; font-weight: bold; line-height: 1.1; }
-.l-month { font-size: 0.65rem; color: var(--text-muted); margin-bottom: 4px; }
-.l-time { font-size: 0.65rem; background-color: #1c262f; padding: 1px 4px; border-radius: 3px; }
-
-.list-info { padding-left: 12px; }
-.list-info h3 { font-size: 0.85rem; margin-bottom: 2px; }
-.list-info p { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 6px; }
-
-.list-status { text-align: right; display: flex; flex-direction: column; gap: 4px; padding-right: 4px;}
-.l-price { font-size: 0.7rem; color: var(--green-primary); font-weight: bold; }
-.l-count { font-size: 0.95rem; font-weight: bold; }
-.l-count span { color: var(--text-muted); font-size: 0.7rem; }
-.arrow-icon { color: var(--text-muted); font-size: 0.8rem; text-align: right; }
-
-/* HISTÓRICO RECENTE */
-.history-list { display: flex; flex-direction: column; gap: 10px; }
-.history-item {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 12px;
-    display: grid;
-    grid-template-columns: 40px 70px 1fr 50px 16px;
-    align-items: center;
-}
-
-.history-badge-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    background-color: #1a232a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-}
-
-.status-win .history-badge-icon { color: var(--green-primary); }
-.status-draw .history-badge-icon { color: #94a3b8; }
-
-.history-score-block { text-align: center; }
-.result-tag { font-size: 0.55rem; font-weight: bold; padding: 1px 4px; border-radius: 3px; }
-.result-tag.win { background-color: rgba(34, 197, 94, 0.15); color: var(--green-primary); }
-.result-tag.draw { background-color: rgba(148, 163, 184, 0.15); color: #94a3b8; }
-
-.score { font-size: 1.1rem; font-weight: bold; margin-top: 2px; }
-.score span { font-size: 0.75rem; color: var(--text-muted); }
-
-.history-details { padding-left: 8px; }
-.h-date { font-size: 0.65rem; color: var(--text-muted); display: block; }
-.h-venue { font-size: 0.75rem; font-weight: 500; display: block; margin: 1px 0; }
-.h-stats { display: flex; gap: 8px; font-size: 0.65rem; color: var(--text-muted); align-items: center;}
-.mvp-tag { background-color: #eab308; color: #000; font-weight: bold; padding: 0 4px; border-radius: 3px; font-size: 0.55rem; }
-
-.history-rating { text-align: center; }
-.rating-lbl { font-size: 0.6rem; color: var(--text-muted); display: block; }
-.rating-val { font-size: 1.1rem; font-weight: bold; }
 .win-text { color: var(--green-primary); }
 .loss-text { color: var(--red-accent); }
 
