@@ -113,31 +113,25 @@
     cursor: pointer;
 }
 
-.match-status-side {
+.next-match__status-side {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     text-align: right;
 }
 
-.price-tag {
+.next-match__status--tag--price {
     color: var(--green-primary);
     font-size: 0.95rem;
     font-weight: 700;
 }
 
-.price-tag small { color: var(--text-muted); font-size: 0.65rem; font-weight: normal; }
+.next-match__status--tag--price small { color: var(--text-muted); font-size: 0.65rem; font-weight: normal; }
 
 .confirmed-box { margin: 10px 0 6px 0; }
 .confirmed-box .label { font-size: 0.65rem; color: var(--text-muted); display: block; }
 .confirmed-box .count { font-size: 1.2rem; font-weight: bold; color: var(--green-primary); }
 .confirmed-box .count .total { color: var(--text-muted); font-size: 0.8rem; }
-
-/* AVATAR GROUP */
-.avatar-group { display: flex; align-items: center; }
-.avatar-group img { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--bg-card); margin-left: -6px; }
-.avatar-group img:first-child { margin-left: 0; }
-.avatar-more { width: 22px; height: 22px; border-radius: 50%; background-color: #242f38; font-size: 0.6rem; display: flex; justify-content: center; align-items: center; border: 1.5px solid var(--bg-card); margin-left: -6px; color: var(--text-muted); }
 
 /* RSVP FOOTER */
 .rsvp-footer {

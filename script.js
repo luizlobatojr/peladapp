@@ -18,7 +18,7 @@ if ("serviceWorker" in navigator) {
               // Cria um aviso na tela do usuário (pode customizar com CSS)
               const alertBox = document.createElement("div");
               alertBox.innerHTML = `
-                <div style="position: fixed; bottom: 20px; right: 20px; background: #333; color: #fff; padding: 15px; border-radius: 8px; z-index: 9999; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
+                <div style="position: fixed; bottom: 20px; right: 20px; background: #333; color: #fff; padding: 15px; border-radius: 8px; z-home: 9999; box-shadow: 0px 4px 10px rgba(0,0,0,0.3);">
                   <p style="margin: 0 0 10px 0;">Nova atualização disponível!</p>
                   <button id="reload-app" style="background: #28a745; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Atualizar Agora</button>
                 </div>

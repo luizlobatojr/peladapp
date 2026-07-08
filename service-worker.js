@@ -3,7 +3,7 @@ const CACHE_NAME = "pelada-pro-cache-v0.0.6";
 // Dica: Adicione aqui as outras páginas e blocos de CSS importantes para o app funcionar offline
 const ASSETS = [
   "/",
-  "/index.html",
+  "/home.html",
   "/pages/index.css",
   "/assets/icon/icon.png",
 

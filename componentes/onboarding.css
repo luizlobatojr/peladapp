@@ -22,13 +22,13 @@
   bottom: 0;
   background: radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.4) 100%);
   pointer-events: none;
-  z-index: 1;
+  z-home: 1;
 }
 
 /* Container do conteúdo principal empilhado verticalmente */
 .onboarding {
   position: relative;
-  z-index: 2;
+  z-home: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
