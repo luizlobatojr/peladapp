@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelada Pro — Criar Nova Partida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="criar.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="ball">⚽</div>
+          <div class="name">PELADA <span>PRO</span></div>
+        </div>
+        <div class="top-actions">
+          <div class="bell">🔔<span class="badge">2</span></div>
+          <div class="avatar">🙂</div>
+        </div>
+      </header>
+
+      <div class="page-head">
+        <h1>Criar Nova Partida</h1>
+        <p>Preencha os detalhes da sua pelada</p>
+      </div>
+
+      <div class="stepper">
+        <div class="step active">
+          <div class="dot">1</div>
+          <div class="label">Detalhes</div>
+        </div>
+        <div class="step">
+          <div class="dot">2</div>
+          <div class="label">Convites</div>
+        </div>
+        <div class="step">
+          <div class="dot">3</div>
+          <div class="label">Configurações</div>
+        </div>
+        <div class="step">
+          <div class="dot">4</div>
+          <div class="label">Resumo</div>
+        </div>
+      </div>
+
+      <!-- 1. Detalhes -->
+      <section class="panel step-panel" id="panel-1">
+        <div class="panel-title">
+          <span class="num-badge">📅</span> 1. Detalhes da partida
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Data</label>
+            <div class="field-control">
+              <input type="date" id="input-data" class="fc-left" onchange="atualizarData(this.value)"></input>              
+              <span class="chevron">▾</span>
+            </div>
+          </div>
+          <div class="field">
+            <label>Horário</label>
+            <div class="field-control">
+              <input type="time" id="input-hora" class="fc-left" value="20:00"></input>
+              <span class="chevron">▾</span>
+            </div>
+          </div>
+          <div class="field">
+            <label>Duração</label>
+            <div class="field-control">
+              <span class="fc-left">2h 00m</span>
+              <span class="chevron">▾</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="location-grid">
+          <div>
+            <div class="field">
+              <label>📍 Local</label>
+              <div class="field-control">
+                <span class="fc-left" id="select-local">Foot Space</span>
+                <span class="chevron">▾</span>
+              </div>
+            </div>
+            <div class="location-sub">Matosinhos, Porto</div>
+          </div>
+          <div>
+            <div class="map-box"><span class="pin">📍</span></div>
+            <a class="map-link" href="#">Ver no mapa ↗</a>
+          </div>
+        </div>
+
+        <div class="field-row" style="grid-template-columns: 1fr 1fr">
+          <div class="field">
+            <label>💶 Preço por jogador</label>
+            <div class="numeric-stepper">
+              <div class="stepper-btn" onclick="atualizar('preco', -0.5)">
+                −
+              </div>
+              <span class="stepper-value" id="valor-preco">7,00€</span>
+              <div class="stepper-btn" onclick="atualizar('preco', 0.5)">+</div>
+            </div>
+            <div class="field-hint">Valor que cada jogador deverá pagar</div>
+          </div>
+          <div class="field">
+            <label>👥 Número de jogadores</label>
+            <div class="numeric-stepper">
+              <div class="stepper-btn" onclick="atualizarJogadores(-1)">−</div>
+              <span class="stepper-value" id="val-jogadores">20</span>
+              <div class="stepper-btn" onclick="atualizarJogadores(1)">+</div>
+            </div>
+            <div class="field-hint">Mínimo 10 • Máximo 30</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>💬 Descrição (opcional)</label>
+          <textarea
+            placeholder="Ex: Levar caneleira! Chuteira society obrigatória."
+          ></textarea>
+          <div class="char-count">0/100</div>
+        </div>
+        <div class="button-container">
+          <button
+            type="button"
+            class="btn-next submit-btn"
+            onclick="nextStep(2)"
+          >
+            Próximo
+          </button>
+        </div>
+      </section>
+
+      <!-- 2. Convites -->
+      <section class="panel step-panel" id="panel-2">
+        <div class="panel-title-row">
+          <div class="panel-title">
+            <span class="num-badge">👥</span> 2. Convide jogadores
+          </div>
+          <a class="link-action" href="#">➕ Adicionar de grupo</a>
+        </div>
+
+        <div class="invite-grid">
+          <div class="invite-avatar">
+            <div class="pic-wrap">
+              <div class="pic"></div>
+              <div class="remove">✕</div>
+            </div>
+            <div class="iname">João<br />Pereira</div>
+          </div>
+          <div class="invite-avatar">
+            <div class="pic-wrap">
+              <div class="pic"></div>
+              <div class="remove">✕</div>
+            </div>
+            <div class="iname">Pedro<br />Santos</div>
+          </div>
+          <div class="invite-avatar">
+            <div class="pic-wrap">
+              <div class="pic"></div>
+              <div class="remove">✕</div>
+            </div>
+            <div class="iname">Carlos<br />Eduardo</div>
+          </div>
+          <div class="invite-avatar">
+            <div class="pic-wrap">
+              <div class="pic"></div>
+              <div class="remove">✕</div>
+            </div>
+            <div class="iname">Bruno<br />Costa</div>
+          </div>
+          <div class="invite-avatar">
+            <div class="pic-wrap">
+              <div class="pic"></div>
+              <div class="remove">✕</div>
+            </div>
+            <div class="iname">Miguel<br />Alves</div>
+          </div>
+          <div class="invite-avatar">
+            <div class="pic-wrap">
+              <div class="pic"></div>
+              <div class="remove">✕</div>
+            </div>
+            <div class="iname">Rafael<br />Lima</div>
+          </div>
+          <div class="invite-avatar">
+            <div class="add-player">＋</div>
+            <div class="add-player-label">Adicionar<br />jogadores</div>
+          </div>
+        </div>
+        <div class="button-container">
+          <button type="button" class="submit-btn" onclick="nextStep(1)">
+            Voltar
+          </button>
+          <button
+            type="button"
+            class="btn-next submit-btn"
+            onclick="nextStep(3)"
+          >
+            Próximo
+          </button>
+        </div>
+      </section>
+
+      <!-- 3. Configurações -->
+      <section class="panel step-panel" id="panel-3">
+        <div class="panel-title">
+          <span class="num-badge">⚙️</span> 3. Configurações
+        </div>
+        <div class="config-grid">
+          <div class="field">
+            <label>⚽ Tipo de partida</label>
+            <div class="field-control">
+              <span class="fc-left">⚽ Tradicional</span>
+              <span class="chevron">▾</span>
+            </div>
+          </div>
+          <div class="field">
+            <label>👤 Permitir reservas</label>
+            <div class="toggle-row">
+              <span>Sim</span>
+              <div class="toggle-switch"><div class="knob"></div></div>
+            </div>
+          </div>
+          <div class="field">
+            <label>🔔 Notificações</label>
+            <div class="field-control">
+              <span class="fc-left">🔔 Todos</span>
+              <span class="chevron">▾</span>
+            </div>
+          </div>
+        </div>
+        <div class="button-container">
+          <button type="button" class="submit-btn" onclick="nextStep(2)">
+            Voltar
+          </button>
+          <button
+            type="button"
+            class="btn-next submit-btn"
+            onclick="nextStep(4)"
+            
+          >
+            Próximo
+          </button>
+        </div>
+      </section>
+
+      <!-- 4. Resumo -->
+      <section class="panel step-panel" id="panel-4">
+        <div class="panel-title">
+          <span class="num-badge">🏟️</span> 4. Resumo da partida
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-cell">
+            <div class="sc-icon">📅</div>
+            <div class="sc-label">DATA</div>
+            <div class="sc-value" id="resumo-data">--/--/----</div>
+            <div class="sc-sub" id="resumo-dia-semana">--</div>
+          </div>
+          <div class="summary-cell">
+            <div class="sc-icon">🕒</div>
+            <div class="sc-label">HORÁRIO</div>
+            <div class="sc-value" id="resumo-hora">20:00</div>
+            <div class="sc-sub">2h</div>
+          </div>
+          <div class="summary-cell">
+            <div class="sc-icon">📍</div>
+            <div class="sc-label">LOCAL</div>
+            <div class="sc-value">Foot Space</div>
+            <div class="sc-sub">Matosinhos, Porto</div>
+          </div>
+          <div class="summary-cell">
+            <div class="sc-icon">👥</div>
+            <div class="sc-label">JOGADORES</div>
+            <div class="sc-value" id="resumo-jogadores">20</div>
+            <div class="sc-sub" id="resumo-preco">7,00€ por jogador</div>
+          </div>
+        </div>
+        <div class="button-container">
+          <button type="button" class="submit-btn" onclick="nextStep(3)">
+            Voltar
+          </button>
+
+          <button id="btn-criar-partida" class="submit-btn">
+            📅 CRIAR PARTIDA
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <nav class="bottombar">
+      <a href="inicio.html" class="nav-item">
+        <div class="nico">🏠</div>
+        Início
+      </a>
+      <a href="partidas.html" class="nav-item">
+        <div class="nico">📅</div>
+        Partidas
+      </a>
+      <a href="criar.html" class="nav-item create active"
+        ><div class="nico">+</div></a
+      >
+      <a href="ranking.html" class="nav-item">
+        <div class="nico">🏆</div>
+        Ranking
+      </a>
+      <a href="mais.html" class="nav-item">
+        <div class="nico">☰</div>
+        Mais
+      </a>
+    </nav>
+    <script type="module" src="js/criarPartida.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+          "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
+          "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+        }
+      }
+    </script>
+
+    
+
+  </body>
+</html>

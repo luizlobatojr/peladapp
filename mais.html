@@ -3,60 +3,569 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FUTRANK - Centro de Controle</title>
-    <link rel="stylesheet" href="pages/index.css" />
-    <!-- Ícones FontAwesome -->
+    <title>Pelada Pro — Mais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <style>
+      :root {
+        --bg: #0a0f0c;
+        --bg-elevated: #10160f;
+        --card: #131a14;
+        --card-border: #22301f;
+        --line: #1e2a1c;
+        --green: #4ade80;
+        --green-deep: #22c55e;
+        --green-dark: #14532d;
+        --gold: #e0b84b;
+        --red: #ef4444;
+        --red-soft: rgba(239, 68, 68, 0.12);
+        --text: #f1f4ef;
+        --text-dim: #a6afa2;
+        --text-faint: #6f786c;
+        --font-display: "Anton", sans-serif;
+        --font-body: "Oswald", sans-serif;
+        --font-mono: "Space Mono", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background:
+          radial-gradient(
+            circle at 10% 0%,
+            rgba(74, 222, 128, 0.06),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 15%,
+            rgba(74, 222, 128, 0.04),
+            transparent 35%
+          ),
+          var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        min-height: 100vh;
+        padding-bottom: 90px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font-family: inherit;
+      }
+
+      .app {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* ---------- Header ---------- */
+      header.topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 26px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .brand .ball {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        font-size: 22px;
+      }
+      .brand .name {
+        font-family: var(--font-display);
+        letter-spacing: 1px;
+        font-size: 20px;
+      }
+      .brand .name span {
+        color: var(--green);
+      }
+      .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      .bell {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        display: grid;
+        place-items: center;
+        font-size: 17px;
+      }
+      .bell .badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background: var(--red);
+        color: #fff;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        border: 2px solid var(--bg);
+      }
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid var(--green);
+        background: linear-gradient(135deg, #3a4a3a, #20281f);
+        display: grid;
+        place-items: center;
+        font-size: 16px;
+      }
+
+      .page-head h1 {
+        font-family: var(--font-display);
+        font-size: 30px;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+        margin-bottom: 22px;
+      }
+
+      /* ---------- Profile summary card ---------- */
+      .profile-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: linear-gradient(
+          180deg,
+          rgba(74, 222, 128, 0.08),
+          rgba(74, 222, 128, 0.015)
+        );
+        border: 1px solid rgba(74, 222, 128, 0.3);
+        border-radius: 16px;
+        padding: 20px 22px;
+        margin-bottom: 22px;
+      }
+      .profile-avatar {
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        border: 2px solid var(--green);
+        background: linear-gradient(135deg, #3a4a3a, #20281f);
+        flex-shrink: 0;
+      }
+      .profile-info {
+        flex: 1;
+      }
+      .profile-name {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .profile-sub {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 4px;
+      }
+      .level-tag {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        background: var(--bg-elevated);
+        border: 1px solid var(--card-border);
+        color: var(--green);
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+      .profile-stars {
+        color: var(--gold);
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+      .profile-chevron {
+        color: var(--text-faint);
+        font-size: 20px;
+      }
+
+      /* ---------- Menu groups ---------- */
+      .menu-group {
+        margin-bottom: 24px;
+      }
+      .menu-group-title {
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text-faint);
+        font-family: var(--font-mono);
+        margin-bottom: 10px;
+        padding-left: 4px;
+      }
+      .menu-panel {
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .menu-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 15px 18px;
+        border-bottom: 1px solid var(--line);
+        cursor: pointer;
+        transition: background 0.15s ease;
+      }
+      .menu-item:last-child {
+        border-bottom: none;
+      }
+      .menu-item:hover {
+        background: var(--bg-elevated);
+      }
+      .menu-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        background: var(--bg-elevated);
+        display: grid;
+        place-items: center;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+      .menu-text {
+        flex: 1;
+      }
+      .menu-text .mt-title {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .menu-text .mt-sub {
+        font-size: 12px;
+        color: var(--text-faint);
+        margin-top: 2px;
+      }
+      .menu-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-faint);
+        font-size: 13px;
+      }
+      .menu-right .count-badge {
+        background: var(--red);
+        color: #fff;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        padding: 2px 7px;
+        border-radius: 10px;
+      }
+      .menu-right .chevron {
+        font-size: 18px;
+      }
+
+      .toggle-switch {
+        width: 40px;
+        height: 22px;
+        background: var(--green-deep);
+        border-radius: 20px;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .toggle-switch .knob {
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #06210f;
+      }
+      .toggle-switch.off {
+        background: var(--bg-elevated);
+        border: 1px solid var(--card-border);
+      }
+      .toggle-switch.off .knob {
+        left: 3px;
+        right: auto;
+        background: var(--text-faint);
+      }
+
+      .menu-item.danger .menu-icon {
+        background: var(--red-soft);
+        color: var(--red);
+      }
+      .menu-item.danger .mt-title {
+        color: var(--red);
+      }
+
+      /* ---------- App version footer ---------- */
+      .app-footer {
+        text-align: center;
+        color: var(--text-faint);
+        font-size: 12px;
+        font-family: var(--font-mono);
+        margin-top: 8px;
+        margin-bottom: 10px;
+      }
+
+      /* ---------- Bottom nav ---------- */
+      nav.bottombar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--bg-elevated);
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0 14px;
+        z-index: 20;
+      }
+      .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        color: var(--text-faint);
+        font-size: 11px;
+        font-family: var(--font-mono);
+      }
+      .nav-item.active {
+        color: var(--green);
+      }
+      .nav-item .nico {
+        font-size: 18px;
+      }
+      .nav-item.create .nico {
+        width: 44px;
+        height: 44px;
+        background: var(--green-deep);
+        color: #06210f;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 22px;
+        margin-top: -24px;
+        box-shadow: 0 4px 14px rgba(74, 222, 128, 0.4);
+      }
+    </style>
   </head>
   <body>
-    <div class="app-container">
-      <header class="header">
-        <div class="header__logo">
-          <i class="header__logo-icon fa-solid fa-soccer-ball"></i>
-          <span class="header__logo-text">
-            FUT<span class="header__logo-highlight">RANK</span>
-          </span>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="ball">⚽</div>
+          <div class="name">PELADA <span>PRO</span></div>
         </div>
-
-        <div class="header__actions">
-          <div class="header__notification">
-            <i class="header__notification-icon fa-regular fa-bell"></i>
-            <span class="header__notification-badge">2</span>
-          </div>
-          <img
-            src="https://via.placeholder.com/40"
-            alt="Profile"
-            class="header__avatar"
-          />
+        <div class="top-actions">
+          <div class="bell">🔔<span class="badge">2</span></div>
+          <div class="avatar">🙂</div>
         </div>
       </header>
-      
-      <nav class="nav">
-        <a href="home.html" class="nav__item "
-          ><i class="fa-solid fa-house"></i
-          ><span class="nav__text">Início</span></a
-        >
-        <a href="partidas.html" class="nav__item"
-          ><i class="fa-regular fa-calendar"></i
-          ><span class="nav__text">Partidas</span></a
-        >
-        <a
-          href="criar-partida.html"
-          class="nav__item nav__item--create"
-          ><i class="fa-solid fa-plus"></i
-        ></a>
-        <a href="ranking.html" class="nav__item"
-          ><i class="fa-solid fa-trophy"></i
-          ><span class="nav__text">Ranking</span></a
-        >
-        <a href="mais.html" class="nav__item nav__item--active"
-          ><i class="fa-solid fa-bars"></i
-          ><span class="nav__text">Mais</span></a
-        >
-      </nav>
+
+      <div class="page-head"><h1>Mais</h1></div>
+
+      <!-- Profile summary -->
+      <a href="#" class="profile-card">
+        <div class="profile-avatar"></div>
+        <div class="profile-info">
+          <div class="profile-name">R. Silva</div>
+          <div class="profile-sub">
+            <span class="level-tag">Nível 12 · Veterano</span>
+            <span class="profile-stars">★★★★☆</span>
+          </div>
+        </div>
+        <div class="profile-chevron">›</div>
+      </a>
+
+      <!-- Conta -->
+      <div class="menu-group">
+        <div class="menu-group-title">Conta</div>
+        <div class="menu-panel">
+          <div class="menu-item">
+            <div class="menu-icon">👤</div>
+            <div class="menu-text">
+              <div class="mt-title">Meu perfil</div>
+              <div class="mt-sub">Editar dados, foto e posição</div>
+            </div>
+            <div class="menu-right"><span class="chevron">›</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon">🪪</div>
+            <div class="menu-text">
+              <div class="mt-title">Cartões de atributos</div>
+              <div class="mt-sub">Ver evolução do overall</div>
+            </div>
+            <div class="menu-right"><span class="chevron">›</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon">🎖</div>
+            <div class="menu-text">
+              <div class="mt-title">Conquistas</div>
+              <div class="mt-sub">12 de 24 desbloqueadas</div>
+            </div>
+            <div class="menu-right"><span class="chevron">›</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupos e partidas -->
+      <div class="menu-group">
+        <div class="menu-group-title">Grupos e Partidas</div>
+        <div class="menu-panel">
+          <div class="menu-item">
+            <div class="menu-icon">👥</div>
+            <div class="menu-text">
+              <div class="mt-title">Meus grupos</div>
+              <div class="mt-sub">3 grupos ativos</div>
+            </div>
+            <div class="menu-right"><span class="chevron">›</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon">💰</div>
+            <div class="menu-text">
+              <div class="mt-title">Pagamentos</div>
+              <div class="mt-sub">Histórico e métodos</div>
+            </div>
+            <div class="menu-right"><span class="chevron">›</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon">📊</div>
+            <div class="menu-text">
+              <div class="mt-title">Estatísticas completas</div>
+              <div class="mt-sub">Desempenho por temporada</div>
+            </div>
+            <div class="menu-right"><span class="chevron">›</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preferências -->
+      <div class="menu-group">
+        <div class="menu-group-title">Preferências</div>
+        <div class="menu-panel">
+          <div class="menu-item">
+            <div class="menu-icon">🔔</div>
+            <div class="menu-text">
+              <div class="mt-title">Notificações</div>
+              <div class="mt-sub">Convites, resultados e lembretes</div>
+            </div>
+            <div class="toggle-switch"><div class="knob"></div></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon">🌙</div>
+            <div class="menu-text">
+              <div class="mt-title">Tema escuro</div>
+              <div class="mt-sub">Ativado</div>
+            </div>
+            <div class="toggle-switch"><div class="knob"></div></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon">🌐</div>
+            <div class="menu-text">
+              <div class="mt-title">Idioma</div>
+            </div>
+            <div class="menu-right">
+              Português <span class="chevron">›</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suporte -->
+      <div class="menu-group">
+        <div class="menu-group-title">Suporte</div>
+        <div class="menu-panel">
+          <div class="menu-item">
+            <div class="menu-icon">❓</div>
+            <div class="menu-text">
+              <div class="mt-title">Central de ajuda</div>
+            </div>
+            <div class="menu-right"><span class="chevron">›</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon">💬</div>
+            <div class="menu-text">
+              <div class="mt-title">Fale conosco</div>
+            </div>
+            <div class="menu-right"><span class="chevron">›</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon">⭐</div>
+            <div class="menu-text">
+              <div class="mt-title">Avaliar o app</div>
+            </div>
+            <div class="menu-right"><span class="chevron">›</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-icon">📄</div>
+            <div class="menu-text">
+              <div class="mt-title">Termos e privacidade</div>
+            </div>
+            <div class="menu-right"><span class="chevron">›</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sair -->
+      <div class="menu-group">
+        <div class="menu-panel">
+          <div class="menu-item danger">
+            <div class="menu-icon">🚪</div>
+            <div class="menu-text">
+              <div class="mt-title">Sair da conta</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-footer">Pelada Pro · v1.4.2</div>
     </div>
+
+    <nav class="bottombar">
+      <a href="inicio.html" class="nav-item">
+        <div class="nico">🏠</div>
+        Início
+      </a>
+      <a href="partidas.html" class="nav-item">
+        <div class="nico">📅</div>
+        Partidas
+      </a>
+      <a href="criar.html" class="nav-item create"><div class="nico">+</div></a>
+      <a href="ranking.html" class="nav-item">
+        <div class="nico">🏆</div>
+        Ranking
+      </a>
+      <a href="mais.html" class="nav-item active">
+        <div class="nico">☰</div>
+        Mais
+      </a>
+    </nav>
+    <script type="module" src="js/mais.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+          "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
+          "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+        }
+      }
+    </script>
   </body>
 </html>

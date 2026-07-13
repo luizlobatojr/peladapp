@@ -1,0 +1,8 @@
+{
+  "name": "varzea",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "firebase": "^12.16.0"
+  }
+}

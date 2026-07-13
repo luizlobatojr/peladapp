@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelada Pro — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="ball">⚽</div>
+          <div class="name">PELADA <span>PRO</span></div>
+        </div>
+        <div class="top-actions">
+          <div class="bell">🔔<span class="badge">2</span></div>
+          <div class="avatar">🙂</div>
+        </div>
+      </header>
+
+      <section class="welcome">
+        <div>
+          <h1><span id="user-name">...</span>! 👋</h1>
+          <p>Pronto para mais uma pelada?</p>
+        </div>
+        <div class="level-box">
+          <div class="hexagon" id="user-level">--</div>
+          <div class="level-info">
+            <div class="label" id="level-label">Nível --</div>
+            <div class="progress-track">
+              <div
+                class="progress-fill"
+                id="xp-progress"
+                style="width: 82%"
+              ></div>
+            </div>
+            <div class="xp" id="xp-text">0 / 0 XP</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="next-match">
+        <div>
+          <div class="eyebrow">📅 PRÓXIMA PELADA</div>
+          <div class="date" id="home-data-hora">--</div>
+          <div class="meta-row strong" id="home-local">--</div>
+          <div class="meta-row">📍 Matosinhos, Porto</div>
+          <div class="match-actions">
+            <button class="btn btn-primary" onclick="comfirmarContagem('sim')">👍 EU VOU</button>
+            <button class="btn btn-ghost" onclick="comfirmarContagem('nao')">👎 NÃO VOU</button>
+          </div>
+        </div>
+        <div class="match-right">
+          <span class="price-pill"id="home-preco">--</span>
+          <div>
+            <div class="confirmed-label">CONFIRMADOS</div>
+            <div class="confirmed-count" id="contagem-confirmados">--</small></div>
+            <div class="avatar-stack">
+              <div class="mini-avatar">🙂</div>
+              <div class="mini-avatar">🙂</div>
+              <div class="mini-avatar">🙂</div>
+              <div class="mini-avatar">🙂</div>
+              <div class="mini-avatar">🙂</div>
+              <div class="mini-avatar more">+7</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-row">
+        <div class="stat-card">
+          <div class="icon-label">⚽ Gols</div>
+          <div class="value">27</div>
+          <div class="sub">#3 no ranking</div>
+        </div>
+        <div class="stat-card">
+          <div class="icon-label">🎯 Assistências</div>
+          <div class="value">15</div>
+          <div class="sub">#4 no ranking</div>
+        </div>
+        <div class="stat-card">
+          <div class="icon-label">🏆 MVPs</div>
+          <div class="value">4</div>
+          <div class="sub">#2 no ranking</div>
+        </div>
+        <div class="stat-card">
+          <div class="icon-label">🔥 Sequência</div>
+          <div class="value">8</div>
+          <div class="sub">jogos seguidos</div>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <!-- LEFT COLUMN -->
+        <div class="col">
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">📊 Meu Ranking</div>
+            </div>
+            <div class="ranking-me">
+              <div>
+                <div class="pos">#4</div>
+                <div class="pos-label">da temporada</div>
+                <div class="badge-up">▲ 2 posições</div>
+              </div>
+              <div class="shield"><div class="ball-ico">⚽</div></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">💰 Pagamentos</div>
+            </div>
+            <div class="pay-row">
+              <div class="item">
+                <div class="label">ARRECADADO</div>
+                <div class="amount" style="color: var(--green)">80,00€</div>
+              </div>
+              <div class="item meta">
+                <div class="label">META</div>
+                <div class="amount">100,00€</div>
+              </div>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width: 80%"></div>
+            </div>
+            <div class="pay-status">✅ Pago</div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">📈 Evolução do Overall</div>
+              <a class="panel-link" href="#">Ver evolução</a>
+            </div>
+            <div class="chart-wrap">
+              <svg
+                viewBox="0 0 300 130"
+                width="100%"
+                height="100%"
+                preserveAspectRatio="none"
+              >
+                <polyline
+                  points="10,100 75,78 140,64 205,50 270,14"
+                  fill="none"
+                  stroke="#4ade80"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle cx="10" cy="100" r="4" fill="#4ade80" />
+                <circle cx="75" cy="78" r="4" fill="#4ade80" />
+                <circle cx="140" cy="64" r="4" fill="#4ade80" />
+                <circle cx="205" cy="50" r="4" fill="#4ade80" />
+                <circle cx="270" cy="14" r="9" fill="#4ade80" />
+                <text
+                  x="270"
+                  y="18"
+                  font-family="Anton"
+                  font-size="11"
+                  fill="#06210f"
+                  text-anchor="middle"
+                >
+                  86
+                </text>
+              </svg>
+            </div>
+            <div class="chart-labels">
+              <span>82 · Jan</span><span>83 · Fev</span><span>84 · Mar</span
+              ><span>85 · Abr</span><span>Mai</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">🔁 Últimas Partidas</div>
+              <a class="panel-link" href="#">Ver histórico</a>
+            </div>
+            <div class="match-row">
+              <div>
+                <div class="when">07/06 · 20:00</div>
+                <div class="score win">
+                  7 - 5 <span class="result">Vitória</span>
+                </div>
+              </div>
+              <div class="personal">
+                🎯 2 gols<br />✓ 1 assist.
+                <div class="mvp-tag">MVP</div>
+              </div>
+            </div>
+            <div class="match-row">
+              <div>
+                <div class="when">31/05 · 20:00</div>
+                <div class="score">
+                  3 - 3 <span class="result">Empate</span>
+                </div>
+              </div>
+              <div class="personal">⚽ 1 gol<br />—</div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">🚩 Feed de Atividades</div>
+              <a class="panel-link" href="#">Ver tudo</a>
+            </div>
+            <div class="feed-item">
+              <div class="fico">⚽</div>
+              <div>
+                <b>Pedro Santos</b> marcou presença na próxima pelada.<span
+                  class="time"
+                  >há 2h</span
+                >
+              </div>
+            </div>
+            <div class="feed-item">
+              <div class="fico">🏆</div>
+              <div>
+                <b>João Pereira</b> foi eleito MVP da última partida.<span
+                  class="time"
+                  >há 5h</span
+                >
+              </div>
+            </div>
+            <div class="feed-item">
+              <div class="fico">⚽</div>
+              <div>
+                <b>Carlos Eduardo</b> marcou 3 gols na última partida.<span
+                  class="time"
+                  >há 8h</span
+                >
+              </div>
+            </div>
+            <div class="feed-item">
+              <div class="fico">📈</div>
+              <div>
+                <b>R. Silva</b> subiu para Overall 86.<span class="time"
+                  >há 1d</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="col">
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">🏆 Ranking da Temporada</div>
+              <a class="panel-link" href="#">Ver tudo</a>
+            </div>
+            <div class="rank-list-row">
+              <div class="rank-num gold"></div>
+              <div class="rank-avatar"></div>
+              <div class="rank-name"></div>
+              <div class="rank-score"></div>
+            </div>
+            <div class="rank-list-row">
+              <div class="rank-num silver"></div>
+              <div class="rank-avatar"></div>
+              <div class="rank-name"></div>
+              <div class="rank-score"></div>
+            </div>
+            <div class="rank-list-row">
+              <div class="rank-num bronze"></div>
+              <div class="rank-avatar"></div>
+              <div class="rank-name"></div>
+              <div class="rank-score"></div>
+            </div>
+            <div class="rank-list-row">
+              <div class="rank-num"></div>
+              <div class="rank-avatar"></div>
+              <div class="rank-name"></div>
+              <div class="rank-score"></div>
+            </div>
+            <div class="rank-list-row">
+              <div class="rank-num"></div>
+              <div class="rank-avatar"></div>
+              <div class="rank-name"></div>
+              <div class="rank-score"></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">🪪 Meu Perfil</div>
+              <a class="panel-link" href="#">Ver perfil</a>
+            </div>
+            <div class="profile-top">
+              <div class="profile-avatar"></div>
+              <div>
+                <div class="profile-name">R. Silva</div>
+                <div class="profile-sub">Nível: Veterano</div>
+                <div class="stars">★★★★☆</div>
+              </div>
+            </div>
+            <div class="profile-stats">
+              <div class="cell">
+                <div class="num">86</div>
+                <div class="lbl">Overall</div>
+              </div>
+              <div class="cell">
+                <div class="num">72</div>
+                <div class="lbl">Jogos</div>
+              </div>
+              <div class="cell">
+                <div class="num">45</div>
+                <div class="lbl">Vitórias</div>
+              </div>
+              <div class="cell">
+                <div class="num">68%</div>
+                <div class="lbl">Aproveit.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">🪪 Cartões de Atributos</div>
+              <a class="panel-link" href="#">Ver todos</a>
+            </div>
+            <div class="cards-row">
+              <div class="player-card">
+                <div class="ovr"></div>
+                <div class="pos">LIN</div>
+                <div class="flag">🇧🇷</div>
+                <div class="photo"></div>
+                <div class="pname"></div>
+                <div class="attrs">
+                  <span>80 RIT</span><span>87 DRI</span> <span>84 FIN</span
+                  ><span>60 DEF</span> <span>82 PAS</span><span>83 FIS</span>
+                </div>
+              </div>
+              <div class="player-card">
+                <div class="ovr">83</div>
+                <div class="pos">GOL</div>
+                <div class="flag">🇧🇷</div>
+                <div class="photo"></div>
+                <div class="pname">R. SILVA</div>
+                <div class="attrs">
+                  <span>83 ELA</span><span>85 REF</span> <span>80 MAN</span
+                  ><span>60 DEF</span> <span>76 CHU</span><span>82 POS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">🎖 Conquistas</div>
+              <a class="panel-link" href="#">Ver todas</a>
+            </div>
+            <div class="achv-row">
+              <div class="achv">
+                <div class="medal">🏆</div>
+                <div class="achv-title">MVP</div>
+                <div class="achv-sub">5x</div>
+              </div>
+              <div class="achv">
+                <div class="medal">⚽</div>
+                <div class="achv-title">Artilheiro</div>
+                <div class="achv-sub">10 gols</div>
+              </div>
+              <div class="achv">
+                <div class="medal">🎯</div>
+                <div class="achv-title">Assistente</div>
+                <div class="achv-sub">10 assist.</div>
+              </div>
+              <div class="achv locked">
+                <div class="medal">🔒</div>
+                <div class="achv-title">100 Jogos</div>
+                <div class="achv-sub">0/100</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="bottombar">
+      <a href="inicio.html" class="nav-item active">
+        <div class="nico">🏠</div>
+        Início
+      </a>
+      <a href="partidas.html" class="nav-item">
+        <div class="nico">📅</div>
+        Partidas
+      </a>
+      <a href="criar.html" class="nav-item create"><div class="nico">+</div></a>
+      <a href="ranking.html" class="nav-item">
+        <div class="nico">🏆</div>
+        Ranking
+      </a>
+      <a href="mais.html" class="nav-item">
+        <div class="nico">☰</div> 
+        Mais
+      </a>
+      
+    </nav>    
+    <script type="importmap">
+      {
+        "imports": {
+          "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+          "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
+          "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+        }
+      }
+    </script>
+
+    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/inicio.js"></script>
+    <script type="module" src="js/inicio/carregarRanking.js"></script>
+    
+
+  </body>
+</html>

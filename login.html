@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelada Pro — Entrar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="importmap">
+      {
+        "imports": {
+          "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+          "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
+          "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --bg: #0a0f0c;
+        --bg-elevated: #10160f;
+        --card: #131a14;
+        --input-bg: #171f16;
+        --card-border: #22301f;
+        --line: #1e2a1c;
+        --green: #4ade80;
+        --green-deep: #22c55e;
+        --green-dark: #14532d;
+        --gold: #e0b84b;
+        --red: #ef4444;
+        --text: #f1f4ef;
+        --text-dim: #a6afa2;
+        --text-faint: #6f786c;
+        --font-display: "Anton", sans-serif;
+        --font-body: "Oswald", sans-serif;
+        --font-mono: "Space Mono", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        background:
+          radial-gradient(
+            circle at 15% 10%,
+            rgba(74, 222, 128, 0.09),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 85% 85%,
+            rgba(74, 222, 128, 0.06),
+            transparent 40%
+          ),
+          var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        min-height: 100vh;
+        display: flex;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font-family: inherit;
+      }
+
+      /* ---------- Split layout ---------- */
+      .screen {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      /* Left: brand / atmosphere panel */
+      .side-panel {
+        position: relative;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(10, 15, 12, 0.35),
+            rgba(10, 15, 12, 0.85)
+          ),
+          repeating-linear-gradient(
+            0deg,
+            rgba(74, 222, 128, 0.05) 0,
+            rgba(74, 222, 128, 0.05) 1px,
+            transparent 1px,
+            transparent 42px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            rgba(74, 222, 128, 0.05) 0,
+            rgba(74, 222, 128, 0.05) 1px,
+            transparent 1px,
+            transparent 42px
+          ),
+          radial-gradient(
+            circle at 30% 30%,
+            rgba(74, 222, 128, 0.12),
+            transparent 55%
+          ),
+          #0d130f;
+        padding: 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-right: 1px solid var(--line);
+        overflow: hidden;
+      }
+      .side-panel .field-lines {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+      .side-panel .center-circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 260px;
+        height: 260px;
+        border: 1px solid rgba(74, 222, 128, 0.18);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .side-panel .center-circle::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 6px;
+        height: 6px;
+        background: rgba(74, 222, 128, 0.4);
+        border-radius: 50%;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        z-index: 1;
+      }
+      .brand .ball {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        font-size: 24px;
+      }
+      .brand .name {
+        font-family: var(--font-display);
+        letter-spacing: 1px;
+        font-size: 22px;
+      }
+      .brand .name span {
+        color: var(--green);
+      }
+
+      .side-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 380px;
+      }
+      .side-copy .eyebrow {
+        color: var(--green);
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+      }
+      .side-copy h2 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 38px;
+        line-height: 1.15;
+        margin-bottom: 16px;
+      }
+      .side-copy h2 span {
+        color: var(--green);
+      }
+      .side-copy p {
+        color: var(--text-dim);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .side-stats {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        gap: 34px;
+      }
+      .side-stats .stat .num {
+        font-family: var(--font-display);
+        font-size: 26px;
+        color: var(--green);
+      }
+      .side-stats .stat .lbl {
+        font-size: 12px;
+        color: var(--text-faint);
+        margin-top: 2px;
+        font-family: var(--font-mono);
+      }
+
+      /* Right: form panel */
+      .form-panel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+      }
+      .form-wrap {
+        width: 100%;
+        max-width: 380px;
+      }
+      .form-wrap .mobile-brand {
+        display: none;
+      }
+
+      .form-head {
+        margin-bottom: 32px;
+      }
+      .form-head h1 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: 30px;
+        letter-spacing: 0.3px;
+        margin-bottom: 8px;
+      }
+      .form-head p {
+        color: var(--text-dim);
+        font-size: 14px;
+      }
+
+      .field {
+        margin-bottom: 18px;
+      }
+      .field label {
+        display: block;
+        font-size: 13px;
+        color: var(--text-dim);
+        margin-bottom: 8px;
+      }
+      .input-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--input-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 10px;
+        padding: 13px 14px;
+        transition: border-color 0.15s ease;
+      }
+      .input-wrap:focus-within {
+        border-color: var(--green);
+      }
+      .input-wrap .icon {
+        font-size: 15px;
+        color: var(--text-faint);
+        flex-shrink: 0;
+      }
+      .input-wrap input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: var(--text);
+        font-family: var(--font-body);
+        font-size: 14px;
+      }
+      .input-wrap input::placeholder {
+        color: var(--text-faint);
+      }
+      .toggle-visibility {
+        background: none;
+        border: none;
+        color: var(--text-faint);
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      .row-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 26px;
+        font-size: 13px;
+      }
+      .remember {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-dim);
+        cursor: pointer;
+      }
+      .checkbox {
+        width: 17px;
+        height: 17px;
+        border-radius: 4px;
+        border: 1px solid var(--card-border);
+        background: var(--input-bg);
+        display: grid;
+        place-items: center;
+      }
+      .checkbox.checked {
+        background: var(--green-deep);
+        border-color: var(--green-deep);
+        color: #06210f;
+        font-size: 11px;
+      }
+      .forgot-link {
+        color: var(--green);
+        font-family: var(--font-mono);
+        font-size: 12px;
+      }
+
+      .submit-btn {
+        width: 100%;
+        background: var(--green-deep);
+        color: #06210f;
+        border: none;
+        border-radius: 10px;
+        padding: 15px;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          filter 0.15s ease;
+        margin-bottom: 22px;
+      }
+      .submit-btn:hover {
+        filter: brightness(1.08);
+        transform: translateY(-1px);
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--text-faint);
+        font-size: 12px;
+        font-family: var(--font-mono);
+        margin-bottom: 22px;
+      }
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+
+      .social-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 30px;
+      }
+      .social-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 13px;
+        color: var(--text);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .social-btn:hover {
+        border-color: var(--green);
+      }
+
+      .signup-note {
+        text-align: center;
+        font-size: 13px;
+        color: var(--text-dim);
+      }
+      .signup-note a {
+        color: var(--green);
+        font-weight: 600;
+      }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 900px) {
+        .screen {
+          grid-template-columns: 1fr;
+        }
+        .side-panel {
+          display: none;
+        }
+        .form-panel {
+          padding: 30px 20px;
+          align-items: flex-start;
+          padding-top: 60px;
+        }
+        .form-wrap .mobile-brand {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 40px;
+        }
+        .form-wrap .mobile-brand .ball {
+          font-size: 24px;
+        }
+        .form-wrap .mobile-brand .name {
+          font-family: var(--font-display);
+          letter-spacing: 1px;
+          font-size: 20px;
+        }
+        .form-wrap .mobile-brand .name span {
+          color: var(--green);
+        }
+      }
+      @media (max-width: 420px) {
+        .social-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="screen">
+      <!-- Left brand panel -->
+      <div class="side-panel">
+        <div class="field-lines"><div class="center-circle"></div></div>
+
+        <div class="brand">
+          <div class="ball">⚽</div>
+          <div class="name">PELADA <span>PRO</span></div>
+        </div>
+
+        <div class="side-copy">
+          <div class="eyebrow">ORGANIZE. JOGUE. EVOLUA.</div>
+          <h2>Sua pelada, <span>no próximo nível.</span></h2>
+          <p>
+            Confirme presença, monte os times, acompanhe estatísticas e evolua
+            seu overall a cada jogo com a sua turma.
+          </p>
+        </div>
+
+        <div class="side-stats">
+          <div class="stat">
+            <div class="num">2.4k+</div>
+            <div class="lbl">JOGADORES</div>
+          </div>
+          <div class="stat">
+            <div class="num">380+</div>
+            <div class="lbl">PELADAS/MÊS</div>
+          </div>
+          <div class="stat">
+            <div class="num">4.9★</div>
+            <div class="lbl">AVALIAÇÃO</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right form panel -->
+      <div class="form-panel">
+        <div class="form-wrap">
+          <div class="mobile-brand">
+            <div class="ball">⚽</div>
+            <div class="name">PELADA <span>PRO</span></div>
+          </div>
+
+          <div class="form-head">
+            <h1>Bem-vindo de volta</h1>
+            <p>Entre para confirmar presença na próxima pelada</p>
+          </div>
+
+          <form class="form-login" id="login-form">
+            <div class="field">
+              <label>E-mail</label>
+              <div class="input-wrap">
+                <span class="icon">✉️</span>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="seuemail@exemplo.com"
+                  value="luizlobatojr@gmail.com"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Senha</label>
+              <div class="input-wrap">
+                <span class="icon">🔒</span>
+                <input
+                  type="password"
+                  id="senha"
+                  placeholder="Digite sua senha"
+                  value="12345678"
+                />
+                <button type="button" class="toggle-visibility">👁</button>
+              </div>
+            </div>
+
+            <div class="row-between">
+              <label class="remember">
+                <span class="checkbox checked">✓</span>
+                Lembrar de mim
+              </label>
+              <a class="forgot-link" href="#">Esqueceu a senha?</a>
+            </div>
+
+            <button type="submit" class="submit-btn">⚽ ENTRAR</button>
+          </form>
+
+          <div class="divider">OU CONTINUE COM</div>
+
+          <div class="social-row">
+            <div class="social-btn">🔵 Google</div>
+            <div class="social-btn">⚫ Apple</div>
+          </div>
+
+          <div class="signup-note">
+            Ainda não tem conta? <a href="cadastro.html">Criar conta</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="js/login.js"></script>
+  </body>
+</html>
