@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // =====================================================
+    // JOGADORES — cada jogador só edita o próprio perfil
+    // =====================================================
+    match /jogadores/{userId} {
+      // Qualquer usuário logado pode ver o ranking/perfis (necessário pro
+      // dashboard e pra tela de Ranking mostrarem todo mundo).
+      allow read: if request.auth != null;
+
+      // Só o próprio dono pode criar ou editar o seu documento
+      // (é isso que o inicio.js faz ao recalcular o overall, por exemplo).
+      allow create: if request.auth != null && request.auth.uid == userId;
+      allow update: if request.auth != null && request.auth.uid == userId;
+
+      // Ninguém apaga perfil pelo client.
+      allow delete: if false;
+    }
+
+    // =====================================================
+    // PARTIDAS
+    // =====================================================
+    match /partidas/{partidaId} {
+      // Qualquer usuário logado pode ver as partidas.
+      allow read: if request.auth != null;
+
+      // Só cria partida quem está logado, e o criadorId tem que ser
+      // o próprio usuário (evita alguém criar partida em nome de outro).
+      allow create: if request.auth != null
+                    && request.resource.data.criadorId == request.auth.uid;
+
+      // Update: duas situações permitidas —
+      // 1) o criador da partida pode editar qualquer campo (local, preço, etc.)
+      // 2) qualquer jogador logado pode confirmar/desmarcar presença, mas
+      //    SÓ pode alterar a própria chave dentro do mapa "confirmados"
+      //    (não pode mexer na confirmação de outra pessoa nem em outros campos).
+      allow update: if request.auth != null && (
+        resource.data.criadorId == request.auth.uid ||
+        (
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['confirmados']) &&
+          request.resource.data.confirmados.diff(resource.data.confirmados).affectedKeys().hasOnly([request.auth.uid])
+        )
+      );
+
+      // Só o criador pode apagar a partida.
+      allow delete: if request.auth != null && resource.data.criadorId == request.auth.uid;
+    }
+
+    // =====================================================
+    // Qualquer outra coleção não prevista: bloqueada por padrão.
+    // Isso evita o problema de "acesso total" que você tinha antes.
+    // =====================================================
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
