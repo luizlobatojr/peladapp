@@ -4,13 +4,13 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyDQEhmxUDQ_A61VAVYMA0_on-GeOITwaSM",
+  authDomain: "futrank-8ea67.firebaseapp.com",
+  projectId: "futrank-8ea67",
+  storageBucket: "futrank-8ea67.firebasestorage.app",
+  messagingSenderId: "999186656331",
+  appId: "1:999186656331:web:bb4e33a953ba02a7b5b1ce",
+  measurementId: "G-8Z3BJY1572",
 };
 
 
