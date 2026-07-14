@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Preview — Cartas Pelada Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --font-display: "Anton", sans-serif;
+        --font-body: "Oswald", sans-serif;
+        --font-mono: "Space Mono", monospace;
+      }
+      body {
+        margin: 0;
+        padding: 40px 24px;
+        background: #0a0f0c;
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-family: var(--font-body);
+      }
+      .player-card {
+        position: relative;
+        border-radius: 16px;
+        padding: 16px 12px 14px;
+        text-align: center;
+        overflow: hidden;
+        width: 150px;
+        isolation: isolate;
+        transition: transform 0.25s ease;
+      }
+      .player-card:hover {
+        transform: translateY(-6px) scale(1.03);
+      }
+      .player-card .ovr {
+        font-family: var(--font-display);
+        font-size: 30px;
+        line-height: 1;
+      }
+      .player-card .pos {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-top: 2px;
+      }
+      .player-card .flag {
+        position: absolute;
+        top: 16px;
+        right: 12px;
+        font-size: 16px;
+      }
+      .player-card .photo {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        margin: 10px auto 8px;
+        background: radial-gradient(
+          circle at 35% 30%,
+          rgba(255, 255, 255, 0.35),
+          rgba(0, 0, 0, 0.25)
+        );
+        border: 2px solid rgba(255, 255, 255, 0.4);
+      }
+      .player-card .pname {
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+      }
+      .player-card .attrs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px 10px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+      }
+      .rarity-badge {
+        position: absolute;
+        top: 14px;
+        left: 12px;
+        font-size: 9px;
+        font-family: var(--font-mono);
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        padding: 2px 6px;
+        border-radius: 6px;
+        text-transform: uppercase;
+      }
+
+      .rarity-normal {
+        background: linear-gradient(160deg, #4a504c, #262b28);
+        border: 1px solid #5a615c;
+        color: #eef1ee;
+      }
+      .rarity-normal .ovr,
+      .rarity-normal .pos {
+        color: #f1f4ef;
+      }
+      .rarity-normal .rarity-badge {
+        background: #6b716c;
+        color: #eef1ee;
+      }
+
+      .rarity-bronze {
+        background: linear-gradient(160deg, #a9702f, #5c3a17);
+        border: 1px solid #c98a45;
+        box-shadow: 0 6px 18px rgba(154, 90, 30, 0.35);
+        color: #fdf1e3;
+      }
+      .rarity-bronze .ovr,
+      .rarity-bronze .pos {
+        color: #fff3e0;
+      }
+      .rarity-bronze .rarity-badge {
+        background: #7a4c22;
+        color: #ffe3c2;
+      }
+
+      .rarity-prata {
+        background: linear-gradient(160deg, #e4eaec, #90999d);
+        border: 1px solid #fff;
+        box-shadow: 0 6px 18px rgba(190, 200, 205, 0.4);
+        color: #1c2224;
+      }
+      .rarity-prata .ovr,
+      .rarity-prata .pos,
+      .rarity-prata .pname {
+        color: #10161a;
+      }
+      .rarity-prata .attrs {
+        border-top-color: rgba(0, 0, 0, 0.15);
+        color: #23292b;
+      }
+      .rarity-prata .rarity-badge {
+        background: #cfd8db;
+        color: #22292b;
+      }
+
+      .rarity-ouro {
+        background: linear-gradient(160deg, #ffe28a, #b9861f);
+        border: 1px solid #ffe9a8;
+        box-shadow: 0 8px 22px rgba(230, 180, 60, 0.5);
+        color: #241a02;
+      }
+      .rarity-ouro .ovr,
+      .rarity-ouro .pos,
+      .rarity-ouro .pname {
+        color: #2b1c00;
+      }
+      .rarity-ouro .attrs {
+        border-top-color: rgba(0, 0, 0, 0.2);
+        color: #33240a;
+      }
+      .rarity-ouro .rarity-badge {
+        background: #7a5a05;
+        color: #ffe9a8;
+      }
+      .rarity-ouro::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.06) 0px,
+          rgba(255, 255, 255, 0.06) 2px,
+          transparent 2px,
+          transparent 6px
+        );
+        pointer-events: none;
+      }
+
+      .label {
+        color: #888;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        text-align: center;
+        margin-top: 8px;
+      }
+      .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="col">
+      <div class="player-card rarity-normal">
+        <div class="rarity-badge">Comum</div>
+        <div class="ovr">58</div>
+        <div class="pos">LIN</div>
+        <div class="flag">🇧🇷</div>
+        <div class="photo"></div>
+        <div class="pname">P. SANTOS</div>
+        <div class="attrs">
+          <span>55 RIT</span><span>60 DRI</span> <span>58 FIN</span
+          ><span>50 DEF</span> <span>56 PAS</span><span>57 FIS</span>
+        </div>
+      </div>
+      <div class="label">OVERALL &lt; 65</div>
+    </div>
+
+    <div class="col">
+      <div class="player-card rarity-bronze">
+        <div class="rarity-badge">Bronze</div>
+        <div class="ovr">70</div>
+        <div class="pos">LIN</div>
+        <div class="flag">🇧🇷</div>
+        <div class="photo"></div>
+        <div class="pname">C. EDUARDO</div>
+        <div class="attrs">
+          <span>68 RIT</span><span>72 DRI</span> <span>70 FIN</span
+          ><span>60 DEF</span> <span>69 PAS</span><span>71 FIS</span>
+        </div>
+      </div>
+      <div class="label">65 – 74</div>
+    </div>
+
+    <div class="col">
+      <div class="player-card rarity-prata">
+        <div class="rarity-badge">Prata</div>
+        <div class="ovr">79</div>
+        <div class="pos">LIN</div>
+        <div class="flag">🇧🇷</div>
+        <div class="photo"></div>
+        <div class="pname">J. PEREIRA</div>
+        <div class="attrs">
+          <span>78 RIT</span><span>80 DRI</span> <span>79 FIN</span
+          ><span>65 DEF</span> <span>77 PAS</span><span>78 FIS</span>
+        </div>
+      </div>
+      <div class="label">75 – 84</div>
+    </div>
+
+    <div class="col">
+      <div class="player-card rarity-ouro">
+        <div class="rarity-badge">Ouro</div>
+        <div class="ovr">88</div>
+        <div class="pos">LIN</div>
+        <div class="flag">🇧🇷</div>
+        <div class="photo"></div>
+        <div class="pname">R. SILVA</div>
+        <div class="attrs">
+          <span>85 RIT</span><span>90 DRI</span> <span>88 FIN</span
+          ><span>70 DEF</span> <span>86 PAS</span><span>87 FIS</span>
+        </div>
+      </div>
+      <div class="label">85+</div>
+    </div>
+  </body>
+</html>

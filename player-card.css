@@ -1,0 +1,209 @@
+/* =========================================================
+   PLAYER CARD — Sistema de raridade estilo FIFA
+   Normal (Comum) < 65 · Bronze 65-74 · Prata 75-84 · Ouro 85+
+   ========================================================= */
+
+.player-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 16px 12px 14px;
+  text-align: center;
+  overflow: hidden;
+  min-width: 130px;
+  isolation: isolate;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.player-card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Brilho diagonal que passa por cima do cartão */
+.player-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.35) 48%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.35) 52%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 250% 250%;
+  background-position: -100% -100%;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  transition: background-position 0.8s ease;
+}
+.player-card:hover::after {
+  background-position: 100% 100%;
+}
+
+.player-card .ovr {
+  font-family: var(--font-display, "Anton", sans-serif);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.player-card .pos {
+  font-family: var(--font-mono, "Space Mono", monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+.player-card .flag {
+  position: absolute;
+  top: 16px;
+  right: 12px;
+  font-size: 16px;
+}
+
+.player-card .photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 10px auto 8px;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.35), rgba(0, 0, 0, 0.25));
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.player-card .pname {
+  font-family: var(--font-body, "Oswald", sans-serif);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.player-card .attrs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 10px;
+  font-family: var(--font-mono, "Space Mono", monospace);
+  font-size: 11px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Selo do nível no canto (opcional, adicionado via JS) */
+.player-card .rarity-badge {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  font-size: 9px;
+  font-family: var(--font-mono, "Space Mono", monospace);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   NORMAL (COMUM) — overall < 65
+   --------------------------------------------------------- */
+.player-card.rarity-normal {
+  background: linear-gradient(160deg, #4a504c 0%, #262b28 100%);
+  border: 1px solid #5a615c;
+  color: #eef1ee;
+}
+.player-card.rarity-normal .ovr,
+.player-card.rarity-normal .pos {
+  color: #f1f4ef;
+}
+.player-card.rarity-normal .rarity-badge {
+  background: #6b716c;
+  color: #eef1ee;
+}
+
+/* ---------------------------------------------------------
+   BRONZE — overall 65-74
+   --------------------------------------------------------- */
+.player-card.rarity-bronze {
+  background: linear-gradient(160deg, #a9702f 0%, #5c3a17 100%);
+  border: 1px solid #c98a45;
+  box-shadow: 0 6px 18px rgba(154, 90, 30, 0.35);
+  color: #fdf1e3;
+}
+.player-card.rarity-bronze .ovr,
+.player-card.rarity-bronze .pos {
+  color: #fff3e0;
+}
+.player-card.rarity-bronze .rarity-badge {
+  background: #7a4c22;
+  color: #ffe3c2;
+}
+
+/* ---------------------------------------------------------
+   PRATA — overall 75-84
+   --------------------------------------------------------- */
+.player-card.rarity-prata {
+  background: linear-gradient(160deg, #e4eaec 0%, #90999d 100%);
+  border: 1px solid #ffffff;
+  box-shadow: 0 6px 18px rgba(190, 200, 205, 0.4);
+  color: #1c2224;
+}
+.player-card.rarity-prata .ovr,
+.player-card.rarity-prata .pos,
+.player-card.rarity-prata .pname {
+  color: #10161a;
+}
+.player-card.rarity-prata .attrs {
+  border-top-color: rgba(0, 0, 0, 0.15);
+  color: #23292b;
+}
+.player-card.rarity-prata .rarity-badge {
+  background: #cfd8db;
+  color: #22292b;
+}
+
+/* ---------------------------------------------------------
+   OURO — overall 85+
+   --------------------------------------------------------- */
+.player-card.rarity-ouro {
+  background: linear-gradient(160deg, #ffe28a 0%, #b9861f 100%);
+  border: 1px solid #ffe9a8;
+  box-shadow: 0 8px 22px rgba(230, 180, 60, 0.5);
+  color: #241a02;
+}
+.player-card.rarity-ouro .ovr,
+.player-card.rarity-ouro .pos,
+.player-card.rarity-ouro .pname {
+  color: #2b1c00;
+}
+.player-card.rarity-ouro .attrs {
+  border-top-color: rgba(0, 0, 0, 0.2);
+  color: #33240a;
+}
+.player-card.rarity-ouro .rarity-badge {
+  background: #7a5a05;
+  color: #ffe9a8;
+}
+.player-card.rarity-ouro::before {
+  /* leve textura extra pra dar aspecto "holográfico" no ouro */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.06) 0px,
+    rgba(255, 255, 255, 0.06) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  pointer-events: none;
+}
+
+/* Linha de cartões lado a lado (se ainda não tiver isso no seu CSS) */
+.cards-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}

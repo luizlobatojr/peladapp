@@ -83,6 +83,9 @@ function observarRankingEPerfil() {
     const levelLabel = document.getElementById("level-label");
     if (levelLabel) levelLabel.innerText = "Nível " + novoOverall;
 
+    // ---------- Nível de raridade do cartão (estilo FIFA) ----------
+    aplicarRaridadeCartoes(novoOverall);
+
     // ---------- Cartão LINHA ----------
     const attrsLin = document.querySelectorAll(".player-card:nth-child(1) .attrs span");
     if (attrsLin.length >= 6) {
@@ -143,6 +146,35 @@ function observarRankingEPerfil() {
 
     // ---------- Conquistas ----------
     atualizarConquistas(meuPerfil);
+  });
+}
+
+function aplicarRaridadeCartoes(overall) {
+  let nivel = "normal";
+  let label = "COMUM";
+
+  if (overall >= 85) {
+    nivel = "ouro";
+    label = "OURO";
+  } else if (overall >= 75) {
+    nivel = "prata";
+    label = "PRATA";
+  } else if (overall >= 65) {
+    nivel = "bronze";
+    label = "BRONZE";
+  }
+
+  document.querySelectorAll(".player-card").forEach((card) => {
+    card.classList.remove("rarity-normal", "rarity-bronze", "rarity-prata", "rarity-ouro");
+    card.classList.add(`rarity-${nivel}`);
+
+    let badge = card.querySelector(".rarity-badge");
+    if (!badge) {
+      badge = document.createElement("div");
+      badge.className = "rarity-badge";
+      card.appendChild(badge);
+    }
+    badge.innerText = label;
   });
 }
 
@@ -216,13 +248,23 @@ function observarProximaPartida() {
     }
 
     setTexto("home-local", partida.local || "Local a definir");
-    setTexto("home-preco", partida.preco ? `${partida.preco}€` : "Grátis");
+
+    // O preço/vagas às vezes fica no nível raiz, às vezes dentro de "pagamentos"
+    // (documentos criados por versões diferentes do criar.js) — cobre os dois casos.
+    const precoPartida = partida.preco ?? partida.pagamentos?.preco;
+    const vagasPartida = partida.vagas ?? partida.pagamentos?.vagas;
+    setTexto("home-preco", precoPartida ? `${precoPartida}€` : "Grátis");
 
     // ---------- Confirmados ----------
+    // Só conta chaves que são realmente confirmações de presença (uid: true/false),
+    // ignorando qualquer campo que não seja um booleano.
     const confirmados = partida.confirmados || {};
     const idsConfirmados = Object.keys(confirmados).filter((uid) => confirmados[uid] === true);
 
-    setTexto("contagem-confirmados", idsConfirmados.length);
+    setTexto(
+      "contagem-confirmados",
+      vagasPartida ? `${idsConfirmados.length}/${vagasPartida}` : idsConfirmados.length
+    );
     atualizarAvatarStack(idsConfirmados.length);
 
     // ---------- Pagamentos ----------
@@ -262,7 +304,8 @@ function atualizarAvatarStack(total) {
 
 function atualizarPagamentos(partida) {
   const arrecadado = partida.arrecadado || 0;
-  const meta = partida.meta || 0;
+  const meta = partida.meta || (partida.preco ?? partida.pagamentos?.preco ?? 0) *
+    (partida.vagas ?? partida.pagamentos?.vagas ?? 0);
 
   const amountEls = document.querySelectorAll(".pay-row .item .amount");
   if (amountEls.length >= 2) {

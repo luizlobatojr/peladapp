@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pelada Pro — Ranking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0f0c;
+    --bg-elevated: #10160f;
+    --card: #131a14;
+    --card-border: #22301f;
+    --line: #1e2a1c;
+    --green: #4ade80;
+    --green-deep: #22c55e;
+    --green-dark: #14532d;
+    --gold: #e0b84b;
+    --silver: #c7cdd1;
+    --bronze: #c9814b;
+    --red: #ef4444;
+    --text: #f1f4ef;
+    --text-dim: #a6afa2;
+    --text-faint: #6f786c;
+    --font-display: 'Anton', sans-serif;
+    --font-body: 'Oswald', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  body{
+    background:
+      radial-gradient(circle at 10% 0%, rgba(74,222,128,0.06), transparent 40%),
+      radial-gradient(circle at 90% 15%, rgba(74,222,128,0.04), transparent 35%),
+      var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    padding-bottom: 90px;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .app{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  header.topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 0; border-bottom: 1px solid var(--line); margin-bottom: 26px;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand .ball{ width:34px; height:34px; display:grid; place-items:center; font-size: 22px; }
+  .brand .name{ font-family: var(--font-display); letter-spacing: 1px; font-size: 20px; }
+  .brand .name span{ color: var(--green); }
+  .top-actions{ display:flex; align-items:center; gap:18px; }
+  .bell{
+    position:relative; width:40px; height:40px; border-radius:50%;
+    background: var(--card); border:1px solid var(--card-border);
+    display:grid; place-items:center; font-size:17px;
+  }
+  .bell .badge{
+    position:absolute; top:-4px; right:-4px; background: var(--red); color:#fff;
+    font-family: var(--font-mono); font-size: 10px; width:18px; height:18px;
+    border-radius:50%; display:grid; place-items:center; border: 2px solid var(--bg);
+  }
+  .avatar{
+    width:40px; height:40px; border-radius:50%; border: 2px solid var(--green);
+    background: linear-gradient(135deg,#3a4a3a,#20281f);
+    display:grid; place-items:center; font-size:16px;
+  }
+
+  .page-head{
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap: wrap; gap: 14px; margin-bottom: 22px;
+  }
+  .page-head h1{ font-family: var(--font-display); font-size: 30px; font-weight:400; letter-spacing:.3px; }
+  .page-head p{ color: var(--text-dim); font-size: 14px; margin-top: 4px; }
+
+  .season-pill{
+    display:flex; align-items:center; gap:8px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 9px 16px;
+    font-size: 13px;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+  }
+  .season-pill .chevron{ color: var(--text-faint); font-size: 11px; }
+
+  .cat-tabs{
+    display:flex; gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+  }
+  .cat-tab{
+    display:flex; align-items:center; gap:7px;
+    padding: 9px 16px;
+    border-radius: 20px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    font-size: 13px;
+    color: var(--text-dim);
+    cursor:pointer;
+  }
+  .cat-tab.active{
+    background: rgba(74,222,128,0.14);
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  .podium{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    align-items:end;
+    margin-bottom: 26px;
+  }
+  .podium-card{
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 22px 16px 20px;
+    text-align:center;
+    position: relative;
+  }
+  .podium-card.first{
+    border-color: var(--gold);
+    background: linear-gradient(180deg, rgba(224,184,75,0.10), rgba(224,184,75,0.02));
+    padding-top: 32px;
+    order: 2;
+  }
+  .podium-card.second{ order: 1; }
+  .podium-card.third{ order: 3; }
+
+  .podium-crown{ font-size: 22px; margin-bottom: 6px; }
+  .podium-avatar{
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    background: linear-gradient(135deg,#3a4a3a,#20281f);
+    border: 3px solid var(--card-border);
+  }
+  .podium-card.first .podium-avatar{ width: 78px; height: 78px; border-color: var(--gold); }
+  .podium-card.second .podium-avatar{ border-color: var(--silver); }
+  .podium-card.third .podium-avatar{ border-color: var(--bronze); }
+
+  .podium-rank{
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display:grid; place-items:center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    margin: -34px auto 8px;
+    position: relative;
+    border: 3px solid var(--card);
+  }
+  .podium-card.first .podium-rank{ background: var(--gold); color:#241b05; margin-top: -42px; }
+  .podium-card.second .podium-rank{ background: var(--silver); color:#22262a; }
+  .podium-card.third .podium-rank{ background: var(--bronze); color:#2a1608; }
+
+  .podium-name{ font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .podium-score{ font-family: var(--font-display); font-size: 22px; color: var(--green); }
+  .podium-card.first .podium-score{ font-size: 26px; color: var(--gold); }
+  .podium-sub{ font-size: 11px; color: var(--text-faint); margin-top: 2px; font-family: var(--font-mono); }
+
+  .list-panel{
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 8px 10px;
+    margin-bottom: 24px;
+  }
+  .list-head-row{
+    display:grid;
+    grid-template-columns: 44px 1fr 90px 90px 90px 90px;
+    padding: 12px 16px;
+    font-size: 11px;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--line);
+  }
+  .list-head-row span{ text-align:center; }
+  .list-head-row span:first-child, .list-head-row span:nth-child(2){ text-align:left; }
+
+  .rank-row{
+    display:grid;
+    grid-template-columns: 44px 1fr 90px 90px 90px 90px;
+    align-items:center;
+    padding: 13px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  .rank-row.me{ background: rgba(74,222,128,0.14); }
+  .rank-row:hover:not(.me){ background: var(--bg-elevated); }
+
+  .rank-pos{
+    width: 28px; height:28px;
+    border-radius:50%;
+    display:grid; place-items:center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--bg-elevated);
+    color: var(--text-dim);
+  }
+  .rank-pos.gold{ background:var(--gold); color:#241b05; }
+  .rank-pos.silver{ background:var(--silver); color:#22262a; }
+  .rank-pos.bronze{ background:var(--bronze); color:#2a1608; }
+
+  .rank-player{ display:flex; align-items:center; gap: 12px; }
+  .rank-player .rp-avatar{
+    width:36px; height:36px; border-radius:50%;
+    background: linear-gradient(135deg,#3a4a3a,#20281f);
+    flex-shrink:0;
+  }
+  .rank-player .rp-name{ font-weight: 500; }
+  .rank-row.me .rp-name{ color: var(--green); font-weight:600; }
+  .rank-player .rp-badge{
+    font-size: 10px; color: var(--text-faint); font-family: var(--font-mono);
+  }
+
+  .rank-col{ text-align:center; color: var(--text-dim); font-family: var(--font-mono); font-size: 13px; }
+  .rank-col.score{ color: var(--text); font-family: var(--font-display); font-size: 17px; }
+  .rank-row.me .rank-col.score{ color: var(--green); }
+  .trend{ font-size: 11px; font-family: var(--font-mono); }
+  .trend.up{ color: var(--green); }
+  .trend.down{ color: var(--red); }
+  .trend.same{ color: var(--text-faint); }
+
+  .my-rank-card{
+    display:grid;
+    grid-template-columns: 44px 1fr 90px 90px 90px 90px;
+    align-items:center;
+    background: linear-gradient(180deg, rgba(74,222,128,0.10), rgba(74,222,128,0.02));
+    border: 1px solid var(--green);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  nav.bottombar{
+    position: fixed; bottom: 0; left:0; right:0;
+    background: var(--bg-elevated); border-top: 1px solid var(--line);
+    display:flex; justify-content:space-around; align-items:center;
+    padding: 10px 0 14px; z-index: 20;
+  }
+  .nav-item{
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    color: var(--text-faint); font-size: 11px; font-family: var(--font-mono);
+  }
+  .nav-item.active{ color: var(--green); }
+  .nav-item .nico{ font-size: 18px; }
+  .nav-item.create .nico{
+    width:44px; height:44px; background: var(--green-deep); color: #06210f;
+    border-radius:50%; display:grid; place-items:center; font-size: 22px;
+    margin-top:-24px; box-shadow: 0 4px 14px rgba(74,222,128,0.4);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 768px){
+    .app{ padding: 0 16px; }
+    .page-head h1{ font-size: 24px; }
+    .podium-card.first{ padding-top: 26px; }
+    .list-head-row{ grid-template-columns: 36px 1fr 60px; }
+    .list-head-row span:nth-child(4), .list-head-row span:nth-child(5), .list-head-row span:nth-child(6){ display:none; }
+    .rank-row{ grid-template-columns: 36px 1fr 60px; }
+    .rank-col:nth-child(4), .rank-col:nth-child(5), .rank-col:nth-child(6){ display:none; }
+    .my-rank-card{ grid-template-columns: 36px 1fr 60px; }
+  }
+  @media (max-width: 480px){
+    .brand .name{ font-size: 17px; }
+    .podium{ grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .podium-card{ padding: 16px 8px 16px; }
+    .podium-avatar{ width:52px; height:52px; }
+    .podium-card.first .podium-avatar{ width:62px; height:62px; }
+    .podium-name{ font-size: 13px; }
+    .cat-tabs{ flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+    .cat-tab{ white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="ball">⚽</div>
+      <div class="name">PELADA <span>PRO</span></div>
+    </div>
+    <div class="top-actions">
+      <div class="bell">🔔<span class="badge">2</span></div>
+      <div class="avatar">🙂</div>
+    </div>
+  </header>
+
+  <div class="page-head">
+    <div>
+      <h1>Ranking</h1>
+      <p>Classificação geral da temporada</p>
+    </div>
+    <div class="season-pill">🏆 Temporada 2026/1 <span class="chevron">▾</span></div>
+  </div>
+
+  <div class="cat-tabs">
+    <div class="cat-tab active" data-campo="overall" data-label="Overall">⭐ Geral</div>
+    <div class="cat-tab" data-campo="gols" data-label="Gols">⚽ Artilheiros</div>
+    <div class="cat-tab" data-campo="assistencias" data-label="Assist.">🎯 Assistências</div>
+    <div class="cat-tab" data-campo="mvps" data-label="MVPs">🏆 MVPs</div>
+    <div class="cat-tab" data-campo="sequencias" data-label="Sequência">🔥 Sequência</div>
+  </div>
+
+  <div class="podium">
+    <div class="podium-card second">
+      <div class="podium-avatar"></div>
+      <div class="podium-rank">2</div>
+      <div class="podium-name">Pedro Santos</div>
+      <div class="podium-score">92</div>
+      <div class="podium-sub">Overall</div>
+    </div>
+    <div class="podium-card first">
+      <div class="podium-crown">👑</div>
+      <div class="podium-avatar"></div>
+      <div class="podium-rank">1</div>
+      <div class="podium-name">João Pereira</div>
+      <div class="podium-score">95</div>
+      <div class="podium-sub">Overall</div>
+    </div>
+    <div class="podium-card third">
+      <div class="podium-avatar"></div>
+      <div class="podium-rank">3</div>
+      <div class="podium-name">Carlos Eduardo</div>
+      <div class="podium-score">90</div>
+      <div class="podium-sub">Overall</div>
+    </div>
+  </div>
+
+  <div class="my-rank-card">
+    <div class="rank-pos">4</div>
+    <div class="rank-player">
+      <div class="rp-avatar"></div>
+      <div>
+        <div class="rp-name" style="color:var(--green); font-weight:600;">R. Silva (você)</div>
+        <div class="rp-badge">Veterano</div>
+      </div>
+    </div>
+    <div class="rank-col score" style="color:var(--green);">86</div>
+    <div class="rank-col">72 jogos</div>
+    <div class="rank-col">45V</div>
+    <div class="rank-col"><span class="trend up">▲ 2</span></div>
+  </div>
+
+  <div class="list-panel">
+    <div class="list-head-row">
+      <span>#</span>
+      <span>Jogador</span>
+      <span id="col-label-score">Overall</span>
+      <span>Jogos</span>
+      <span>Vitórias</span>
+      <span>Tendência</span>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-pos gold">1</div>
+      <div class="rank-player"><div class="rp-avatar"></div><div><div class="rp-name">João Pereira</div><div class="rp-badge">Lendário</div></div></div>
+      <div class="rank-col score">95</div>
+      <div class="rank-col">80</div>
+      <div class="rank-col">58V</div>
+      <div class="rank-col"><span class="trend same">—</span></div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-pos silver">2</div>
+      <div class="rank-player"><div class="rp-avatar"></div><div><div class="rp-name">Pedro Santos</div><div class="rp-badge">Ídolo</div></div></div>
+      <div class="rank-col score">92</div>
+      <div class="rank-col">75</div>
+      <div class="rank-col">52V</div>
+      <div class="rank-col"><span class="trend up">▲ 1</span></div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-pos bronze">3</div>
+      <div class="rank-player"><div class="rp-avatar"></div><div><div class="rp-name">Carlos Eduardo</div><div class="rp-badge">Ídolo</div></div></div>
+      <div class="rank-col score">90</div>
+      <div class="rank-col">70</div>
+      <div class="rank-col">48V</div>
+      <div class="rank-col"><span class="trend down">▼ 1</span></div>
+    </div>
+
+    <div class="rank-row me">
+      <div class="rank-pos">4</div>
+      <div class="rank-player"><div class="rp-avatar"></div><div><div class="rp-name">R. Silva</div><div class="rp-badge">Veterano</div></div></div>
+      <div class="rank-col score">86</div>
+      <div class="rank-col">72</div>
+      <div class="rank-col">45V</div>
+      <div class="rank-col"><span class="trend up">▲ 2</span></div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-pos">5</div>
+      <div class="rank-player"><div class="rp-avatar"></div><div><div class="rp-name">Bruno Costa</div><div class="rp-badge">Veterano</div></div></div>
+      <div class="rank-col score">87</div>
+      <div class="rank-col">68</div>
+      <div class="rank-col">40V</div>
+      <div class="rank-col"><span class="trend down">▼ 1</span></div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-pos">6</div>
+      <div class="rank-player"><div class="rp-avatar"></div><div><div class="rp-name">Miguel Alves</div><div class="rp-badge">Veterano</div></div></div>
+      <div class="rank-col score">84</div>
+      <div class="rank-col">64</div>
+      <div class="rank-col">36V</div>
+      <div class="rank-col"><span class="trend same">—</span></div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-pos">7</div>
+      <div class="rank-player"><div class="rp-avatar"></div><div><div class="rp-name">Rafael Lima</div><div class="rp-badge">Prata</div></div></div>
+      <div class="rank-col score">79</div>
+      <div class="rank-col">58</div>
+      <div class="rank-col">30V</div>
+      <div class="rank-col"><span class="trend up">▲ 3</span></div>
+    </div>
+
+    <div class="rank-row">
+      <div class="rank-pos">8</div>
+      <div class="rank-player"><div class="rp-avatar"></div><div><div class="rp-name">Diego Fernandes</div><div class="rp-badge">Prata</div></div></div>
+      <div class="rank-col score">76</div>
+      <div class="rank-col">50</div>
+      <div class="rank-col">24V</div>
+      <div class="rank-col"><span class="trend down">▼ 2</span></div>
+    </div>
+  </div>
+
+</div>
+
+<nav class="bottombar">
+  <a href="inicio.html" class="nav-item"><div class="nico">🏠</div>Início</a>
+  <a href="partidas.html" class="nav-item"><div class="nico">📅</div>Partidas</a>
+  <a href="criar.html" class="nav-item create"><div class="nico">+</div></a>
+  <a href="ranking.html" class="nav-item active"><div class="nico">🏆</div>Ranking</a>
+  <a href="mais.html" class="nav-item"><div class="nico">☰</div>Mais</a>
+</nav>
+
+<script type="importmap">
+  {
+    "imports": {
+      "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+      "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
+      "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+    }
+  }
+</script>
+<script type="module" src="js/ranking.js"></script>
+
+</body>
+</html>

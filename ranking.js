@@ -7,9 +7,11 @@ const listPanel = document.querySelector(".list-panel");
 const header = listPanel.querySelector(".list-head-row");
 const myCard = document.querySelector(".my-rank-card");
 const colLabelScore = document.getElementById("col-label-score");
+const abas = document.querySelectorAll(".cat-tab");
 
 let currentUserId = null;
-let unsubscribe = null; // guarda o listener atual do ranking
+let campoAtual = "overall"; // campo do Firestore usado pra ordenar (muda por categoria)
+let unsubscribeRanking = null;
 
 // Mesma classificação usada nos cartões de jogador (player-card.css)
 function classificarNivel(overall) {
@@ -20,38 +22,28 @@ function classificarNivel(overall) {
 }
 
 // ===========================================================
-// CARREGA O RANKING NO CAMPO DE ORDENAÇÃO ESCOLHIDO
+// ABAS DE CATEGORIA (Geral / Artilheiros / Assistências / MVPs / Sequência)
 // ===========================================================
-function carregarRanking(campoOrdenacao = "overall") {
-  // 1. Cancela o listener anterior, se existir
-  if (unsubscribe) unsubscribe();
+abas.forEach((aba) => {
+  aba.addEventListener("click", () => {
+    const novoCampo = aba.dataset.campo;
+    if (!novoCampo || novoCampo === campoAtual) return;
 
-  const q = query(collection(db, "jogadores"), orderBy(campoOrdenacao, "desc"));
+    abas.forEach((a) => a.classList.remove("active"));
+    aba.classList.add("active");
 
-  // 2. Cria o novo listener já no campo certo
-  unsubscribe = onSnapshot(q, (snapshot) => {
-    const ranking = snapshot.docs.map((docSnap, index) => ({
-      id: docSnap.id,
-      ...docSnap.data(),
-      posicao: index + 1,
-    }));
+    campoAtual = novoCampo;
+    if (colLabelScore) colLabelScore.innerText = aba.dataset.label || "Overall";
+    document.querySelectorAll(".podium-sub").forEach((el) => (el.innerText = aba.dataset.label || "Overall"));
 
-    renderizarPodio(ranking.slice(0, 3), campoOrdenacao);
-    renderizarRanking(ranking, currentUserId, campoOrdenacao);
-
-    const meuPerfilEncontrado = ranking.find((j) => j.id === currentUserId);
-    if (meuPerfilEncontrado) {
-      renderizarMeuCard(meuPerfilEncontrado, campoOrdenacao);
-    } else if (myCard) {
-      myCard.style.display = "none";
-    }
+    observarRanking();
   });
-}
+});
 
 // ===========================================================
-// PÓDIO (top 3 do campo atual)
+// PÓDIO (top 3 da categoria atual)
 // ===========================================================
-function renderizarPodio(top3, campoOrdenacao) {
+function renderizarPodio(top3) {
   const posicoes = [
     { el: document.querySelector(".podium-card.first"), jogador: top3[0] },
     { el: document.querySelector(".podium-card.second"), jogador: top3[1] },
@@ -68,14 +60,14 @@ function renderizarPodio(top3, campoOrdenacao) {
 
     el.style.visibility = "visible";
     el.querySelector(".podium-name").innerText = jogador.nome || "---";
-    el.querySelector(".podium-score").innerText = jogador[campoOrdenacao] || 0;
+    el.querySelector(".podium-score").innerText = jogador[campoAtual] || 0;
   });
 }
 
 // ===========================================================
 // LISTA COMPLETA
 // ===========================================================
-function renderizarRanking(jogadores, currentUserId, campoOrdenacao) {
+function renderizarRanking(jogadores) {
   listPanel.innerHTML = "";
   listPanel.appendChild(header);
 
@@ -96,7 +88,7 @@ function renderizarRanking(jogadores, currentUserId, campoOrdenacao) {
           <div class="rp-badge">${classificarNivel(jogador.overall || 0)}</div>
         </div>
       </div>
-      <div class="rank-col score">${jogador[campoOrdenacao] || 0}</div>
+      <div class="rank-col score">${jogador[campoAtual] || 0}</div>
       <div class="rank-col">${jogador.jogos || 0}</div>
       <div class="rank-col">${jogador.vitorias || 0}V</div>
       <div class="rank-col"><span class="trend">${jogador.variacao || "—"}</span></div>
@@ -105,7 +97,7 @@ function renderizarRanking(jogadores, currentUserId, campoOrdenacao) {
   });
 }
 
-function renderizarMeuCard(meuPerfil, campoOrdenacao) {
+function renderizarMeuCard(meuPerfil) {
   if (!myCard) return;
   myCard.style.display = "grid";
 
@@ -121,7 +113,7 @@ function renderizarMeuCard(meuPerfil, campoOrdenacao) {
         <div class="rp-badge">${classificarNivel(meuPerfil.overall || 0)}</div>
       </div>
     </div>
-    <div class="rank-col score" style="color: var(--green)">${meuPerfil[campoOrdenacao] || 0}</div>
+    <div class="rank-col score" style="color: var(--green)">${meuPerfil[campoAtual] || 0}</div>
     <div class="rank-col">${meuPerfil.jogos || 0} jogos</div>
     <div class="rank-col">${meuPerfil.vitorias || 0}V</div>
     <div class="rank-col"><span class="trend ${meuPerfil.variacao > 0 ? "up" : "down"}">${meuPerfil.variacao || 0}</span></div>
@@ -129,27 +121,32 @@ function renderizarMeuCard(meuPerfil, campoOrdenacao) {
 }
 
 // ===========================================================
-// ABAS DE CATEGORIA (Geral / Artilheiros / Assistências / MVPs / Sequência)
+// OBSERVA O RANKING NO CAMPO ATUAL (reordena quando a categoria muda)
 // ===========================================================
-document.querySelectorAll(".cat-tab").forEach((aba) => {
-  aba.addEventListener("click", () => {
-    const campo = aba.dataset.campo; // ex: "gols", "assistencias"
-    if (!campo) return;
+function observarRanking() {
+  if (unsubscribeRanking) unsubscribeRanking();
 
-    const abaAtiva = document.querySelector(".cat-tab.active");
-    if (abaAtiva) abaAtiva.classList.remove("active");
-    aba.classList.add("active");
+  const q = query(collection(db, "jogadores"), orderBy(campoAtual, "desc"));
 
-    if (colLabelScore) colLabelScore.innerText = aba.dataset.label || "Overall";
-    document.querySelectorAll(".podium-sub").forEach((el) => (el.innerText = aba.dataset.label || "Overall"));
+  unsubscribeRanking = onSnapshot(q, (snapshot) => {
+    const ranking = snapshot.docs.map((docSnap, index) => ({
+      id: docSnap.id,
+      ...docSnap.data(),
+      posicao: index + 1,
+    }));
 
-    carregarRanking(campo);
+    renderizarPodio(ranking.slice(0, 3));
+    renderizarRanking(ranking);
+
+    const meuPerfilEncontrado = ranking.find((j) => j.id === currentUserId);
+    if (meuPerfilEncontrado) {
+      renderizarMeuCard(meuPerfilEncontrado);
+    } else if (myCard) {
+      myCard.style.display = "none";
+    }
   });
-});
+}
 
-// ===========================================================
-// AUTENTICAÇÃO
-// ===========================================================
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     window.location.href = "login.html";
@@ -157,5 +154,5 @@ onAuthStateChanged(auth, (user) => {
   }
 
   currentUserId = user.uid;
-  carregarRanking("overall");
+  observarRanking();
 });

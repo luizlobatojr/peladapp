@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelada Pro — Ao Vivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="criar.css" />
+    <style>
+      .live-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--red);
+        color: #fff;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        padding: 5px 10px;
+        border-radius: 20px;
+      }
+      .live-badge .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #fff;
+        animation: pulse 1.4s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(0.7); }
+      }
+
+      .scoreboard {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 10px;
+      }
+      .scoreboard .time-nome {
+        text-align: center;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 15px;
+        margin-top: 8px;
+      }
+      .scoreboard .placar {
+        font-family: var(--font-display);
+        font-size: 56px;
+        text-align: center;
+      }
+      .scoreboard .vs {
+        font-family: var(--font-mono);
+        color: var(--text-faint);
+        text-align: center;
+        font-size: 12px;
+      }
+      .time-col {
+        text-align: center;
+      }
+      .time-shield {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 22px;
+      }
+      .time-shield.a { background: linear-gradient(160deg, #4ade80, #14532d); }
+      .time-shield.b { background: linear-gradient(160deg, #64748b, #1e293b); }
+
+      .lista-jogadores {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-top: 14px;
+      }
+      .jogador-linha {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--input-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+      .jogador-linha .btn-gol {
+        background: var(--green-deep);
+        color: #06210f;
+        border: none;
+        border-radius: 6px;
+        padding: 4px 9px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .jogador-bloco {
+        margin-bottom: 4px;
+      }
+      .btn-acao-toggle {
+        background: var(--input-bg);
+        border: 1px solid var(--card-border);
+        color: var(--text);
+        border-radius: 6px;
+        padding: 4px 9px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .evento-menu {
+        display: none;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 8px 2px 2px;
+      }
+      .evento-menu.aberto {
+        display: flex;
+      }
+      .evento-chip {
+        background: var(--bg-elevated);
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        padding: 5px 9px;
+        font-size: 11px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: var(--text);
+      }
+      .evento-chip:hover {
+        filter: brightness(1.25);
+        border-color: var(--green);
+      }
+      .evento-chip.negativo:hover {
+        border-color: var(--red);
+      }
+
+      .feed-eventos {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 8px;
+      }
+      .evento-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+      }
+      .evento-item .eico {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--input-bg);
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+      }
+      .evento-item .etime {
+        color: var(--text-faint);
+        font-size: 11px;
+        margin-left: auto;
+        font-family: var(--font-mono);
+      }
+
+      .estado-vazio {
+        text-align: center;
+        padding: 50px 20px;
+        color: var(--text-dim);
+      }
+      .estado-vazio .emoji {
+        font-size: 40px;
+        margin-bottom: 12px;
+      }
+
+      .encerrar-btn {
+        background: transparent;
+        border: 1px solid var(--red);
+        color: var(--red);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="ball">⚽</div>
+          <div class="name">PELADA <span>PRO</span></div>
+        </div>
+      </header>
+
+      <div class="page-head">
+        <h1>Ao Vivo</h1>
+        <p>Acompanhe o placar e os eventos da partida em tempo real</p>
+      </div>
+
+      <!-- Estado: nenhuma partida ao vivo -->
+      <div class="panel estado-vazio" id="estado-sem-partida" style="display: none">
+        <div class="emoji">⏳</div>
+        <div style="font-weight: 600; margin-bottom: 6px">Nenhuma partida ao vivo agora</div>
+        <div style="font-size: 13px">
+          Quando a próxima pelada começar, o placar aparece aqui.
+        </div>
+      </div>
+
+      <!-- Estado: partida agendada, ainda não iniciada -->
+      <div class="panel" id="painel-iniciar" style="display: none">
+        <div class="panel-title">
+          <span class="num-badge">📅</span> Próxima partida agendada
+        </div>
+        <div class="field-hint" id="info-partida-agendada" style="margin-bottom: 16px"></div>
+        <div class="button-container">
+          <button type="button" class="btn-next submit-btn" id="btn-iniciar-partida">
+            ▶️ INICIAR PARTIDA AO VIVO
+          </button>
+        </div>
+        <div class="field-hint" style="margin-top: 10px">
+          Isso sorteia dois times com base em quem confirmou presença.
+        </div>
+      </div>
+
+      <!-- Estado: partida ao vivo -->
+      <div id="conteudo-ao-vivo" style="display: none">
+        <div class="panel">
+          <div style="display: flex; justify-content: center; margin-bottom: 6px">
+            <span class="live-badge"><span class="dot"></span> AO VIVO</span>
+          </div>
+          <div class="scoreboard">
+            <div class="time-col">
+              <div class="time-shield a">🟢</div>
+              <div class="time-nome" id="nome-time-a">Time A</div>
+            </div>
+            <div>
+              <div class="placar"><span id="placar-a">0</span> — <span id="placar-b">0</span></div>
+              <div class="vs" id="local-partida">--</div>
+            </div>
+            <div class="time-col">
+              <div class="time-shield b">⚫</div>
+              <div class="time-nome" id="nome-time-b">Time B</div>
+            </div>
+          </div>
+          <div class="button-container">
+            <button type="button" class="submit-btn encerrar-btn" id="btn-encerrar-partida">
+              🏁 ENCERRAR PARTIDA
+            </button>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <div class="col">
+            <div class="panel">
+              <div class="panel-title"><span class="num-badge">🟢</span> Time A</div>
+              <div class="lista-jogadores" id="lista-time-a"></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="panel">
+              <div class="panel-title"><span class="num-badge">⚫</span> Time B</div>
+              <div class="lista-jogadores" id="lista-time-b"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><span class="num-badge">🚩</span> Feed da partida</div>
+          <div class="feed-eventos" id="feed-eventos">
+            <div class="field-hint">Nenhum gol ainda. Boa sorte! ⚽</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="bottombar">
+      <a href="inicio.html" class="nav-item">
+        <div class="nico">🏠</div>
+        Início
+      </a>
+      <a href="partidas.html" class="nav-item">
+        <div class="nico">📅</div>
+        Partidas
+      </a>
+      <a href="partidas-ao-vivo.html" class="nav-item active">
+        <div class="nico">🔴</div>
+        Ao Vivo
+      </a>
+      <a href="ranking.html" class="nav-item">
+        <div class="nico">🏆</div>
+        Ranking
+      </a>
+      <a href="mais.html" class="nav-item">
+        <div class="nico">☰</div>
+        Mais
+      </a>
+    </nav>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+          "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
+          "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+        }
+      }
+    </script>
+    <script type="module" src="js/partidas-ao-vivo.js"></script>
+  </body>
+</html>
