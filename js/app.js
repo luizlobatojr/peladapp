@@ -1,8 +1,8 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "./firebase.js"; // Importa a tua config do Firebase
+import { db , app } from "./firebase.js"; // Importa a tua config do Firebase
 
-const auth = getAuth();
+const auth = getAuth(app);
 
 onAuthStateChanged(auth, async (user) => {
   if (user) {

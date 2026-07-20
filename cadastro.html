@@ -252,6 +252,38 @@
         font-size: 14px;
       }
 
+      .avatar-upload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+      .avatar-preview {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: var(--input-bg);
+        border: 2px dashed var(--card-border);
+        display: grid;
+        place-items: center;
+        font-size: 26px;
+        color: var(--text-faint);
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .avatar-preview:hover {
+        border-color: var(--green);
+      }
+      .avatar-label {
+        font-size: 12px;
+        color: var(--green);
+        cursor: pointer;
+        font-weight: 600;
+      }
+
       .field-row-2 {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -533,6 +565,12 @@
           </div>
 
           <form id="form-cadastro">
+            <div class="avatar-upload">
+              <label for="input-foto" class="avatar-preview" id="avatar-preview">📷</label>
+              <input type="file" id="input-foto" accept="image/*" hidden />
+              <label for="input-foto" class="avatar-label">Adicionar foto de perfil</label>
+            </div>
+
             <div class="field">
               <label>Nome completo</label>
               <div class="input-wrap">
@@ -569,6 +607,37 @@
                   placeholder="+351 912 345 678"
                   value="+351910775184"
                 />
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Nacionalidade</label>
+              <div class="input-wrap">
+                <span class="icon">🌍</span>
+                <select
+                  id="nacionalidade"
+                  style="
+                    flex: 1;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    color: var(--text);
+                    font-family: var(--font-body);
+                    font-size: 14px;
+                  "
+                >
+                  <option value="BR">🇧🇷 Brasil</option>
+                  <option value="PT" selected>🇵🇹 Portugal</option>
+                  <option value="AO">🇦🇴 Angola</option>
+                  <option value="MZ">🇲🇿 Moçambique</option>
+                  <option value="CV">🇨🇻 Cabo Verde</option>
+                  <option value="ES">🇪🇸 Espanha</option>
+                  <option value="FR">🇫🇷 França</option>
+                  <option value="IT">🇮🇹 Itália</option>
+                  <option value="GB">🇬🇧 Reino Unido</option>
+                  <option value="US">🇺🇸 Estados Unidos</option>
+                  <option value="OUTRO">🏳️ Outro</option>
+                </select>
               </div>
             </div>
 
@@ -633,13 +702,15 @@
         </div>
       </div>
     </div>
+    <script type="module" src="js/app.js"></script>
     <script type="module" src="js/cadastro.js"></script>
     <script type="importmap">
       {
         "imports": {
           "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
           "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
-          "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+          "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js",
+          "firebase/storage": "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js"
         }
       }
     </script>

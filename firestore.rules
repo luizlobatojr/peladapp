@@ -3,54 +3,114 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     // =====================================================
+    // FUNÇÕES DE APOIO
+    // =====================================================
+    function estaLogado() {
+      return request.auth != null;
+    }
+
+    function ehMembro(grupoId) {
+      return exists(/databases/$(database)/documents/grupos/$(grupoId)/membros/$(request.auth.uid));
+    }
+
+    function ehAdminDoGrupo(grupoId) {
+      return estaLogado() &&
+        get(/databases/$(database)/documents/grupos/$(grupoId)/membros/$(request.auth.uid)).data.papel == 'admin';
+    }
+
+    // Confere se quem está fazendo a requisição está escalado em algum dos
+    // dois times da partida (usa a lista simples de uids, não a lista de
+    // objetos {uid, nome} — listas de strings são mais baratas de checar).
+    function ehJogadorDaPartida(partida) {
+      return (('timeA' in partida) && ('uids' in partida.timeA) && partida.timeA.uids.hasAny([request.auth.uid]))
+          || (('timeB' in partida) && ('uids' in partida.timeB) && partida.timeB.uids.hasAny([request.auth.uid]));
+    }
+
+    // =====================================================
     // JOGADORES — cada jogador só edita o próprio perfil
     // =====================================================
     match /jogadores/{userId} {
-      // Qualquer usuário logado pode ver o ranking/perfis (necessário pro
-      // dashboard e pra tela de Ranking mostrarem todo mundo).
-      allow read: if request.auth != null;
-
-      // Só o próprio dono pode criar ou editar o seu documento
-      // (é isso que o inicio.js faz ao recalcular o overall, por exemplo).
-      allow create: if request.auth != null && request.auth.uid == userId;
-      allow update: if request.auth != null && request.auth.uid == userId;
-
-      // Ninguém apaga perfil pelo client.
+      allow read: if estaLogado();
+      allow create: if estaLogado() && request.auth.uid == userId;
+      allow update: if estaLogado() && request.auth.uid == userId;
       allow delete: if false;
     }
 
     // =====================================================
-    // PARTIDAS
+    // GRUPOS
+    // =====================================================
+    match /grupos/{grupoId} {
+      // Precisa poder ler pra buscar um grupo pelo código de convite
+      // antes mesmo de ser membro.
+      allow read: if estaLogado();
+
+      // Só cria grupo quem está logado, e o criadorId tem que ser o próprio usuário.
+      allow create: if estaLogado() && request.resource.data.criadorId == request.auth.uid;
+
+      // Só admin do grupo edita dados do grupo (nome, etc.)
+      allow update: if ehAdminDoGrupo(grupoId);
+
+      // Só o criador apaga o grupo.
+      allow delete: if estaLogado() && resource.data.criadorId == request.auth.uid;
+
+      // ---------- Membros do grupo ----------
+      match /membros/{uid} {
+        // Qualquer membro pode ver a lista de membros do próprio grupo.
+        // (E o próprio usuário sempre pode ler seu registro, mesmo antes
+        // de existir mais gente — necessário pra confirmar que entrou.)
+        allow read: if estaLogado() && (request.auth.uid == uid || ehMembro(grupoId));
+
+        // Um usuário só pode adicionar A SI MESMO como membro (entrar no grupo).
+        // Isso vale tanto pra quem cria o grupo (se auto-adiciona como admin)
+        // quanto pra quem entra com código de convite (entra como jogador).
+        allow create: if estaLogado() && request.auth.uid == uid;
+
+        // Só admin pode mudar o papel de alguém (promover/rebaixar).
+        allow update: if ehAdminDoGrupo(grupoId);
+
+        // Sair do grupo (o próprio) ou remover alguém (admin).
+        allow delete: if estaLogado() && (request.auth.uid == uid || ehAdminDoGrupo(grupoId));
+      }
+    }
+
+    // =====================================================
+    // PARTIDAS — escopadas por grupo
     // =====================================================
     match /partidas/{partidaId} {
-      // Qualquer usuário logado pode ver as partidas.
-      allow read: if request.auth != null;
+      // Só membros do grupo da partida podem ver.
+      allow read: if estaLogado() && ehMembro(resource.data.grupoId);
 
-      // Só cria partida quem está logado, e o criadorId tem que ser
-      // o próprio usuário (evita alguém criar partida em nome de outro).
-      allow create: if request.auth != null
-                    && request.resource.data.criadorId == request.auth.uid;
+      // Só cria partida quem está logado, é dono da criação (criadorId)
+      // e é membro do grupo em que a partida está sendo criada.
+      allow create: if estaLogado()
+                    && request.resource.data.criadorId == request.auth.uid
+                    && ehMembro(request.resource.data.grupoId);
 
-      // Update: duas situações permitidas —
-      // 1) o criador da partida pode editar qualquer campo (local, preço, etc.)
-      // 2) qualquer jogador logado pode confirmar/desmarcar presença, mas
-      //    SÓ pode alterar a própria chave dentro do mapa "confirmados"
-      //    (não pode mexer na confirmação de outra pessoa nem em outros campos).
-      allow update: if request.auth != null && (
+      // Update: três situações permitidas —
+      // 1) o criador da partida edita qualquer campo (local, preço, iniciar,
+      //    encerrar, sortear times, etc.)
+      // 2) qualquer membro do grupo pode confirmar/desmarcar presença, mas
+      //    só a própria chave dentro do mapa "confirmados"
+      // 3) qualquer jogador ESCALADO num dos times pode registrar eventos
+      //    (gol, assistência, falta, cartão...) da partida ao vivo — mas só
+      //    mexendo em "eventos"/"timeA"/"timeB", nada além disso.
+      allow update: if estaLogado() && ehMembro(resource.data.grupoId) && (
         resource.data.criadorId == request.auth.uid ||
         (
           request.resource.data.diff(resource.data).affectedKeys().hasOnly(['confirmados']) &&
           request.resource.data.confirmados.diff(resource.data.confirmados).affectedKeys().hasOnly([request.auth.uid])
+        ) ||
+        (
+          ehJogadorDaPartida(resource.data) &&
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['eventos', 'timeA', 'timeB'])
         )
       );
 
-      // Só o criador pode apagar a partida.
-      allow delete: if request.auth != null && resource.data.criadorId == request.auth.uid;
+      allow delete: if estaLogado() && resource.data.criadorId == request.auth.uid;
     }
 
     // =====================================================
     // Qualquer outra coleção não prevista: bloqueada por padrão.
-    // Isso evita o problema de "acesso total" que você tinha antes.
     // =====================================================
     match /{document=**} {
       allow read, write: if false;
